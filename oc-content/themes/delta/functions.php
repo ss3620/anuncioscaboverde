@@ -2913,13 +2913,13 @@ if(!function_exists('del_theme_install')) {
 
   function del_theme_install() {
     osc_set_preference('version', DELTA_THEME_VERSION, 'theme-delta');
-    osc_set_preference('color', '#4182c3', 'theme-delta');
-    osc_set_preference('color2', '#49b975', 'theme-delta');
-    osc_set_preference('color3', '#ef404f', 'theme-delta');
+    osc_set_preference('color', '#0B3A6E', 'theme-delta');
+    osc_set_preference('color2', '#1B6B4A', 'theme-delta');
+    osc_set_preference('color3', '#E31C23', 'theme-delta');
     osc_set_preference('site_phone', '+1 (800) 228-5651', 'theme-delta');
     osc_set_preference('site_email', 'support@dot.com', 'theme-delta');
     osc_set_preference('date_format', 'mm/dd', 'theme-delta');
-    osc_set_preference('cat_icons', '0', 'theme-delta');
+    osc_set_preference('cat_icons', '1', 'theme-delta');
     osc_set_preference('footer_social_define', '0', 'theme-delta');
     osc_set_preference('footer_link', '1', 'theme-delta');
     osc_set_preference('default_logo', '1', 'theme-delta');
@@ -2995,6 +2995,20 @@ if(!function_exists('check_install_del_theme')) {
 }
 
 check_install_del_theme();
+
+// One-time Anuncios Cabo Verde visual brand alignment (colors + category icons)
+function del_acv_brand_align() {
+  if(osc_get_preference('acv_brand_v1', 'theme-delta') == '1') {
+    return;
+  }
+  osc_set_preference('color', '#0B3A6E', 'theme-delta');
+  osc_set_preference('color2', '#1B6B4A', 'theme-delta');
+  osc_set_preference('color3', '#E31C23', 'theme-delta');
+  osc_set_preference('cat_icons', '1', 'theme-delta');
+  osc_set_preference('acv_brand_v1', '1', 'theme-delta');
+  osc_reset_preferences();
+}
+del_acv_brand_align();
 
 
 // WHEN NEW LISTING IS CREATED, ADD IT TO DELTA EXTRA TABLE

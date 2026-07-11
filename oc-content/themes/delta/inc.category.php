@@ -28,7 +28,7 @@
 <?php if(osc_is_home_page()) { ?>
   <div id="home-cat2">
     <div class="inside">
-      <h2><?php _e('Discover our categories', 'delta'); ?></h2>
+      <h2><?php _e('Main categories', 'delta'); ?></h2>
 
       <div class="box">
         <div class="wrap">

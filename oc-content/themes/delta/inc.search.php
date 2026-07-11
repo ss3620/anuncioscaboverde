@@ -24,7 +24,7 @@
               
               <div id="query-picker" class="query-picker">
                 <svg viewBox="0 0 32 32" color="#999" height="18px" width="18px"><defs><path id="mbIconSearch" d="M12.618 23.318c-6.9 0-10.7-3.8-10.7-10.7 0-6.9 3.8-10.7 10.7-10.7 6.9 0 10.7 3.8 10.7 10.7 0 3.458-.923 6.134-2.745 7.955-1.821 1.822-4.497 2.745-7.955 2.745zm17.491 5.726l-7.677-7.678c1.854-2.155 2.804-5.087 2.804-8.748C25.236 4.6 20.636 0 12.618 0S0 4.6 0 12.618c0 8.019 4.6 12.618 12.618 12.618 3.485 0 6.317-.85 8.44-2.531l7.696 7.695 1.355-1.356z"></path></defs><use fill="currentColor" xlink:href="#mbIconSearch" fill-rule="evenodd"></use></svg>
-                <input type="text" name="sPattern" class="pattern" placeholder="<?php _e('What are you looking for?', 'delta'); ?>" value="<?php echo Params::getParam('sPattern'); ?>" autocomplete="off"/>
+                <input type="text" name="sPattern" class="pattern" placeholder="<?php echo osc_esc_html(__('Ex.: iPhone, car, house…', 'delta')); ?>" value="<?php echo Params::getParam('sPattern'); ?>" autocomplete="off"/>
 
                 <div class="shower-wrap">
                   <div class="shower"></div>

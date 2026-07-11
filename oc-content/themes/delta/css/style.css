@@ -109,15 +109,15 @@ footer #subdomains-list a {max-width:25%;font-size:14px;margin:0 0 8px 0;}
 .share-item-data a i { float: left; padding: 6px; background: #ccc; border-radius: 100px; margin: -4px 6px -4px 0; color: #fff; }
 
 
-/* MOBILE MENU */
-#mmenu {position:fixed;top:0;height:50px;left:0;right:0;background:#fff;z-index:95;border-bottom:1px solid #ddd;padding:0 5px;}
-#mmenu a {position:relative;float:left;width:20%;height:50px;padding:8px 3px 4px 3px;text-align:center;}
-#mmenu a > span {display:inline-block;width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;height:12px;line-height:11px;text-transform: capitalize;font-size: 9px;color: #aeb9c6;font-weight:bold;}
-#mmenu a > i {position:relative;display:inline-block;width:24px;height:24px;line-height:24px;color:#aeb9c6;}
-#mmenu a > svg {display:inline-block;width:24px;height:24px;fill:#aeb9c6;}
-#mmenu a.active > span, #mmenu a.active > i {color:#3c4858;}
-#mmenu a.active > svg {fill:#3c4858;}
-#mmenu a .circle {position:absolute;top:3px;right:2px;z-index:2;width:7px;height:7px;border-radius:100px;box-shadow:0 0 1px 1px #fff;}
+/* MOBILE MENU — bottom tab bar (OLX/CVX-inspired) */
+#mmenu {position:fixed;top:auto;bottom:0;height:58px;left:0;right:0;background:#fff;z-index:95;border-top:1px solid #e6eaf0;border-bottom:none;padding:4px 6px calc(4px + env(safe-area-inset-bottom, 0px)) 6px;height:auto;min-height:58px;box-shadow:0 -4px 16px rgba(11,58,110,0.08);}
+#mmenu a {position:relative;float:left;width:20%;height:auto;min-height:50px;padding:6px 4px 4px 4px;text-align:center;}
+#mmenu a > span {display:inline-block;width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;height:14px;line-height:14px;text-transform: capitalize;font-size:11px;color:#8a97a8;font-weight:600;letter-spacing:0;margin-top:2px;}
+#mmenu a > i {position:relative;display:inline-block;width:26px;height:26px;line-height:26px;font-size:18px;color:#8a97a8;}
+#mmenu a > svg {display:inline-block;width:26px;height:26px;fill:#8a97a8;}
+#mmenu a.active > span, #mmenu a.active > i {color:#0B3A6E;}
+#mmenu a.active > svg {fill:#0B3A6E;}
+#mmenu a .circle {position:absolute;top:2px;right:2px;z-index:2;width:7px;height:7px;border-radius:100px;box-shadow:0 0 1px 1px #fff;}
 #mmenu.c4 a {width:25%;}
 #mmenu.c6 a {width:16.66%;}
 
