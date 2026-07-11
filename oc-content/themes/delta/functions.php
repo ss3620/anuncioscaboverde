@@ -2901,9 +2901,9 @@ function del_logo($image_only = false) {
 }
 
 
-// LIST ALL POSSIBLE LOGO EXTENSIONS
+// LIST ALL POSSIBLE LOGO EXTENSIONS (png first so transparency is preferred)
 function del_logo_extensions() {
-  return array('jpg','jpeg','png','webp','gif'); 
+  return array('png','webp','gif','jpg','jpeg');
 }
 
 

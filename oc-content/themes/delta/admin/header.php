@@ -18,10 +18,45 @@
     case('upload_logo'):
       $package = Params::getFiles('logo');
       if( $package['error'] == UPLOAD_ERR_OK ) {
-        if( move_uploaded_file($package['tmp_name'], WebThemes::newInstance()->getCurrentThemePath() . "images/logo.jpg" ) ) {
-          osc_add_flash_ok_message(__('The logo image has been uploaded correctly', 'delta'), 'admin');
+        $logo_dir = WebThemes::newInstance()->getCurrentThemePath() . 'images/';
+        $allowed_exts = del_logo_extensions();
+        $ext = strtolower(pathinfo($package['name'], PATHINFO_EXTENSION));
+
+        // Prefer real image type over client filename (keeps PNG as PNG)
+        if(function_exists('exif_imagetype')) {
+          $image_type = @exif_imagetype($package['tmp_name']);
+          $type_map = array(
+            IMAGETYPE_JPEG => 'jpg',
+            IMAGETYPE_PNG => 'png',
+            IMAGETYPE_GIF => 'gif',
+            IMAGETYPE_WEBP => 'webp'
+          );
+          if(isset($type_map[$image_type])) {
+            $ext = $type_map[$image_type];
+          }
+        }
+
+        if($ext === 'jpeg') {
+          $ext = 'jpg';
+        }
+
+        if(in_array($ext, $allowed_exts, true)) {
+          // Remove previous logo in any supported format before saving
+          foreach($allowed_exts as $old_ext) {
+            $old_logo = $logo_dir . 'logo.' . $old_ext;
+            if(file_exists($old_logo)) {
+              @unlink($old_logo);
+            }
+          }
+
+          if(move_uploaded_file($package['tmp_name'], $logo_dir . 'logo.' . $ext)) {
+            osc_set_preference('default_logo', '0', 'theme-delta');
+            osc_add_flash_ok_message(__('The logo image has been uploaded correctly', 'delta'), 'admin');
+          } else {
+            osc_add_flash_error_message(__("An error has occurred, please try again", 'delta'), 'admin');
+          }
         } else {
-          osc_add_flash_error_message(__("An error has occurred, please try again", 'delta'), 'admin');
+          osc_add_flash_error_message(__('Following formats are allowed: png, gif, jpg', 'delta'), 'admin');
         }
       } else {
         osc_add_flash_error_message(__("An error has occurred, please try again", 'delta'), 'admin');
@@ -30,8 +65,16 @@
       break;
 
     case('remove'):
-      if(file_exists( WebThemes::newInstance()->getCurrentThemePath() . "images/logo.jpg" ) ) {
-        @unlink( WebThemes::newInstance()->getCurrentThemePath() . "images/logo.jpg" );
+      $logo_dir = WebThemes::newInstance()->getCurrentThemePath() . 'images/';
+      $removed = false;
+      foreach(del_logo_extensions() as $ext) {
+        $logo_path = $logo_dir . 'logo.' . $ext;
+        if(file_exists($logo_path)) {
+          @unlink($logo_path);
+          $removed = true;
+        }
+      }
+      if($removed) {
         osc_add_flash_ok_message(__('The logo image has been removed', 'delta'), 'admin');
       } else {
         osc_add_flash_error_message(__("Image not found", 'delta'), 'admin');
@@ -76,9 +119,19 @@
     <div class="mb-box">
       <div class="mb-head"><i class="fa fa-display"></i> <?php _e('Logo preview', 'delta'); ?></div>
 
-      <?php if(file_exists( WebThemes::newInstance()->getCurrentThemePath() . "images/logo.jpg" ) ) { ?>
+      <?php
+        $logo_preview_src = '';
+        $logo_path_base = WebThemes::newInstance()->getCurrentThemePath() . 'images/logo.';
+        foreach(del_logo_extensions() as $ext) {
+          if(file_exists($logo_path_base . $ext)) {
+            $logo_preview_src = osc_current_web_theme_url('images/logo.' . $ext);
+            break;
+          }
+        }
+      ?>
+      <?php if($logo_preview_src !== '') { ?>
         <div class="mb-inside">
-          <img class="mb-image-preview" border="0" alt="<?php echo osc_esc_html( osc_page_title() ); ?>" src="<?php echo osc_current_web_theme_url('images/logo.jpg');?>" />
+          <img class="mb-image-preview" border="0" alt="<?php echo osc_esc_html( osc_page_title() ); ?>" src="<?php echo $logo_preview_src;?>" />
         </div>
 
         <form action="<?php echo osc_admin_render_theme_url('oc-content/themes/delta/admin/header.php');?>" method="post" enctype="multipart/form-data">
@@ -113,7 +166,7 @@
             <div class="mb-row">- <?php _e('The preferred size of the logo is 200x50px.', 'delta'); ?></div>
             <div class="mb-row">- <?php _e('Following formats are allowed: png, gif, jpg','delta'); ?></div>
 
-            <?php if( file_exists( WebThemes::newInstance()->getCurrentThemePath() . "images/logo.jpg" ) ) { ?>
+            <?php if($logo_preview_src !== '') { ?>
               <div class="mb-row">- <?php _e('Uploading another logo will overwrite the current logo.', 'delta'); ?></div>
             <?php } ?>
           </div>
