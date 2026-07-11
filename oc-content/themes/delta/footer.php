@@ -256,8 +256,8 @@
       <span><?php _e('Search', 'delta'); ?></span>
     </a>
     
-    <a href="<?php echo osc_item_post_url(); ?>" class="l3 <?php if(osc_is_publish_page() || osc_is_edit_page()) { ?>active<?php } ?>">
-      <i class="far fa-plus-square"></i>
+    <a href="<?php echo osc_item_post_url(); ?>" class="l3 mmenu-publish <?php if(osc_is_publish_page() || osc_is_edit_page()) { ?>active<?php } ?>">
+      <i class="fas fa-plus-circle"></i>
       <span><?php _e('Publish', 'delta'); ?></span>
     </a>
     

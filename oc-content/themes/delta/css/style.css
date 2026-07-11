@@ -120,6 +120,11 @@ footer #subdomains-list a {max-width:25%;font-size:14px;margin:0 0 8px 0;}
 #mmenu a .circle {position:absolute;top:2px;right:2px;z-index:2;width:7px;height:7px;border-radius:100px;box-shadow:0 0 1px 1px #fff;}
 #mmenu.c4 a {width:25%;}
 #mmenu.c6 a {width:16.66%;}
+#mmenu a.mmenu-publish {margin-top:-10px;padding-top:0;}
+#mmenu a.mmenu-publish > i {width:44px;height:44px;line-height:44px;font-size:22px;border-radius:50%;background:#E31C23;color:#fff;box-shadow:0 4px 12px rgba(227,28,35,0.35);}
+#mmenu a.mmenu-publish > span {color:#E31C23;font-weight:700;margin-top:4px;}
+#mmenu a.mmenu-publish.active > i {background:#0B3A6E;color:#fff;}
+#mmenu a.mmenu-publish.active > span {color:#0B3A6E;}
 
 /* SWIPER SLIDER */
 .swiper-button {position:absolute;top:50%;width:52px;height:52px;z-index:2;font-size:20px;cursor:pointer;transition:0.15s;background:rgba(0,0,0,0.6);color:#fff;text-align:center;margin:-24px 0 0 0;}
@@ -2247,21 +2252,20 @@ body#body-search #home-search .inside > .box {box-shadow: 0 5px 10px 0 rgb(0 0 0
 
 
 #home-cat2 {float:left;clear:both;width:100%;display:block;margin:0px 0 10px 0;text-align:center;}
-#home-cat2 h2 {display:none;margin:0 0 14px 0;position:relative;font-size:22px;line-height:24px;font-weight:700;color:#111;text-align:left;font-family: 'Lora', serif;}
-!#home-cat2 .box {float:left;clear:both;width:100%;position:relative;text-align:center;overflow:hidden;background:#f0f2f7;background:linear-gradient(to bottom,#f3f4f8 ,#f0f2f7 100%);border-radius:5px;padding:22px 10px 20px 20px;}
+#home-cat2 h2 {display:none;margin:0 0 14px 0;position:relative;font-size:22px;line-height:24px;font-weight:700;color:#0B3A6E;text-align:left;font-family: 'Poppins', sans-serif;}
+body#body-home #home-cat2 h2 {display:block;margin:0 0 18px 0;}
+body#body-home #home-cat2 h2:after {content:'';display:block;width:40px;height:3px;background:#E31C23;border-radius:2px;margin-top:8px;}
 #home-cat2 .box {float:left;clear:both;width:100%;position:relative;text-align:center;padding:0;margin:0px 0 30px 0;}
 #home-cat2 .wrap {float:left;clear:both;width:100%;position:relative;padding:0;}
-#home-cat2 a {margin:0 1px 5px 1px;display:inline-block;float:none;text-align:center;color:#333;width:110px;transition:0.2s;padding:5px;}
-!#home-cat2 a:first-child {margin-left:0;}
-!#home-cat2 a:last-child {margin-right:0;}
-#home-cat2 a > div {width:36px;height:36px;padding:0;margin:20px auto 15px auto;overflow:hidden;transform: scale(1);transition:0.2s;}
-#home-cat2 a:hover { transform: translateY(-4px);background: #f7f8fb; border-radius: 10px; box-shadow: 0 4px 5px rgb(0 0 0 / 20%);}
-#home-cat2 a:hover > div {transform: scale(1.2);}
-#home-cat2 a > div > img {width:auto;height:auto;margin:auto;max-width:36px;max-height:36px;}
-#home-cat2 a > div > i {font-size:22px;line-height:36px;width:100%;}
+#home-cat2 a {margin:0 4px 8px 4px;display:inline-block;float:none;text-align:center;color:#333;width:110px;transition:0.2s;padding:10px 6px;border-radius:12px;}
+#home-cat2 a > div {width:56px;height:56px;padding:0;margin:4px auto 12px auto;overflow:hidden;transform: scale(1);transition:0.2s;border-radius:50%;background:#EEF3F9;display:flex;align-items:center;justify-content:center;}
+#home-cat2 a:hover { transform: translateY(-3px);background: #F5F7FA; border-radius: 12px; box-shadow: 0 6px 14px rgb(11 58 110 / 12%);}
+#home-cat2 a:hover > div {transform: scale(1.08);}
+#home-cat2 a > div > img {width:auto;height:auto;margin:auto;max-width:28px;max-height:28px;}
+#home-cat2 a > div > i {font-size:22px;line-height:56px;width:100%;}
 #home-cat2 a span {font-weight:normal;font-size:14px;letter-spacing:-0.1px;line-height:16px;}
-#home-cat2 h3 {float:left;width:100%;text-align:center;font-size:14px;line-height:16px;color:#000;display: flex; height: 32px; overflow: hidden;margin:0 0 3px 0;}
-#home-cat2 h3 > span {margin: auto; text-align: center;max-height:32px;overflow:hidden;font-weight:500;}
+#home-cat2 h3 {float:left;width:100%;text-align:center;font-size:13px;line-height:16px;color:#3c4858;display: flex; height: 32px; overflow: hidden;margin:0 0 3px 0;}
+#home-cat2 h3 > span {margin: auto; text-align: center;max-height:32px;overflow:hidden;font-weight:600;}
 #home-cat2 .scroll {z-index:4;cursor:pointer;position:absolute;top:0;width:50px;height:calc(100% - 6px);text-align:center;display:none;}
 #home-cat2 .scroll svg {position:absolute;width:28px;height:28px;text-align:center;color:#555;top:50%;left:50%;margin:-16px 0 0 -10px;border-radius:100px;background:#fff;padding:5px;box-shadow:0 1px 0 0 rgba(0,0,0,0.1);}
 #home-cat2 .scroll-left {left:0;background-image: linear-gradient(to left, transparent 0%, rgba(249, 247, 246,0.8) 40%, rgba(249, 247, 246,1) 100%);}

@@ -49,11 +49,11 @@
 </script>
 <?php
 
-osc_enqueue_style('style', osc_current_web_theme_url('css/style.css?v=' . date('YmdHis')));
-osc_enqueue_style('responsive', osc_current_web_theme_url('css/responsive.css?v=' . date('YmdHis')));
+osc_enqueue_style('style', osc_current_web_theme_url('css/style.css?v=' . DELTA_THEME_VERSION . '-acv2'));
+osc_enqueue_style('responsive', osc_current_web_theme_url('css/responsive.css?v=' . DELTA_THEME_VERSION . '-acv2'));
 ?>
 <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <?php
 osc_enqueue_style('font-awesome5', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css');
 
@@ -64,7 +64,7 @@ if ($jquery_version == '1') {
 }
 
 if(del_is_rtl()) {
-  osc_enqueue_style('rtl', osc_current_web_theme_url('css/rtl.css') . '?v=' . date('YmdHis'));
+  osc_enqueue_style('rtl', osc_current_web_theme_url('css/rtl.css') . '?v=' . DELTA_THEME_VERSION . '-acv2');
 }
 
 if(osc_is_ad_page() || (osc_get_osclass_location() == 'item' && osc_get_osclass_section() == 'send_friend')) {
@@ -75,7 +75,7 @@ if(osc_is_ad_page() || (osc_get_osclass_location() == 'item' && osc_get_osclass_
 if(del_ajax_image_upload() && (osc_is_publish_page() || osc_is_edit_page())) {
   osc_enqueue_style('fine-uploader-css', osc_assets_url('js/fineuploader/fineuploader.css'));
 }
-osc_register_script('global', osc_current_web_theme_js_url('global.js?v=' . date('YmdHis')), array('jquery'));
+osc_register_script('global', osc_current_web_theme_js_url('global.js?v=' . DELTA_THEME_VERSION . '-acv2'), array('jquery'));
 
 if ($jquery_version == '1') {
   osc_register_script('validate', osc_current_web_theme_js_url('jquery.validate.min.js'), array('jquery'));

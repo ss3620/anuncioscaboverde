@@ -17,7 +17,7 @@
             
             <div class="col c1">
               <?php if(osc_is_home_page()) { ?>
-                <strong><h1><?php _e('What are you looking for?', 'delta'); ?></h1></strong>
+                <strong class="home-search-title"><h1><?php _e('What are you looking for?', 'delta'); ?></h1></strong>
               <?php } else { ?>
                 <strong><?php _e('What are you looking for?', 'delta'); ?></strong>
               <?php } ?>

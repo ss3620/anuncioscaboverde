@@ -2858,19 +2858,16 @@ function del_logo($image_only = false) {
   $url = osc_apply_filter('logo_url', osc_current_web_theme_url('images/'));
   $path = osc_apply_filter('logo_path', WebThemes::newInstance()->getCurrentThemePath() . 'images/');
 
-
-  if(del_param('default_logo') == 1 && file_exists($path . $name . '-default.png')) {
-    $src = $url . $name . '-default.png';
+  // Prefer custom uploaded logo when present (brand identity)
+  foreach(del_logo_extensions() as $ext) {
+    if(file_exists($path . $name . '.' . $ext)) {
+      $src = $url . $name . '.' . $ext;
+      break;
+    }
   }
 
-  // Check in theme folder
-  if($src == '') {
-    foreach(del_logo_extensions() as $ext) {
-      if(file_exists($path . $name . '.' . $ext)) {
-        $src = $url . $name . '.' . $ext;
-        break;
-      }
-    }
+  if($src == '' && del_param('default_logo') == 1 && file_exists($path . $name . '-default.png')) {
+    $src = $url . $name . '-default.png';
   }
   
   // If it's child theme, check in parent theme folder
@@ -2896,8 +2893,12 @@ function del_logo($image_only = false) {
     return $src;
   }
 
-  //return '<img src="' . (del_is_lazy() ? del_get_load_image('transparent') : $src) . '" data-src="' . $src . '" alt="' . osc_esc_html(osc_page_title()) . '" class="' . (del_is_lazy() ? 'lazy' : '') . '"/>';
-  return '<img src="' . $src . '" alt="' . osc_esc_html(osc_page_title()) . '"/>';
+  $alt = trim(osc_page_title());
+  if($alt === '' || preg_match('/anun\s*cios/i', $alt) || strlen($alt) < 3) {
+    $alt = 'Anuncios Cabo Verde';
+  }
+
+  return '<img src="' . $src . '" alt="' . osc_esc_html($alt) . '"/>';
 }
 
 
@@ -2998,14 +2999,14 @@ check_install_del_theme();
 
 // One-time Anuncios Cabo Verde visual brand alignment (colors + category icons)
 function del_acv_brand_align() {
-  if(osc_get_preference('acv_brand_v1', 'theme-delta') == '1') {
+  if(osc_get_preference('acv_brand_v2', 'theme-delta') == '1') {
     return;
   }
   osc_set_preference('color', '#0B3A6E', 'theme-delta');
   osc_set_preference('color2', '#1B6B4A', 'theme-delta');
   osc_set_preference('color3', '#E31C23', 'theme-delta');
   osc_set_preference('cat_icons', '1', 'theme-delta');
-  osc_set_preference('acv_brand_v1', '1', 'theme-delta');
+  osc_set_preference('acv_brand_v2', '1', 'theme-delta');
   osc_reset_preferences();
 }
 del_acv_brand_align();
