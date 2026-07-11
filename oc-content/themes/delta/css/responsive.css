@@ -255,11 +255,13 @@
   #home-search .box2.but .btn {margin-top:0;padding:14px 4px;font-size:15px;height:48px;white-space:nowrap;letter-spacing:-0.2px;border-radius:6px;}
 
   body:not(#body-home) header {display:none;}
-  body#body-home header {padding:24px 0 18px 0;background:#fff;box-shadow:0 2px 12px rgba(11,58,110,0.08);border-bottom:3px solid #0B3A6E;}
-  body#body-home header .logo {height:120px;width:100%;max-width:340px;margin:0 auto;float:none;}
-  body#body-home header .logo img {max-height:120px;width:auto;max-width:100%;object-fit:contain;}
-  body#body-home header .relative2 {justify-content:center;text-align:center;}
+  body#body-home header {padding:20px 0 12px 0;background:#fff;box-shadow:none;border-bottom:none;}
+  body#body-home header .logo {height:140px;width:100%;max-width:380px;margin:0 auto;float:none;}
+  body#body-home header .logo img {max-height:140px;width:auto;max-width:100%;object-fit:contain;}
+  body#body-home header .relative2 {justify-content:center;text-align:center;border:none;padding:0;box-shadow:none;}
   body#body-home header .left {float:none;margin:0 auto;width:100%;display:flex;justify-content:center;}
+  header .relative1 {display:none!important;}
+  header .relative2 {border:none!important;box-shadow:none;}
   /* OLX-style: one prompt in the field — keep H1 for SEO/a11y only on mobile home */
   body#body-home #home-search .col.c1 > strong.home-search-title {
     position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;
@@ -268,22 +270,24 @@
   #home-search .col.c1 > strong {width:100%;font-size:18px;line-height:22px;font-weight:700;text-align:left;margin-bottom:12px;color:#0B3A6E;}
   #home-search .col.c1 > strong h1 {font-size:18px;line-height:22px;font-weight:700;color:#0B3A6E;float:none;}
   #home-search .col.c2 > strong, #home-search .col.c3 > strong {display:none;}
-  #home-search {text-align:left;padding:0 0 24px 0;margin-top:-8px;background:linear-gradient(180deg,#EEF3F9 0%,#F5F7FA 40%,#fff 100%);}
-  #home-search .inside > .box {display:block;float:none;width:100%;padding:20px 16px 18px 16px;border-radius:18px;box-shadow:0 12px 32px rgba(11,58,110,0.14);}
-  #home-search .col, #home-search .col.c3 {margin-bottom:14px;}
-  #home-search .col.c4 {margin-bottom:0;margin-top:6px;}
-  #home-search .col .btn {font-size:18px;height:58px;line-height:26px;padding:16px 16px;border-radius:14px;font-weight:700;letter-spacing:0.2px;box-shadow:0 8px 20px rgba(11,58,110,0.35);}
+  #home-search {text-align:left;padding:16px 0 28px 0;margin-top:0;background:linear-gradient(180deg,#0B3A6E 0%,#0e4a82 70%,#F5F7FA 100%);}
+  #home-search .inside > .box {display:block;float:none;width:100%;padding:14px;border-radius:12px;box-shadow:0 10px 28px rgba(0,0,0,0.18);background:#fff;border:none;}
+  #home-search .col, #home-search .col.c3 {margin-bottom:10px;}
+  #home-search .col.c4 {margin-bottom:0;margin-top:4px;}
+  #home-search .col .btn {font-size:18px;height:56px;line-height:26px;padding:15px 16px;border-radius:10px;font-weight:700;letter-spacing:0.2px;box-shadow:0 6px 16px rgba(11,58,110,0.3);}
   #home-search .col .btn svg {width:20px;height:20px;vertical-align:-4px;margin-right:10px;}
   #home-search .col .btn span.isMobile {font-size:18px;}
-  #home-search input {height:56px;border:2px solid #cfd8e6;border-radius:14px;font-size:16px;padding-top:16px;padding-bottom:16px;line-height:22px;background:#fff;}
-  #home-search .query-picker > svg, #home-search svg.svg-left {top:19px;}
-  #home-search svg.svg-right {top:22px;}
-  #home-search .query-picker .shower-wrap, #home-search #location-picker .shower-wrap {top:54px;}
+  #home-search input {height:52px;border:1px solid #d5dbe5;border-radius:10px;font-size:16px;padding-top:14px;padding-bottom:14px;padding-left:44px;line-height:22px;background:#fff;}
+  #home-search .query-picker > svg, #home-search svg.svg-left {top:16px;left:14px;}
+  #home-search svg.svg-right {top:18px;}
+  #home-search .query-picker .shower-wrap, #home-search #location-picker .shower-wrap {top:50px;}
   body#body-search #home-search .inside > .box {box-shadow:0 4px 14px rgba(11,58,110,0.08);}
   #body-search #bread {display:none;}
   #body-search #home-search .col.c1 strong {position:static!important;width:auto!important;height:auto!important;padding:0!important;margin:0 0 6px 0!important;overflow:visible!important;clip:auto!important;white-space:normal!important;border:0!important;text-align:left;font-size:14px;font-weight:bold;color:#0B3A6E;}
-  body#body-search #home-search {margin:0;padding-top:15px;padding-bottom:15px;background:linear-gradient(180deg,#EEF3F9 0%,#F5F7FA 100%);}
+  body#body-search #home-search {margin:0;padding-top:15px;padding-bottom:15px;background:#F5F7FA;}
   #mmenu {padding-bottom:calc(6px + env(safe-area-inset-bottom, 0px));}
+  #home-pub .buttons a.publish {height:56px;}
+  #home-pub .buttons a.publish > span {height:56px;padding:16px 28px;font-size:17px;border-radius:12px;}
   
   .home-container#home-blog {padding:15px 0;margin:10px 0 0px 0;}
   .home-container#home-blog .h2 {margin-bottom:14px;}
@@ -531,14 +535,14 @@
   .body-ua .usr-menu {width:100%;margin:15px 0;}
   #pp-side {width:100%;margin:0 0 15px 0;}
   #public-items {width:100%;margin:0 0 30px 0;min-height:200px;}
-  .logo img {position: relative; margin: auto; display: block; top: auto; bottom: auto; left: auto; right: auto; max-height:120px; width:auto; height:auto;}
+  .logo img {position: relative; margin: auto; display: block; top: auto; bottom: auto; left: auto; right: auto; max-height:140px; width:auto; height:auto;}
  #comment .info {padding-left:10px;}
-  header .relative2 {padding:0;border:none;}
+  header .relative2 {padding:0;border:none!important;}
   header .left {width:100%;max-width:100%;}
   header .mobile-block {display:none!important;}
-  .logo {width:100%;height:auto;min-height:72px;float:none;margin:0 auto;}
-  body#body-home .logo a {display:inline-block;max-width:340px;}
-  body#body-home .logo img {filter:none;max-height:120px;}
+  .logo {width:100%;height:auto;min-height:80px;float:none;margin:0 auto;}
+  body#body-home .logo a {display:inline-block;max-width:380px;}
+  body#body-home .logo img {filter:none;max-height:140px;}
   
   #menu-cover {position:fixed;top:0px;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);z-index:998;}
   #menu-user, #menu-options {position:fixed;top:0px;width:250px;right:0;bottom:0;background:#fff;z-index:999;color:#3c4868;}
