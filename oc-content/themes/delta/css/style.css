@@ -2257,15 +2257,15 @@ body#body-home #home-cat2 h2 {display:block;margin:0 0 18px 0;}
 body#body-home #home-cat2 h2:after {content:'';display:block;width:40px;height:3px;background:#E31C23;border-radius:2px;margin-top:8px;}
 #home-cat2 .box {float:left;clear:both;width:100%;position:relative;text-align:center;padding:0;margin:0px 0 30px 0;}
 #home-cat2 .wrap {float:left;clear:both;width:100%;position:relative;padding:0;}
-#home-cat2 a {margin:0 4px 8px 4px;display:inline-block;float:none;text-align:center;color:#333;width:110px;transition:0.2s;padding:10px 6px;border-radius:12px;}
-#home-cat2 a > div {width:56px;height:56px;padding:0;margin:4px auto 12px auto;overflow:hidden;transform: scale(1);transition:0.2s;border-radius:50%;background:#EEF3F9;display:flex;align-items:center;justify-content:center;}
-#home-cat2 a:hover { transform: translateY(-3px);background: #F5F7FA; border-radius: 12px; box-shadow: 0 6px 14px rgb(11 58 110 / 12%);}
+#home-cat2 a {margin:0 6px 12px 6px;display:inline-block;float:none;text-align:center;color:#333;width:120px;transition:0.2s;padding:14px 8px;border-radius:16px;}
+#home-cat2 a > div {width:72px;height:72px;padding:0;margin:4px auto 12px auto;overflow:hidden;transform: scale(1);transition:0.2s;border-radius:50%;background:#EEF3F9;display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 1px rgba(11,58,110,0.06);}
+#home-cat2 a:hover { transform: translateY(-3px);background: #F5F7FA; border-radius: 16px; box-shadow: 0 8px 18px rgb(11 58 110 / 14%);}
 #home-cat2 a:hover > div {transform: scale(1.08);}
-#home-cat2 a > div > img {width:auto;height:auto;margin:auto;max-width:28px;max-height:28px;}
-#home-cat2 a > div > i {font-size:22px;line-height:56px;width:100%;}
+#home-cat2 a > div > img {width:auto;height:auto;margin:auto;max-width:36px;max-height:36px;}
+#home-cat2 a > div > i {font-size:30px;line-height:72px;width:100%;}
 #home-cat2 a span {font-weight:normal;font-size:14px;letter-spacing:-0.1px;line-height:16px;}
-#home-cat2 h3 {float:left;width:100%;text-align:center;font-size:13px;line-height:16px;color:#3c4858;display: flex; height: 32px; overflow: hidden;margin:0 0 3px 0;}
-#home-cat2 h3 > span {margin: auto; text-align: center;max-height:32px;overflow:hidden;font-weight:600;}
+#home-cat2 h3 {float:left;width:100%;text-align:center;font-size:14px;line-height:17px;color:#1a2b3c;display: flex; height: 36px; overflow: hidden;margin:0 0 3px 0;}
+#home-cat2 h3 > span {margin: auto; text-align: center;max-height:36px;overflow:hidden;font-weight:700;}
 #home-cat2 .scroll {z-index:4;cursor:pointer;position:absolute;top:0;width:50px;height:calc(100% - 6px);text-align:center;display:none;}
 #home-cat2 .scroll svg {position:absolute;width:28px;height:28px;text-align:center;color:#555;top:50%;left:50%;margin:-16px 0 0 -10px;border-radius:100px;background:#fff;padding:5px;box-shadow:0 1px 0 0 rgba(0,0,0,0.1);}
 #home-cat2 .scroll-left {left:0;background-image: linear-gradient(to left, transparent 0%, rgba(249, 247, 246,0.8) 40%, rgba(249, 247, 246,1) 100%);}
@@ -2386,7 +2386,7 @@ body#body-custom section {padding:20px 25px;}
 body#body-custom header {background: #f7f8fb; background: linear-gradient(to bottom,#f7f8fb 80%,#ebedf5 100%);}
 body#body-custom header .relative2 {border-bottom:none;}
 
-.logo {position:relative;width:auto;height:auto;height:46px;width:220px;margin:7px 0;float:left;}
+.logo {position:relative;width:auto;height:auto;height:64px;width:280px;margin:7px 0;float:left;}
 .logo img {position: absolute; width: auto; height: auto; display: block; max-width: 100%; max-height: 100%; margin: auto; top: -50%; left: 0; bottom:-50%; }
 header, footer, section {float:left;clear:both;width:100%;}
 body {background:#f7f8fb;}
