@@ -1,0 +1,89 @@
+# Copyright (C) 2013 Osclass
+# This file is distributed under the same license as the {package-name} package.
+msgid ""
+msgstr ""
+"Project-Id-Version: QR Code Plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-11-13 11:38+0100\n"
+"PO-Revision-Date: 2020-11-13 11:38+0100\n"
+"Last-Translator: carlos <carlos@osclass.org>\n"
+"Language-Team: OsclassPoint.com\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 2.4.1\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: conf.php:6
+msgid "Congratulations. The plugin is now configured"
+msgstr ""
+
+#: conf.php:14
+msgid "QR Code Settings"
+msgstr ""
+
+#: conf.php:21
+msgid "Upload path"
+msgstr ""
+
+#: conf.php:25
+msgid "Upload url"
+msgstr ""
+
+#: conf.php:29
+msgid "Code size (from 1 to 10)"
+msgstr ""
+
+#: conf.php:33
+msgid "Update"
+msgstr ""
+
+#: help.php:6
+msgid "QR Code Help"
+msgstr ""
+
+#: help.php:7
+msgid "What does QR Code plugin do?"
+msgstr ""
+
+#: help.php:8
+msgid ""
+"It display a QR code with the URL of the item. Useful to quick share items "
+"with other people, print it and place anywhere."
+msgstr ""
+
+#: help.php:10
+msgid "IMPORTANT"
+msgstr ""
+
+#: help.php:11
+msgid ""
+"In order to work, you will need to place the following lines whereever you "
+"want to display the QR. The QR code will be placed inside a <img/> tag at "
+"that place."
+msgstr ""
+
+#: help.php:14
+msgid ""
+"It is also important that you have the GD extension enabled in your server."
+msgstr ""
+
+#: index.php:44
+msgid "Settings"
+msgstr ""
+
+#: index.php:45
+msgid "Help"
+msgstr ""
+
+#: index.php:49
+msgid "QR Settings"
+msgstr ""
+
+#: index.php:50
+msgid "QR Help"
+msgstr ""

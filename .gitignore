@@ -1,0 +1,39 @@
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs
+*.log
+error_log
+debug.log
+
+# Cache
+oc-content/cache/
+oc-content/uploads/oc-temp/
+
+# User uploads
+oc-content/uploads/*
+
+# Keep uploads directory
+!oc-content/uploads/.gitkeep
+
+# Composer
+vendor/
+
+# Node
+node_modules/
+
+# Environment
+.env
+.env.*
+
+# Backup files
+*.zip
+*.bak
+*.old
+
+# Database dumps
+*.sql
+*.sql.gz

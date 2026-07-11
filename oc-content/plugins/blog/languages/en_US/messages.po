@@ -1,0 +1,1257 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Blog and News Plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-01 11:40+0200\n"
+"PO-Revision-Date: 2026-06-01 11:40+0200\n"
+"Last-Translator: Miso <miso546@azet.sk>\n"
+"Language-Team: MB Themes <info@mb-themes.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.8\n"
+"X-Poedit-KeywordsList: __;_e;_m\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: languages/en_US\n"
+"X-Poedit-SearchPath-1: .\n"
+
+#: admin/banner.php:3 admin/banner.php:40 index.php:162 index.php:198
+msgid "Banners"
+msgstr ""
+
+#: admin/banner.php:22
+msgid "Banners were successfully updated"
+msgstr ""
+
+#: admin/banner.php:33
+msgid ""
+"If you use Banner Ads Plugin, you can use banner or advert directly in blog "
+"banner space by defining its ID in bellow form."
+msgstr ""
+
+#: admin/banner.php:34
+msgid ""
+"Usage examples: {{BANNER-ADS-PLUGIN-HOOK: my_custom_hook}}, {{BANNER-ADS-"
+"PLUGIN-BANNER: 123}}, {{BANNER-ADS-PLUGIN-ADVERT: 987}}"
+msgstr ""
+
+#: admin/banner.php:52
+msgid "Enable Banners"
+msgstr ""
+
+#: admin/banner.php:55
+msgid "When enabled, banners will be shown in blog."
+msgstr ""
+
+#: admin/banner.php:59
+msgid "Optimize for Google Adsense"
+msgstr ""
+
+#: admin/banner.php:62
+msgid ""
+"When enabled, banner sizes will be optimized for responsive google adsense "
+"ads."
+msgstr ""
+
+#: admin/banner.php:71
+#, php-format
+msgid "Will be shown on %s"
+msgstr ""
+
+#: admin/banner.php:79 admin/blog.php:301 admin/category.php:100
+#: admin/comment.php:132 admin/configure.php:238 admin/user.php:197
+msgid "Save"
+msgstr ""
+
+#: admin/blog.php:12
+msgid "Update post"
+msgstr ""
+
+#: admin/blog.php:14
+msgid "Create new post"
+msgstr ""
+
+#: admin/blog.php:71
+#, php-format
+msgid "extension not allowed, allowed image extensions are %s"
+msgstr ""
+
+#: admin/blog.php:78 admin/user.php:45 form/action.php:125
+msgid "There was error when uploading image"
+msgstr ""
+
+#: admin/blog.php:94
+msgid "Updates were successfully saved"
+msgstr ""
+
+#: admin/blog.php:190 form/publish.php:63
+msgid "Category"
+msgstr ""
+
+#: admin/blog.php:193 form/article.php:44 form/loop-single.php:47
+#: form/publish.php:66
+msgid "Uncategorized"
+msgstr ""
+
+#: admin/blog.php:196 admin/user.php:168 admin/user.php:254
+#, php-format
+msgid "Category #%s (%s)"
+msgstr ""
+
+#: admin/blog.php:203 form/publish.php:77
+msgid "Status"
+msgstr ""
+
+#: admin/blog.php:206 form/publish.php:80 functions.php:667
+msgid "Private"
+msgstr ""
+
+#: admin/blog.php:207 form/publish.php:81 functions.php:669
+msgid "Public"
+msgstr ""
+
+#: admin/blog.php:208 form/publish.php:82 functions.php:671
+msgid "Premium"
+msgstr ""
+
+#: admin/blog.php:214
+msgid "Author"
+msgstr ""
+
+#: admin/blog.php:217 functions.php:690
+msgid "No author"
+msgstr ""
+
+#: admin/blog.php:228
+msgid "Position"
+msgstr ""
+
+#: admin/blog.php:236 form/publish.php:132
+msgid "Seo Title"
+msgstr ""
+
+#: admin/blog.php:239 form/publish.php:135
+msgid "Title that should show search engine. Max 60 char. length."
+msgstr ""
+
+#: admin/blog.php:243 form/publish.php:139
+msgid "Seo Description"
+msgstr ""
+
+#: admin/blog.php:246 form/publish.php:142
+msgid "Description that should show search engine. Max 300 char. length."
+msgstr ""
+
+#: admin/blog.php:251 form/publish.php:89
+msgid "Image"
+msgstr ""
+
+#: admin/blog.php:260 admin/user.php:151 form/publish.php:98
+msgid "Upload image"
+msgstr ""
+
+#: admin/blog.php:260 admin/user.php:151 form/publish.php:98
+msgid "Replace image"
+msgstr ""
+
+#: admin/blog.php:264 admin/user.php:155 form/publish.php:102
+msgid "Allowed extensions"
+msgstr ""
+
+#: admin/blog.php:269 admin/comment.php:75
+msgid "Publish Date"
+msgstr ""
+
+#: admin/blog.php:274 form/publish.php:107
+msgid "Slug"
+msgstr ""
+
+#: admin/blog.php:277 form/publish.php:110
+msgid "Slug is used to construct URL of post."
+msgstr ""
+
+#: admin/blog.php:281 form/publish.php:114
+msgid "Title"
+msgstr ""
+
+#: admin/blog.php:286 form/publish.php:119
+msgid "Sub-title"
+msgstr ""
+
+#: admin/blog.php:289 form/publish.php:122
+msgid "Short summary of post, maximum 300 char. length."
+msgstr ""
+
+#: admin/blog.php:293 admin/category.php:84 admin/category.php:127
+#: form/publish.php:126
+msgid "Description"
+msgstr ""
+
+#: admin/category.php:4
+msgid "Blog categories"
+msgstr ""
+
+#: admin/category.php:38
+msgid "Category successfully updated"
+msgstr ""
+
+#: admin/category.php:44
+msgid "Category removed successfully"
+msgstr ""
+
+#: admin/category.php:63
+msgid "Add/edit category"
+msgstr ""
+
+#: admin/category.php:77 admin/category.php:126 admin/user.php:120
+#: admin/user.php:221
+msgid "Name"
+msgstr ""
+
+#: admin/category.php:80
+msgid "Short name or title of category."
+msgstr ""
+
+#: admin/category.php:87
+msgid "Detail description or summary of category."
+msgstr ""
+
+#: admin/category.php:91 admin/category.php:128
+msgid "Color"
+msgstr ""
+
+#: admin/category.php:94
+msgid "Primary category color."
+msgstr ""
+
+#: admin/category.php:119
+msgid "List of categories to which blog posts can be assigned."
+msgstr ""
+
+#: admin/category.php:125 admin/comment.php:173
+msgid "ID"
+msgstr ""
+
+#: admin/category.php:129 admin/list.php:52
+msgid "Blog posts"
+msgstr ""
+
+#: admin/category.php:135
+msgid "No blog categories has been found"
+msgstr ""
+
+#: admin/category.php:140 admin/list.php:89
+msgid "Reorder posts"
+msgstr ""
+
+#: admin/category.php:142 admin/user.php:12 admin/user.php:238
+msgid "No name"
+msgstr ""
+
+#: admin/category.php:145 admin/user.php:272
+msgid "1 post"
+msgstr ""
+
+#: admin/category.php:145 admin/user.php:272
+#, php-format
+msgid "%d posts"
+msgstr ""
+
+#: admin/category.php:149
+msgid "Are you sure you want to remove this category? Action cannot be undone"
+msgstr ""
+
+#: admin/category.php:157
+msgid "Add new category"
+msgstr ""
+
+#: admin/category.php:169 admin/list.php:119
+msgid "Success!"
+msgstr ""
+
+#: admin/category.php:170 admin/list.php:120
+msgid "Updating, please wait..."
+msgstr ""
+
+#: admin/category.php:171 admin/list.php:121
+msgid "Error!"
+msgstr ""
+
+#: admin/comment.php:4
+msgid "Blog post comments"
+msgstr ""
+
+#: admin/comment.php:31
+msgid "Comment successfully updated"
+msgstr ""
+
+#: admin/comment.php:37
+msgid "Comment removed successfully"
+msgstr ""
+
+#: admin/comment.php:42
+msgid "Comment approved successfully"
+msgstr ""
+
+#: admin/comment.php:63
+msgid "Add/edit comment"
+msgstr ""
+
+#: admin/comment.php:78
+msgid "Publish date of comment."
+msgstr ""
+
+#: admin/comment.php:83 admin/comment.php:175 form/article.php:165
+msgid "Comment"
+msgstr ""
+
+#: admin/comment.php:86 admin/user.php:137
+msgid "User's description, hobby, ..."
+msgstr ""
+
+#: admin/comment.php:91 admin/comment.php:176
+msgid "Blog Post"
+msgstr ""
+
+#: admin/comment.php:93
+msgid "No blog post selected"
+msgstr ""
+
+#: admin/comment.php:97 admin/comment.php:159
+#, php-format
+msgid "Article #%s (%s)"
+msgstr ""
+
+#: admin/comment.php:102
+msgid "Select blog post to which is this comment related."
+msgstr ""
+
+#: admin/comment.php:107 admin/user.php:226
+msgid "Osclass User"
+msgstr ""
+
+#: admin/comment.php:111 admin/user.php:183
+msgid "Type user name or email"
+msgstr ""
+
+#: admin/comment.php:114 admin/user.php:186
+msgid "Email"
+msgstr ""
+
+#: admin/comment.php:117 admin/user.php:189
+msgid ""
+"Start typing user name or email and select user you want to check from list."
+msgstr ""
+
+#: admin/comment.php:122
+msgid "Enabled"
+msgstr ""
+
+#: admin/comment.php:125
+msgid "Set to YES to enable comment."
+msgstr ""
+
+#: admin/comment.php:150
+msgid "List of comments on blog posts."
+msgstr ""
+
+#: admin/comment.php:155
+msgid "All blog posts"
+msgstr ""
+
+#: admin/comment.php:165
+msgid "Enabled & disabled"
+msgstr ""
+
+#: admin/comment.php:166
+msgid "Disabled only"
+msgstr ""
+
+#: admin/comment.php:167
+msgid "Enabled only"
+msgstr ""
+
+#: admin/comment.php:174
+msgid "User"
+msgstr ""
+
+#: admin/comment.php:177
+msgid "Date"
+msgstr ""
+
+#: admin/comment.php:183
+msgid "No comments has been found"
+msgstr ""
+
+#: admin/comment.php:198
+#, php-format
+msgid "User #%s (removed)"
+msgstr ""
+
+#: admin/comment.php:204
+msgid "No title"
+msgstr ""
+
+#: admin/comment.php:206
+msgid "No post"
+msgstr ""
+
+#: admin/comment.php:219
+msgid "Are you sure you want to remove this comment? Action cannot be undone"
+msgstr ""
+
+#: admin/comment.php:227 form/article.php:150
+msgid "Add new comment"
+msgstr ""
+
+#: admin/comment.php:237 admin/user.php:304
+msgid "Error getting data, user not found"
+msgstr ""
+
+#: admin/configure.php:3 admin/configure.php:61 index.php:147 index.php:156
+#: index.php:192
+msgid "Configure"
+msgstr ""
+
+#: admin/configure.php:42 admin/list.php:14
+msgid "Settings were successfully saved"
+msgstr ""
+
+#: admin/configure.php:49
+msgid "Sitemap generated correctly in"
+msgstr ""
+
+#: admin/configure.php:49
+msgid "seconds"
+msgstr ""
+
+#: admin/configure.php:74
+msgid "Add Button to Header"
+msgstr ""
+
+#: admin/configure.php:77
+msgid ""
+"When enabled, \"Blog\" button/link is added into header. Require Osclass 8.2 "
+"theme hooks support."
+msgstr ""
+
+#: admin/configure.php:82
+msgid "Enable Article Ordering"
+msgstr ""
+
+#: admin/configure.php:85
+msgid ""
+"When enabled, admin can reorder blog articles, otherwise articles are sorted "
+"by publish date descending."
+msgstr ""
+
+#: admin/configure.php:90
+msgid "Home Page Limit"
+msgstr ""
+
+#: admin/configure.php:92 admin/configure.php:100 admin/configure.php:108
+#: admin/configure.php:199
+msgid "articles"
+msgstr ""
+
+#: admin/configure.php:94
+msgid "Limit number of articles shown on home page."
+msgstr ""
+
+#: admin/configure.php:98
+msgid "Search Page Limit"
+msgstr ""
+
+#: admin/configure.php:102
+msgid "Limit number of articles shown on search page."
+msgstr ""
+
+#: admin/configure.php:106
+msgid "Popular Articles Limit"
+msgstr ""
+
+#: admin/configure.php:110
+msgid "Limit number of articles shown in Popular Articles section."
+msgstr ""
+
+#: admin/configure.php:115
+msgid "Require Article Validation"
+msgstr ""
+
+#: admin/configure.php:118
+msgid ""
+"When enabled, each article must be validated by admin first. These articles "
+"will have status private by default."
+msgstr ""
+
+#: admin/configure.php:122
+msgid "Redirect Article to Canonical URL"
+msgstr ""
+
+#: admin/configure.php:125
+msgid ""
+"When enabled, plugin will always redirect article to canonical version of "
+"URL, if not matching. Test well before using!"
+msgstr ""
+
+#: admin/configure.php:129
+msgid "Enable Share Buttons"
+msgstr ""
+
+#: admin/configure.php:132
+msgid ""
+"When enabled, share buttons are added at bottom of article page (above "
+"comments section)."
+msgstr ""
+
+#: admin/configure.php:136
+msgid "Enable Comments"
+msgstr ""
+
+#: admin/configure.php:139
+msgid "When enabled, comments can be added on articles."
+msgstr ""
+
+#: admin/configure.php:143
+msgid "Require Comments Validation"
+msgstr ""
+
+#: admin/configure.php:146
+msgid ""
+"When enabled, each comment must be validated by admin before it is shown in "
+"blog."
+msgstr ""
+
+#: admin/configure.php:150
+msgid "Premium Groups"
+msgstr ""
+
+#: admin/configure.php:155
+msgid "No groups in Osclass Pay Plugin"
+msgstr ""
+
+#: admin/configure.php:163
+msgid ""
+"Select user groups from Osclass Pay Plugin that are allowed to see premium "
+"content."
+msgstr ""
+
+#: admin/configure.php:167
+msgid "Sanitize URL strings"
+msgstr ""
+
+#: admin/configure.php:171
+msgid ""
+"When enabled, plugin will try to sanitize text in URLs. Otherwise only "
+"Osclass built-in sanitization (or none) is used."
+msgstr ""
+
+#: admin/configure.php:172
+msgid ""
+"Try to disable when using with non-latin characters (Cyrillic, Greek, ..."
+msgstr ""
+
+#: admin/configure.php:177
+msgid "Widget settings"
+msgstr ""
+
+#: admin/configure.php:180
+msgid "Enable Widget"
+msgstr ""
+
+#: admin/configure.php:183
+msgid "When enabled, widget will be shown in front."
+msgstr ""
+
+#: admin/configure.php:187
+msgid "Widget Type"
+msgstr ""
+
+#: admin/configure.php:189
+msgid "Grid"
+msgstr ""
+
+#: admin/configure.php:190
+msgid "List"
+msgstr ""
+
+#: admin/configure.php:193
+msgid ""
+"Select type of widget. Grid - for large width space (home page). List - for "
+"small width space (side bar)."
+msgstr ""
+
+#: admin/configure.php:197
+msgid "Widget Limit"
+msgstr ""
+
+#: admin/configure.php:201
+msgid "Limit number of articles in widget of type list."
+msgstr ""
+
+#: admin/configure.php:205
+msgid "Widget Category"
+msgstr ""
+
+#: admin/configure.php:210 admin/user.php:246
+msgid "All categories"
+msgstr ""
+
+#: admin/configure.php:219
+msgid "Select category from that will be article shown in widget."
+msgstr ""
+
+#: admin/configure.php:228
+msgid "Sitemap"
+msgstr ""
+
+#: admin/configure.php:229
+msgid "Regenerate sitemap now"
+msgstr ""
+
+#: admin/configure.php:231
+msgid "Sitemap is regenerated automatically via cron daily."
+msgstr ""
+
+#: admin/configure.php:249
+msgid "Plugin Setup"
+msgstr ""
+
+#: admin/configure.php:252
+msgid ""
+"No theme modification are required to use all functions of plugin, it is "
+"required only to show link/button to your blog"
+msgstr ""
+
+#: admin/configure.php:254
+msgid "Button"
+msgstr ""
+
+#: admin/configure.php:259
+msgid "Raw link"
+msgstr ""
+
+#: admin/configure.php:264
+msgid "Widget"
+msgstr ""
+
+#: admin/configure.php:268
+msgid "Link to your blog home page is:"
+msgstr ""
+
+#: admin/list.php:3
+msgid "Blog Posts"
+msgstr ""
+
+#: admin/list.php:20
+msgid "Post removed successfully"
+msgstr ""
+
+#: admin/list.php:65 helpers.php:121
+msgid "New post"
+msgstr ""
+
+#: admin/list.php:67
+#, php-format
+msgid "%d comment(s) on post."
+msgstr ""
+
+#: admin/list.php:67
+msgid "Click to show these comments."
+msgstr ""
+
+#: admin/list.php:79
+msgid "Delete post"
+msgstr ""
+
+#: admin/list.php:79
+msgid "Are you sure you want to remove this post? Action cannot be undone"
+msgstr ""
+
+#: admin/list.php:80
+msgid "Edit in new window"
+msgstr ""
+
+#: admin/list.php:82
+msgid "You cannot remove article, it is demo site"
+msgstr ""
+
+#: admin/list.php:83
+msgid "You cannot edit article, it is demo site"
+msgstr ""
+
+#: admin/list.php:86
+msgid "Open in front"
+msgstr ""
+
+#: admin/list.php:98
+msgid "No blog posts with selected status found"
+msgstr ""
+
+#: admin/list.php:100
+msgid "You have not created any blog post in this category yet"
+msgstr ""
+
+#: admin/list.php:102
+msgid "This author hasn't created any blog posts yet"
+msgstr ""
+
+#: admin/list.php:104
+msgid "You have not created any blog post yet"
+msgstr ""
+
+#: admin/list.php:109
+msgid "Add new post"
+msgstr ""
+
+#: admin/user.php:4
+msgid "Blog users"
+msgstr ""
+
+#: admin/user.php:38
+msgid "extension not allowed, only allowed extension are jpg, png or gif!"
+msgstr ""
+
+#: admin/user.php:67
+msgid "User successfully updated"
+msgstr ""
+
+#: admin/user.php:83
+msgid "User removed successfully"
+msgstr ""
+
+#: admin/user.php:101
+msgid "Add/edit user"
+msgstr ""
+
+#: admin/user.php:113
+msgid "Registration Date"
+msgstr ""
+
+#: admin/user.php:116
+msgid "Date when user started to be active on blog."
+msgstr ""
+
+#: admin/user.php:123
+msgid "Name will be shown on all blogs this user will create."
+msgstr ""
+
+#: admin/user.php:127 admin/user.php:223
+msgid "Skills"
+msgstr ""
+
+#: admin/user.php:130
+msgid "User's best skills. Example: PHP, HTML, CSS"
+msgstr ""
+
+#: admin/user.php:134 admin/user.php:222
+msgid "About"
+msgstr ""
+
+#: admin/user.php:141
+msgid "Profile Picture"
+msgstr ""
+
+#: admin/user.php:162
+msgid "Allowed Categories"
+msgstr ""
+
+#: admin/user.php:171
+msgid "No blog categories created"
+msgstr ""
+
+#: admin/user.php:175
+msgid "If not category selected, advert is shown in all categories."
+msgstr ""
+
+#: admin/user.php:180
+msgid "Osclass User Profile"
+msgstr ""
+
+#: admin/user.php:215
+msgid "List of users that are eligible to create blog posts."
+msgstr ""
+
+#: admin/user.php:224 form/sidebar.php:93 index.php:160 index.php:196
+msgid "Categories"
+msgstr ""
+
+#: admin/user.php:225 form/sidebar.php:66
+msgid "Posts"
+msgstr ""
+
+#: admin/user.php:232
+msgid "No blog users has been found"
+msgstr ""
+
+#: admin/user.php:245
+msgid "All categories enabled"
+msgstr ""
+
+#: admin/user.php:260
+msgid "1 category"
+msgstr ""
+
+#: admin/user.php:262
+#, php-format
+msgid "%d categories"
+msgstr ""
+
+#: admin/user.php:284
+msgid "Are you sure you want to remove this user? Action cannot be undone"
+msgstr ""
+
+#: admin/user.php:292
+msgid "Add new user"
+msgstr ""
+
+#: form/action.php:32
+msgid "Error - it was not possible to identify article ID"
+msgstr ""
+
+#: form/action.php:38
+msgid "Error - comments are not enabled"
+msgstr ""
+
+#: form/action.php:44
+msgid "In order to add new comment you must be logged in"
+msgstr ""
+
+#: form/action.php:60
+msgid ""
+"Comment successfully added, it will be visible once our team validate it."
+msgstr ""
+
+#: form/action.php:62
+msgid "Comment successfully added and visible on article."
+msgstr ""
+
+#: form/action.php:118
+msgid ""
+"extension not allowed, only allowed extension are jpg, jpeg, png, webp or "
+"gif!"
+msgstr ""
+
+#: form/action.php:136
+msgid "Article successfully published."
+msgstr ""
+
+#: form/action.php:138
+msgid "Article successfully udpated."
+msgstr ""
+
+#: form/action.php:142
+msgid "It will be visible once it is validated by admin."
+msgstr ""
+
+#: form/article.php:6
+msgid "Article does not exists"
+msgstr ""
+
+#: form/article.php:48
+#, php-format
+msgid "%d views"
+msgstr ""
+
+#: form/article.php:82 index.php:161 index.php:197
+msgid "Comments"
+msgstr ""
+
+#: form/article.php:109
+msgid "Anonymous"
+msgstr ""
+
+#: form/article.php:136
+msgid "on"
+msgstr ""
+
+#: form/article.php:145
+msgid "No comments has been added on this post"
+msgstr ""
+
+#: form/article.php:153
+msgid "You must be logged in to add new comment"
+msgstr ""
+
+#: form/article.php:153
+msgid "Log in"
+msgstr ""
+
+#: form/article.php:160
+msgid "Your name"
+msgstr ""
+
+#: form/article.php:169 form/publish.php:148 form/publish.php:150
+msgid "Submit"
+msgstr ""
+
+#: form/author.php:18
+#, php-format
+msgid "%s's articles"
+msgstr ""
+
+#: form/author.php:40
+msgid "There are no articles from this author"
+msgstr ""
+
+#: form/category.php:44
+msgid "There are no articles in this category"
+msgstr ""
+
+#: form/home.php:29 form/widget.php:35
+msgid "There are no articles yet"
+msgstr ""
+
+#: form/premium.php:8
+msgid ""
+"Read full article now without restriction, become our premium member and get "
+"access to full content on this blog"
+msgstr ""
+
+#: form/premium.php:11
+msgid ""
+"You need to be member of one of following user groups to be able to see full "
+"content."
+msgstr ""
+
+#: form/premium.php:22
+msgid "Become a premium member"
+msgstr ""
+
+#: form/publish.php:9
+msgid "Error - you are not allowed to create new article"
+msgstr ""
+
+#: form/publish.php:53 form/sidebar.php:33
+msgid "Edit article"
+msgstr ""
+
+#: form/publish.php:53 form/sidebar.php:41
+msgid "Add new article"
+msgstr ""
+
+#: form/publish.php:150
+msgid "You cannot do this, it is demo site"
+msgstr ""
+
+#: form/search.php:16
+#, php-format
+msgid "Search results for <u>%s</u>"
+msgstr ""
+
+#: form/search.php:40
+msgid "There are no articles matching your search criteria"
+msgstr ""
+
+#: form/sidebar.php:71
+msgid "Registered"
+msgstr ""
+
+#: form/sidebar.php:83
+msgid "Search on blog"
+msgstr ""
+
+#: form/sidebar.php:87
+msgid "Search"
+msgstr ""
+
+#: form/sidebar.php:111
+msgid "Most popular"
+msgstr ""
+
+#: form/sidebar.php:130
+msgid "Blog authors"
+msgstr ""
+
+#: form/sidebar.php:140
+msgid "1 article"
+msgstr ""
+
+#: form/sidebar.php:140
+#, php-format
+msgid "%d articles"
+msgstr ""
+
+#: form/sidebar.php:152
+msgid "Lately commented"
+msgstr ""
+
+#: form/widget.php:16
+msgid "Latest on blog"
+msgstr ""
+
+#: functions.php:8 functions.php:13 functions.php:17 functions.php:21
+#, php-format
+msgid "Directory \"%s\" was not created"
+msgstr ""
+
+#: functions.php:75
+msgid "Share on WhatsApp"
+msgstr ""
+
+#: functions.php:76
+msgid "Share on Facebook"
+msgstr ""
+
+#: functions.php:77
+msgid "Share on Twitter"
+msgstr ""
+
+#: functions.php:78
+msgid "Share on Pinterest"
+msgstr ""
+
+#: functions.php:88 functions.php:439 helpers.php:10
+msgid "Blog"
+msgstr ""
+
+#: functions.php:134
+msgid "You can define your own banner code from plugin settings"
+msgstr ""
+
+#: functions.php:171
+msgid "Banner space"
+msgstr ""
+
+#: functions.php:192
+msgid "Home Top"
+msgstr ""
+
+#: functions.php:192
+msgid "Top of blog home page"
+msgstr ""
+
+#: functions.php:193
+msgid "Home Bottom"
+msgstr ""
+
+#: functions.php:193
+msgid "Bottom of blog home page"
+msgstr ""
+
+#: functions.php:194
+msgid "Sidebar Top"
+msgstr ""
+
+#: functions.php:194
+msgid "Top of blog sidebar"
+msgstr ""
+
+#: functions.php:195
+msgid "Sidebar Middle"
+msgstr ""
+
+#: functions.php:195
+msgid "Middle of blog sidebar"
+msgstr ""
+
+#: functions.php:196
+msgid "Sidebar Bottom"
+msgstr ""
+
+#: functions.php:196
+msgid "Bottom of blog sidebar"
+msgstr ""
+
+#: functions.php:197
+msgid "Search Top"
+msgstr ""
+
+#: functions.php:197
+msgid "Top of blog search page"
+msgstr ""
+
+#: functions.php:198
+msgid "Search Middle"
+msgstr ""
+
+#: functions.php:198
+msgid "Middle of blog search page"
+msgstr ""
+
+#: functions.php:199
+msgid "Search Bottom"
+msgstr ""
+
+#: functions.php:199
+msgid "Bottom of blog search page"
+msgstr ""
+
+#: functions.php:200
+msgid "Article Top"
+msgstr ""
+
+#: functions.php:200
+msgid "Top of blog article page"
+msgstr ""
+
+#: functions.php:201
+msgid "Article SubTop"
+msgstr ""
+
+#: functions.php:201
+msgid "Top of blog article page below subtitle"
+msgstr ""
+
+#: functions.php:202
+msgid "Article Middle"
+msgstr ""
+
+#: functions.php:202
+msgid "Middle of blog article page"
+msgstr ""
+
+#: functions.php:203
+msgid "Article Bottom"
+msgstr ""
+
+#: functions.php:203
+msgid "Bottom of blog article page"
+msgstr ""
+
+#: functions.php:314
+msgid "Page:"
+msgstr ""
+
+#: functions.php:435 functions.php:501
+msgid "Page"
+msgstr ""
+
+#: functions.php:442
+msgid "Publish on blog"
+msgstr ""
+
+#: functions.php:445
+msgid "Edit blog article"
+msgstr ""
+
+#: functions.php:448
+#, php-format
+msgid "Search results for %s"
+msgstr ""
+
+#: functions.php:452
+#, php-format
+msgid "%s blog"
+msgstr ""
+
+#: functions.php:456 helpers.php:31
+#, php-format
+msgid "%s's blog"
+msgstr ""
+
+#: functions.php:477
+msgid ""
+"Welcome to our blog, we believe you will find a lot of helpful articles here."
+msgstr ""
+
+#: functions.php:667
+msgid "Post is visible to it's author only"
+msgstr ""
+
+#: functions.php:669
+msgid "Post is visible to anyone"
+msgstr ""
+
+#: functions.php:671
+msgid "Post is visible to premium users only (member of group)"
+msgstr ""
+
+#: functions.php:673
+msgid "Post is not visible to anyone"
+msgstr ""
+
+#: functions.php:673
+msgid "Unknown"
+msgstr ""
+
+#: functions.php:764
+msgid "Blog comment"
+msgstr ""
+
+#: functions.php:764
+msgid "Blog comments"
+msgstr ""
+
+#: functions.php:787
+msgid "Blog article"
+msgstr ""
+
+#: functions.php:787
+msgid "Blog articles"
+msgstr ""
+
+#: helpers.php:72
+msgid "New category"
+msgstr ""
+
+#: helpers.php:165
+msgid "post"
+msgstr ""
+
+#: index.php:116
+#, php-format
+msgid ""
+"Blog Plugin database structure has been updated on background into db "
+"version %s."
+msgstr ""
+
+#: index.php:121
+#, php-format
+msgid ""
+"Force update of \"%s\" completed! Verify plugin functionality, in case of "
+"problems reinstall plugin."
+msgstr ""
+
+#: index.php:121 model/ModelBLG.php:86
+msgid "Blog Plugin"
+msgstr ""
+
+#: index.php:157 index.php:193
+msgid "Articles"
+msgstr ""
+
+#: index.php:158 index.php:194
+msgid "Add Article"
+msgstr ""
+
+#: index.php:159 index.php:195
+msgid "Users"
+msgstr ""
+
+#: index.php:177
+msgid "Report Bug"
+msgstr ""
+
+#: index.php:178
+msgid "Support Forums"
+msgstr ""
+
+#: index.php:179
+msgid "Contact Us"
+msgstr ""
+
+#: model/ModelBLG.php:86
+#, php-format
+msgid ""
+"Update of plugin \"%s\" failed on DB version \"%s\". Please enable %s to see "
+"error details. Failed query is listed below."
+msgstr ""
+
+#: model/ModelBLG.php:86
+msgid "DB debug mode"
+msgstr ""
+
+#: model/ModelBLG.php:88
+msgid "Ignore error and force plugin update"
+msgstr ""
+
+#: model/ModelBLG.php:89
+msgid ""
+"Never force update plugin until you are sure that your database structure "
+"match to model/struct.sql file! It may lead to unexpected plugin "
+"functionality. Try to reinstall plugin."
+msgstr ""

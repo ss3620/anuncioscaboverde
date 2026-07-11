@@ -1,0 +1,265 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Car Attributes Plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-11-26 07:52+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Juan Ramón <juanramon@osclass.org>\n"
+"Language-Team: OsclassPoint.com\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Generator: Poedit 2.4.1\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/conf.php:88
+msgid "Makes"
+msgstr ""
+
+#: admin/conf.php:101 admin/conf.php:103 admin/conf.php:166 admin/conf.php:168
+#: admin/conf.php:240
+msgid "Delete"
+msgstr ""
+
+#: admin/conf.php:108 admin/conf.php:176 admin/conf.php:246
+msgid "Edit"
+msgstr ""
+
+#: admin/conf.php:114
+msgid "Add new make"
+msgstr ""
+
+#: admin/conf.php:122 admin/conf.php:193 admin/conf.php:279
+msgid "Add new"
+msgstr ""
+
+#: admin/conf.php:137
+msgid "Models"
+msgstr ""
+
+#: admin/conf.php:147 item_edit.php:44 search_form.php:50
+msgid "Select a make"
+msgstr ""
+
+#: admin/conf.php:182
+msgid "Add new model"
+msgstr ""
+
+#: admin/conf.php:208
+msgid "Vehicle types"
+msgstr ""
+
+#: admin/conf.php:256
+msgid "Add new car type"
+msgstr ""
+
+#: admin/conf.php:294
+msgid "Warning"
+msgstr ""
+
+#: admin/conf.php:296
+msgid ""
+"Deleting makes or models may end in errors. Some of those makes/models could "
+"be attached to some actual items"
+msgstr ""
+
+#: index.php:195 index.php:202
+msgid "Configure plugin"
+msgstr ""
+
+#: index.php:196 index.php:203
+msgid "Manage makes"
+msgstr ""
+
+#: index.php:197 index.php:204
+msgid "Manage models"
+msgstr ""
+
+#: index.php:198 index.php:205
+msgid "Manage vehicle types"
+msgstr ""
+
+#: index.php:201
+msgid "Cars plugin"
+msgstr ""
+
+#: item_detail.php:1 item_edit.php:34
+msgid "Car details"
+msgstr ""
+
+#: item_detail.php:5 item_edit.php:42 search_form.php:48
+msgid "Make"
+msgstr ""
+
+#: item_detail.php:11 item_edit.php:56 search_form.php:57
+msgid "Model"
+msgstr ""
+
+#: item_detail.php:18 item_edit.php:72 item_edit.php:86 search_form.php:66
+msgid "Car type"
+msgstr ""
+
+#: item_detail.php:24 item_edit.php:105
+msgid "Year"
+msgstr ""
+
+#: item_detail.php:30 item_edit.php:114
+msgid "Doors"
+msgstr ""
+
+#: item_detail.php:36 item_edit.php:128
+msgid "Seats"
+msgstr ""
+
+#: item_detail.php:42 item_edit.php:142
+msgid "Mileage"
+msgstr ""
+
+#: item_detail.php:48 item_edit.php:151
+msgid "Engine size (cc)"
+msgstr ""
+
+#: item_detail.php:54 item_edit.php:160
+msgid "Num. Airbags"
+msgstr ""
+
+#: item_detail.php:60 item_edit.php:176 search_form.php:77
+msgid "Manual"
+msgstr ""
+
+#: item_detail.php:60 item_edit.php:177
+msgid "Auto"
+msgstr ""
+
+#: item_detail.php:61 item_edit.php:174 search_form.php:76
+msgid "Transmission"
+msgstr ""
+
+#: item_detail.php:67 item_edit.php:188
+msgid "Diesel"
+msgstr ""
+
+#: item_detail.php:68 item_edit.php:189
+msgid "Gasoline"
+msgstr ""
+
+#: item_detail.php:69 item_edit.php:190
+msgid "Electric-hibrid"
+msgstr ""
+
+#: item_detail.php:70 item_edit.php:191
+msgid "Other"
+msgstr ""
+
+#: item_detail.php:72 item_edit.php:186
+msgid "Fuel"
+msgstr ""
+
+#: item_detail.php:78 item_edit.php:202
+msgid "Dealer"
+msgstr ""
+
+#: item_detail.php:78 item_edit.php:203
+msgid "Owner"
+msgstr ""
+
+#: item_detail.php:79 item_edit.php:200
+msgid "Seller"
+msgstr ""
+
+#: item_detail.php:84 item_edit.php:212
+msgid "Warranty"
+msgstr ""
+
+#: item_detail.php:85 item_detail.php:89
+msgid "Yes"
+msgstr ""
+
+#: item_detail.php:85 item_detail.php:89
+msgid "No"
+msgstr ""
+
+#: item_detail.php:88 item_edit.php:220
+msgid "New"
+msgstr ""
+
+#: item_detail.php:93 item_edit.php:231
+msgid "Power"
+msgstr ""
+
+#: item_detail.php:99 item_edit.php:249
+msgid "Gears"
+msgstr ""
+
+#: item_edit.php:16 item_edit.php:27 item_edit.php:58 search_form.php:16
+#: search_form.php:59
+msgid "Select a model"
+msgstr ""
+
+#: item_edit.php:21 search_form.php:21
+msgid "No results"
+msgstr ""
+
+#: item_edit.php:74 item_edit.php:88 search_form.php:68
+msgid "Select a car type"
+msgstr ""
+
+#: item_edit.php:116
+msgid "Select num. of doors"
+msgstr ""
+
+#: item_edit.php:130
+msgid "Select num. of seats"
+msgstr ""
+
+#: item_edit.php:162
+msgid "Select num. of airbags"
+msgstr ""
+
+#: item_edit.php:234
+msgid "Kw"
+msgstr ""
+
+#: item_edit.php:235
+msgid "Cv"
+msgstr ""
+
+#: item_edit.php:236
+msgid "Ch"
+msgstr ""
+
+#: item_edit.php:237
+msgid "Km"
+msgstr ""
+
+#: item_edit.php:238
+msgid "Hp"
+msgstr ""
+
+#: item_edit.php:239
+msgid "Ps"
+msgstr ""
+
+#: item_edit.php:240
+msgid "Pk"
+msgstr ""
+
+#: item_edit.php:241
+msgid "Cp"
+msgstr ""
+
+#: item_edit.php:251
+msgid "Select num. of gears"
+msgstr ""
+
+#: search_form.php:46
+msgid "Cars attributes"
+msgstr ""
+
+#: search_form.php:78
+msgid "Automatic"
+msgstr ""

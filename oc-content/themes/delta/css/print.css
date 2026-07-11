@@ -1,0 +1,10 @@
+body {background:#fff;padding:5px;min-width:1080px;}
+header, footer, #bread, .item-bx-pager, .bx-controls, #piracy, #pick-color, #listing .related, #listing .data .connect-pre a.open-form, #listing .data .connect, #listing .data .connect-after,
+.flash-box, .banner-theme, #listing .data .item-share, .main-head, .main-data > .loc a.direction, .mobile-item, #listing .item .item-prem-lab, #listing .side .btn, #listing .side a.dir, .ftr-block,
+#listing .data .connect-pre .row.mob i, #scroll-to-top, #listing .data .lab.box-user, #rel-block, .pre-basic .fi_save_favorite, #mmenu,#comment a.new-comment,
+.sold-by .sright .btn.contact, .itm-links, .ftr-block, #showcase-box, #listing .item .data .fi_save_favorite, #listing .wbox#contact {display:none!important;}
+
+.pre-basic > .qr-code {position:relative;top:auto;left:auto;right:auto;margin:0 0 20px 0;width:100%;float:left;}
+.pre-basic > .qr-code img {position:relative;width:96px;height:96px;}
+
+
