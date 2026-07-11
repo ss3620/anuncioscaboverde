@@ -6,7 +6,7 @@ A modern, intuitive **Favorites** plugin for Osclass 8.x that lets your visitors
 
 - **One-click favoriting** on every item detail page and on search-result cards (mini heart on the top-right corner).
 - **"My Favorites" page** for logged-in users at `/user/favorites` — with cover image, title, price, "saved on" date, direct view link, and quick-remove.
-- **"Most favorited listings" home-page section** — a responsive 4-column Delta-theme-compatible grid that surfaces community-loved listings on the home page. Auto-injected on the home page; theme authors can also place it explicitly via `<?php osc_run_hook('favorite_items_home_widget'); ?>`.
+- **"Most favorited listings" home-page section** — Delta theme renders this natively when `fi_most_favorited_items` is available (see `delta-compat.php`). On other themes the section can be injected via footer / `<?php osc_run_hook('favorite_items_home_widget'); ?>`.
 - **User-menu badge** with a live count of the user's saved items.
 - **Admin dashboard** with global stats (total favorites, unique users, unique items), top-favorited listings and top users.
 - **Configurable UI** from the admin panel:

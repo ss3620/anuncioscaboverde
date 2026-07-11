@@ -3,7 +3,7 @@
 Plugin Name: Favorite Items
 Plugin URI: https://github.com/emergent/osclass-favorite-items
 Description: Allows registered users to favorite listings they like, get a better overview and see them any time they return to your classifieds. Includes a "My Favorites" page for users and an admin dashboard with statistics.
-Version: 1.1.1
+Version: 1.1.2
 Author: Emergent Labs
 Author URI: https://emergent.sh
 Short Name: favorite_items
@@ -17,12 +17,13 @@ if (!defined('ABS_PATH')) {
 /* ------------------------------------------------------------------
  * CONSTANTS
  * ------------------------------------------------------------------ */
-define('FAVORITE_ITEMS_VERSION', '1.1.1');
+define('FAVORITE_ITEMS_VERSION', '1.1.2');
 define('FAVORITE_ITEMS_PATH', osc_plugins_path() . 'favorite_items/');
 define('FAVORITE_ITEMS_URL',  osc_plugins_url()  . 'favorite_items/');
 define('FAVORITE_ITEMS_FOLDER', 'favorite_items/');
 
 require_once FAVORITE_ITEMS_PATH . 'ModelFavorites.php';
+require_once FAVORITE_ITEMS_PATH . 'delta-compat.php';
 
 /* ------------------------------------------------------------------
  * INSTALL / UNINSTALL
@@ -161,6 +162,10 @@ osc_add_hook('header', 'favorite_items_inject_globals', 20);
 // Show the favorite button on item detail page
 function favorite_items_item_detail_button()
 {
+    // Delta already renders via del_make_favorite() -> fi_save_favorite()
+    if (function_exists('del_make_favorite')) {
+        return;
+    }
     $item = osc_item();
     if (!$item || empty($item['pk_i_id'])) return;
     include FAVORITE_ITEMS_PATH . 'views/favorite-button.php';
@@ -170,6 +175,10 @@ osc_add_hook('item_detail', 'favorite_items_item_detail_button');
 // Show a small heart on the item listing (search results)
 function favorite_items_search_item_button()
 {
+    // Delta cards already call del_make_favorite() / fi_save_favorite()
+    if (function_exists('del_make_favorite')) {
+        return;
+    }
     $item = osc_item();
     if (!$item || empty($item['pk_i_id'])) return;
     $count = ModelFavorites::newInstance()->countByItem((int) $item['pk_i_id']);
@@ -219,6 +228,12 @@ function favorite_items_render_home_widget()
     if (!function_exists('osc_is_home_page') || !osc_is_home_page()) return;
     if (!osc_get_preference('home_widget_enabled', 'favorite_items')) return;
 
+    // Delta already renders the native "Most favorited" block via main.php when
+    // fi_most_favorited_items() exists — skip footer inject to avoid duplicates.
+    if (function_exists('del_draw_item') && function_exists('del_param') && del_param('favorite_home') == 1) {
+        return;
+    }
+
     $limit = (int) (osc_get_preference('home_widget_limit', 'favorite_items') ?: 8);
     $minFav = (int) (osc_get_preference('home_widget_min_favorites', 'favorite_items') ?: 1);
     $items = ModelFavorites::newInstance()->topFavoritedItemsFull($limit);
@@ -238,9 +253,7 @@ function favorite_items_render_home_widget()
 
     include FAVORITE_ITEMS_PATH . 'views/home-widget.php';
 }
-// Delta theme (like most Osclass themes) fires `footer` on every page but not a home-only hook.
-// We render on `footer` and use `osc_is_home_page()` for gating; a tiny JS relocator
-// (in favorite.js) then moves the block into the correct position inside Delta's layout.
+// Fallback for non-Delta themes: inject via footer + JS relocator.
 osc_add_hook('footer', 'favorite_items_render_home_widget', 5);
 
 // A dedicated hook so theme authors can drop

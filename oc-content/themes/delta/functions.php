@@ -3146,13 +3146,17 @@ function del_count_favorite($user_id = NULL) {
     $user_id = osc_logged_user_id();
     
   } else if(function_exists('fi_save_favorite')) {
-    $user_id = mb_get_cookie('fi_user_id');
+    $user_id = function_exists('mb_get_cookie') ? mb_get_cookie('fi_user_id') : 0;
   }
 
 
   if($user_id > 0) {
     if(function_exists('svi_save_btn')) {
       return svi_count_user_items($user_id);
+
+    // Custom Favorite Items plugin
+    } else if(class_exists('ModelFavorites')) {
+      return (int) ModelFavorites::newInstance()->countByUser((int) $user_id);
       
     } else if(class_exists('ModelFI')) {
       $db_prefix = DB_TABLE_PREFIX;

@@ -197,23 +197,40 @@
     <?php
       $limit = (del_param('favorite_count') > 0 ? del_param('favorite_count') : 8);
 
-
-      // SEARCH ITEMS IN LIST AND CREATE ITEM ARRAY
-      $aSearch = new Search();
-      $aSearch->addField(sprintf('count(%st_item.pk_i_id) as count_id', DB_TABLE_PREFIX) );
-      $aSearch->addConditions(sprintf("%st_favorite_list.list_id = %st_favorite_items.list_id", DB_TABLE_PREFIX, DB_TABLE_PREFIX));
-      $aSearch->addConditions(sprintf("%st_favorite_items.item_id = %st_item.pk_i_id", DB_TABLE_PREFIX, DB_TABLE_PREFIX));
-      $aSearch->addConditions(sprintf("%st_favorite_list.user_id <> coalesce(%st_item.fk_i_user_id, 0)", DB_TABLE_PREFIX, DB_TABLE_PREFIX));
-      $aSearch->addTable(sprintf("%st_favorite_items", DB_TABLE_PREFIX));
-      $aSearch->addTable(sprintf("%st_favorite_list", DB_TABLE_PREFIX));
-      $aSearch->addGroupBy(DB_TABLE_PREFIX.'t_item.pk_i_id');
-      $aSearch->order('count(*)', 'DESC');
-      $aSearch->limit(0, $limit);
-      $list_items = $aSearch->doSearch();
-
       // EXPORT FAVORITE ITEMS TO VARIABLE
       GLOBAL $fi_global_items2;
-      $fi_global_items2 = View::newInstance()->_get('items'); 
+      $fi_global_items2 = View::newInstance()->_get('items');
+
+      // Custom Favorite Items plugin (t_item_favorite) — preferred when present
+      if (class_exists('ModelFavorites')) {
+        $top_rows = ModelFavorites::newInstance()->topFavoritedItemsFull($limit);
+        $list_items = array();
+        if (is_array($top_rows)) {
+          foreach ($top_rows as $row) {
+            if (empty($row['pk_i_id'])) {
+              continue;
+            }
+            $full = Item::newInstance()->findByPrimaryKey((int) $row['pk_i_id']);
+            if ($full) {
+              $list_items[] = $full;
+            }
+          }
+        }
+      } else {
+        // Official MB Themes Favorite Items plugin tables
+        $aSearch = new Search();
+        $aSearch->addField(sprintf('count(%st_item.pk_i_id) as count_id', DB_TABLE_PREFIX) );
+        $aSearch->addConditions(sprintf("%st_favorite_list.list_id = %st_favorite_items.list_id", DB_TABLE_PREFIX, DB_TABLE_PREFIX));
+        $aSearch->addConditions(sprintf("%st_favorite_items.item_id = %st_item.pk_i_id", DB_TABLE_PREFIX, DB_TABLE_PREFIX));
+        $aSearch->addConditions(sprintf("%st_favorite_list.user_id <> coalesce(%st_item.fk_i_user_id, 0)", DB_TABLE_PREFIX, DB_TABLE_PREFIX));
+        $aSearch->addTable(sprintf("%st_favorite_items", DB_TABLE_PREFIX));
+        $aSearch->addTable(sprintf("%st_favorite_list", DB_TABLE_PREFIX));
+        $aSearch->addGroupBy(DB_TABLE_PREFIX.'t_item.pk_i_id');
+        $aSearch->order('count(*)', 'DESC');
+        $aSearch->limit(0, $limit);
+        $list_items = $aSearch->doSearch();
+      }
+
       View::newInstance()->_exportVariableToView('items', $list_items);
     ?>
 

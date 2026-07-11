@@ -273,7 +273,7 @@
       </a>
       
     <?php } else if(function_exists('fi_make_favorite')) { ?>
-      <a href="<?php echo osc_route_url('favorite-lists'); ?>" class="l4 <?php if(osc_get_osclass_location() == 'fi') { ?>active<?php } ?>">
+      <a href="<?php echo osc_route_url('favorite-lists'); ?>" class="l4 <?php if(Params::getParam('route') == 'favorite-lists' || Params::getParam('route') == 'favorite-items-user-favorites' || osc_get_osclass_location() == 'fi') { ?>active<?php } ?>">
         <i class="far fa-heart"></i>
         <span><?php _e('Favorite', 'delta'); ?></span>
       </a>

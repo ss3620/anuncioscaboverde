@@ -414,3 +414,43 @@
 @media (min-width: 576px) { .fi-home-widget .col-sm-6 { flex: 0 0 50%;  max-width: 50%; } }
 @media (min-width: 768px) { .fi-home-widget .col-md-4 { flex: 0 0 33.3333%; max-width: 33.3333%; } }
 @media (min-width: 992px) { .fi-home-widget .col-lg-3 { flex: 0 0 25%; max-width: 25%; } }
+
+/* -----------------------------------------------------------
+   Delta theme listing cards — match official FI heart placement
+   ----------------------------------------------------------- */
+.products .simple-prod .favorite,
+.products .simple-prod .favorite-items-wrap,
+.white .simple-prod .favorite,
+.white .simple-prod .favorite-items-wrap {
+    margin: 0;
+    position: absolute;
+    left: auto;
+    right: 10px;
+    top: 10px;
+    z-index: 9;
+    display: block;
+}
+.products .simple-prod .favorite-items-btn.fi_save_favorite,
+.white .simple-prod .favorite-items-btn.fi_save_favorite {
+    padding: 2px;
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    border-radius: 100px;
+    border: none;
+    background: rgba(255,255,255,0.25);
+    gap: 0;
+    justify-content: center;
+    --fi-size: 18px;
+}
+.products .simple-prod .favorite-items-btn.fi_save_favorite .favorite-items-label,
+.products .simple-prod .favorite-items-btn.fi_save_favorite .favorite-items-count,
+.white .simple-prod .favorite-items-btn.fi_save_favorite .favorite-items-label,
+.white .simple-prod .favorite-items-btn.fi_save_favorite .favorite-items-count {
+    display: none;
+}
+.products .simple-prod .favorite-items-btn.fi_save_favorite.is-active,
+.white .simple-prod .favorite-items-btn.fi_save_favorite.is-active {
+    background: rgba(255,255,255,0.9);
+    box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.35);
+}

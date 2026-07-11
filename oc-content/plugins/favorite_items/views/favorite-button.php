@@ -17,10 +17,12 @@ $iconColor = osc_get_preference('icon_color', 'favorite_items') ?: '#e11d48';
 $labelAdd  = osc_get_preference('button_label', 'favorite_items') ?: 'Add to favorites';
 $labelOn   = osc_get_preference('button_label_active', 'favorite_items') ?: 'Saved';
 $showCount = (bool) osc_get_preference('show_count', 'favorite_items');
+// Delta theme CSS targets .fi_save_favorite / .is_favorite on listing cards
+$deltaClasses = 'fi_save_favorite' . ($isFav ? ' is_favorite' : '');
 ?>
 <div class="favorite-items-wrap" style="--fi-color: <?php echo osc_esc_html($iconColor); ?>; --fi-size: <?php echo (int) $iconSize; ?>px;">
     <button type="button"
-            class="favorite-items-btn <?php echo $isFav ? 'is-active' : ''; ?>"
+            class="favorite-items-btn <?php echo $deltaClasses; ?> <?php echo $isFav ? 'is-active' : ''; ?>"
             data-testid="favorite-toggle-btn"
             data-item-id="<?php echo $itemId; ?>">
         <span class="favorite-items-icon favorite-items-icon--<?php echo osc_esc_html($icon); ?>" aria-hidden="true"></span>

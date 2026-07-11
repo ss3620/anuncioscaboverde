@@ -24,6 +24,7 @@
 
     function updateButton($btn, favorited, itemCount, labels) {
         $btn.toggleClass('is-active', favorited);
+        $btn.toggleClass('is_favorite', favorited);
         $btn.addClass('just-toggled');
         setTimeout(function () { $btn.removeClass('just-toggled'); }, 500);
 
@@ -140,7 +141,11 @@
         // Preferred insertion points in Delta / common Osclass themes.
         // The first selector that returns a match wins.
         var candidates = [
-            // Delta 8.x — "Latest listings" section
+            // Delta theme (current)
+            '.home-container.latest',
+            '#latest',
+            '.home-container.premium',
+            // Older / alternate Delta selectors
             'section.latest-items',
             '#latestItems',
             '.premium-content',
