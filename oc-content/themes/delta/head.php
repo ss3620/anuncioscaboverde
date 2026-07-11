@@ -49,8 +49,8 @@
 </script>
 <?php
 
-osc_enqueue_style('style', osc_current_web_theme_url('css/style.css?v=' . DELTA_THEME_VERSION . '-acv5'));
-osc_enqueue_style('responsive', osc_current_web_theme_url('css/responsive.css?v=' . DELTA_THEME_VERSION . '-acv5'));
+osc_enqueue_style('style', osc_current_web_theme_url('css/style.css?v=' . DELTA_THEME_VERSION . '-acv6'));
+osc_enqueue_style('responsive', osc_current_web_theme_url('css/responsive.css?v=' . DELTA_THEME_VERSION . '-acv6'));
 ?>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -64,7 +64,7 @@ if ($jquery_version == '1') {
 }
 
 if(del_is_rtl()) {
-  osc_enqueue_style('rtl', osc_current_web_theme_url('css/rtl.css') . '?v=' . DELTA_THEME_VERSION . '-acv5');
+  osc_enqueue_style('rtl', osc_current_web_theme_url('css/rtl.css') . '?v=' . DELTA_THEME_VERSION . '-acv6');
 }
 
 if(osc_is_ad_page() || (osc_get_osclass_location() == 'item' && osc_get_osclass_section() == 'send_friend')) {
@@ -75,7 +75,7 @@ if(osc_is_ad_page() || (osc_get_osclass_location() == 'item' && osc_get_osclass_
 if(del_ajax_image_upload() && (osc_is_publish_page() || osc_is_edit_page())) {
   osc_enqueue_style('fine-uploader-css', osc_assets_url('js/fineuploader/fineuploader.css'));
 }
-osc_register_script('global', osc_current_web_theme_js_url('global.js?v=' . DELTA_THEME_VERSION . '-acv5'), array('jquery'));
+osc_register_script('global', osc_current_web_theme_js_url('global.js?v=' . DELTA_THEME_VERSION . '-acv6'), array('jquery'));
 
 if ($jquery_version == '1') {
   osc_register_script('validate', osc_current_web_theme_js_url('jquery.validate.min.js'), array('jquery'));
