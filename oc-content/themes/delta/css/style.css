@@ -2161,24 +2161,28 @@ body#body-item-post footer .pub-box {display:none;}
 /* HEADER */
 header {border-bottom:none;margin:0;background:#fff;width:100%;z-index:99;transition:0.4s;}
 header .relative1 {display:none!important;}
-header .relative2 {border-bottom:none;padding:12px 25px;}
-header .left {float:left;max-width:40%;}
-header .right {float:right;max-width:60%;padding:18px 1px 18px 0;height:auto;min-height:96px;position:relative;display:flex;align-items:center;}
+header .relative2 {border-bottom:none;padding:8px 25px;display:flex;align-items:center;min-height:0;}
+header .left {float:left;max-width:40%;display:flex;align-items:center;}
+header .right {float:right;max-width:60%;padding:0;height:auto;min-height:0;position:relative;display:flex;align-items:center;}
 header .right .link-box {position:relative;float:right;margin:0;}
-header .right a {position:relative;float:right;margin:0;line-height:18px;padding:11px 0px 11px 25px;font-size:15px;color:#333;font-weight:400;}
+header .right a {position:relative;float:right;margin:0;line-height:18px;padding:8px 0 8px 20px;font-size:14px;color:#333;font-weight:400;}
 header .right a.login, header .right a.my-account {font-weight:bold;}
 
 
 header .right a:hover {text-decoration:none;}
-header .right a.publish, #home-pub a.publish, #search-pub .subscribe {padding:0;margin-left:24px;border-radius:12px;height:56px;border:none;}
+/* Compact header CTA — keep home/search CTAs larger */
+header .right a.publish {padding:0;margin-left:20px;border-radius:10px;height:44px;border:none;}
+#home-pub a.publish, #search-pub .subscribe {padding:0;margin-left:24px;border-radius:12px;height:56px;border:none;}
 header .right a.publish, #home-pub a.publish, #search-pub .subscribe:hover {opacity:1;}
-header .right a.publish > span, #home-pub a.publish > span, #search-pub .subscribe > span {transition:0.2s;float:left;padding:16px 32px;background:rgba(255,255,255,0.95);border:1px solid transparent;font-weight:bold;line-height:22px;font-size:17px;border-radius:12px;height:56px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;max-width:100%;}
-header .right a.publish svg, #home-pub a.publish svg, #search-pub .subscribe svg {float: left; margin: 0 10px 0 0;width:22px;height:22px;}
+header .right a.publish > span {transition:0.2s;float:left;padding:11px 22px;background:rgba(255,255,255,0.95);border:1px solid transparent;font-weight:bold;line-height:20px;font-size:15px;border-radius:10px;height:44px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;max-width:100%;display:flex;align-items:center;}
+#home-pub a.publish > span, #search-pub .subscribe > span {transition:0.2s;float:left;padding:16px 32px;background:rgba(255,255,255,0.95);border:1px solid transparent;font-weight:bold;line-height:22px;font-size:17px;border-radius:12px;height:56px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;max-width:100%;}
+header .right a.publish svg {float:left;margin:0 8px 0 0;width:18px;height:18px;}
+#home-pub a.publish svg, #search-pub .subscribe svg {float: left; margin: 0 10px 0 0;width:22px;height:22px;}
 header .right a.publish:hover > span, #home-pub a.publish:hover > span, #search-pub .subscribe:hover > span {background:#fff;}
 header .right a.my-account {position:relative;}
-header .relative2 {border-bottom:none;padding:16px 25px;display:flex;align-items:center;}
-.logo {position:relative;width:340px;height:110px;margin:0;float:left;}
-.logo img {position: absolute; width: auto; height: auto; display: block; max-width: 100%; max-height: 100%; margin: auto; top: -50%; left: 0; bottom:-50%; }
+.logo {position:relative;width:340px;height:auto;min-height:0;margin:0;float:left;overflow:visible;display:flex;align-items:center;}
+.logo a {display:flex;align-items:center;height:auto;line-height:0;}
+.logo img {position:relative;width:auto;height:auto;display:block;max-width:100%;max-height:96px;margin:0;top:auto;left:auto;bottom:auto;}
 
 header .user-menu {display:none;width:200px;position:absolute;right:1px;top:calc(100% - 1px);border-radius: 3px;border: 1px solid #ccc;box-shadow: 0 5px 15px 0 rgb(0 0 0 / 30%);z-index:999;font-size:14px;line-height:16px;}
 header .user-menu:after {content:"";position:absolute;top:-6px;right:30px;background:#fff;width:14px;height:14px;border-radius:0 3px 0 0;border-top:1px solid #bbb;border-right:1px solid #bbb;transform:rotate(-45deg);}
@@ -2386,8 +2390,9 @@ body#body-custom section {padding:20px 25px;}
 body#body-custom header {background: #f7f8fb; background: linear-gradient(to bottom,#f7f8fb 80%,#ebedf5 100%);}
 body#body-custom header .relative2 {border-bottom:none;}
 
-.logo {position:relative;width:340px;height:110px;margin:0;float:left;}
-.logo img {position: absolute; width: auto; height: auto; display: block; max-width: 100%; max-height: 100%; margin: auto; top: -50%; left: 0; bottom:-50%; }
+.logo {position:relative;width:340px;height:auto;min-height:0;margin:0;float:left;overflow:visible;display:flex;align-items:center;}
+.logo a {display:flex;align-items:center;height:auto;line-height:0;}
+.logo img {position:relative;width:auto;height:auto;display:block;max-width:100%;max-height:96px;margin:0;top:auto;left:auto;bottom:auto;}
 header, footer, section {float:left;clear:both;width:100%;}
 body {background:#f7f8fb;}
 body#body-home {background:#fff;}
