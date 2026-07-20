@@ -30,9 +30,9 @@ define('WEB_PATH', 'https://www.anuncioscaboverde.com/');
 // ini_set('session.gc_maxlifetime', 94608000);
 
 // Enable debugging
-// define('OSC_DEBUG', true);             // show PHP error logs and notices
+define('OSC_DEBUG', true);             // show PHP error logs and notices
 // define('OSC_DEBUG_DB', true);          // show DB queries
-// define('OSC_DEBUG_LOG', true);         // save PHP errors & logs to oc-content/debug.log
+define('OSC_DEBUG_LOG', true);         // save PHP errors & logs to oc-content/debug.log
 // define('OSC_DEBUG_DB_LOG', true);      // save DB logs into oc-content/queries.log
 // define('OSC_DEBUG_DB_EXPLAIN', true);  // save DB explain logs into oc-content/explain_queries.log
 // define('OSC_DEBUG_CACHE', true);       // show cache debug information, when cache is enabled

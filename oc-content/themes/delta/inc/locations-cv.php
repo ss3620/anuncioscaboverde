@@ -126,10 +126,17 @@ function del_acv_locations_align() {
     return;
   }
 
-  del_acv_seed_cv_locations();
-  osc_set_preference('def_locations', 'city', 'theme-delta');
-  osc_set_preference('acv_locations_v1', '1', 'theme-delta');
-  osc_reset_preferences();
+  try {
+    del_acv_seed_cv_locations();
+    osc_set_preference('def_locations', 'city', 'theme-delta');
+    osc_set_preference('acv_locations_v1', '1', 'theme-delta');
+    osc_reset_preferences();
+  } catch (Exception $e) {
+    // Never break the frontend if location seed fails
+    if (defined('OSC_DEBUG') && OSC_DEBUG && defined('OSC_DEBUG_LOG') && OSC_DEBUG_LOG) {
+      error_log('[ACV] location seed failed: ' . $e->getMessage());
+    }
+  }
 }
 
 function del_acv_filtered_countries() {

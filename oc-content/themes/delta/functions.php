@@ -2997,7 +2997,7 @@ if(!function_exists('check_install_del_theme')) {
 
 check_install_del_theme();
 
-require_once osc_current_web_theme_path('inc/locations-cv.php');
+osc_current_web_theme_path('inc/locations-cv.php');
 osc_add_hook('init', 'del_acv_locations_align', 5);
 
 // One-time Anuncios Cabo Verde visual brand alignment (colors + category icons)
