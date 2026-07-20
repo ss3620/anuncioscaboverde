@@ -105,16 +105,20 @@ public function getCities($country_code, $limit = 200, $not_empty = 1) {
   if(osc_get_current_user_locations_native()) {
     $this->dao->select('c.*, r.s_name as s_region_name, s.i_num_items');
   } else {
-    $this->dao->select('c.*, r.s_name as s_region_name, r.s_name_native as s_region_name_native, s.i_num_items');
+    $this->dao->select('c.*, r.s_name as s_region_name, r.s_name_native as s_region_name_native, coalesce(s.i_num_items, 0) as i_num_items');
   }
-  $this->dao->from($this->getTable_city() . ' as c, ' . $this->getTable_city_stats() . ' as s, ' . $this->getTable_region() . ' as r');
-  $this->dao->where('c.pk_i_id = s.fk_i_city_id');
-  $this->dao->where('c.fk_i_region_id = r.pk_i_id');
 
   if($not_empty == 1) {
+    $this->dao->from($this->getTable_city() . ' as c, ' . $this->getTable_city_stats() . ' as s, ' . $this->getTable_region() . ' as r');
+    $this->dao->where('c.pk_i_id = s.fk_i_city_id');
     $this->dao->where('s.i_num_items > 0');
+  } else {
+    $this->dao->from($this->getTable_city() . ' as c');
+    $this->dao->join($this->getTable_region() . ' as r', 'c.fk_i_region_id = r.pk_i_id', 'INNER');
+    $this->dao->join($this->getTable_city_stats() . ' as s', 'c.pk_i_id = s.fk_i_city_id', 'LEFT');
   }
 
+  $this->dao->where('c.fk_i_region_id = r.pk_i_id');
   $this->dao->where('c.fk_c_country_code', strtolower($country_code));
   $this->dao->orderBy('c.s_name', 'ASC');
   $this->dao->limit($limit);

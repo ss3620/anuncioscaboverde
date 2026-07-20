@@ -867,10 +867,10 @@ function del_get_custom_fields() {
 function del_def_location() {
   $html = '';
 
-  $type = (del_param('def_locations') == '' ? 'region' : del_param('def_locations'));
+  $type = (del_param('def_locations') == '' ? 'city' : del_param('def_locations'));
 
-  $countries = Country::newInstance()->listAll();
-  $limit = 60;
+  $countries = function_exists('del_acv_filtered_countries') ? del_acv_filtered_countries() : Country::newInstance()->listAll();
+  $limit = (count($countries) == 1 ? 500 : 60);
   $city_not_empty = 0;   // set to 0 to include also cities with no listings
 
   if($type == 'region') {
@@ -2963,7 +2963,7 @@ if(!function_exists('del_theme_install')) {
     osc_set_preference('user_items', '1', 'theme-delta');
     osc_set_preference('user_items_count', '12', 'theme-delta');
     osc_set_preference('user_items_design', 'compact', 'theme-delta');
-    osc_set_preference('def_locations', 'region', 'theme-delta');
+    osc_set_preference('def_locations', 'city', 'theme-delta');
     osc_set_preference('promote_home', 1, 'theme-delta');
     osc_set_preference('save_search_position', '', 'theme-delta');
     osc_set_preference('loc_box_region_search', 1, 'theme-delta');
@@ -2996,6 +2996,9 @@ if(!function_exists('check_install_del_theme')) {
 }
 
 check_install_del_theme();
+
+require_once osc_current_web_theme_path('inc/locations-cv.php');
+osc_add_hook('init', 'del_acv_locations_align', 5);
 
 // One-time Anuncios Cabo Verde visual brand alignment (colors + category icons)
 function del_acv_brand_align() {

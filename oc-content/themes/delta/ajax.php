@@ -14,22 +14,26 @@ if(@$_GET['ajaxLoc2'] == '1') {
 if(@$_GET['ajaxLoc'] == '1' && @$_GET['term'] <> '') {
   $term = trim(osc_esc_js(Params::getParam('term')));
   $max = 60;
+  $cvCode = function_exists('del_site_country_code') ? del_site_country_code() : '';
+  $cvFilterCountry = ($cvCode != '' ? ' AND pk_c_code = "' . $cvCode . '"' : '');
+  $cvFilterRegion = ($cvCode != '' ? ' AND r.fk_c_country_code = "' . $cvCode . '"' : '');
+  $cvFilterCity = ($cvCode != '' ? ' AND c.fk_c_country_code = "' . $cvCode . '"' : '');
 
   if(osc_get_current_user_locations_native() == 1) {
     $sql = '
-      (SELECT "country" as type, coalesce(s_name_native, s_name) as name, null as name_top, null as city_id, null as region_id, pk_c_code as country_code  FROM ' . DB_TABLE_PREFIX . 't_country WHERE s_name like "' . $term . '%" OR s_name_native like "' . $term . '%")
+      (SELECT "country" as type, coalesce(s_name_native, s_name) as name, null as name_top, null as city_id, null as region_id, pk_c_code as country_code  FROM ' . DB_TABLE_PREFIX . 't_country WHERE (s_name like "' . $term . '%" OR s_name_native like "' . $term . '%")' . $cvFilterCountry . ')
       UNION ALL
-      (SELECT "region" as type, coalesce(r.s_name_native, r.s_name) as name, coalesce(c.s_name_native, c.s_name) as name_top, null as city_id, r.pk_i_id  as region_id, r.fk_c_country_code as country_code  FROM ' . DB_TABLE_PREFIX . 't_region r, ' . DB_TABLE_PREFIX . 't_country c WHERE r.fk_c_country_code = c.pk_c_code AND (r.s_name like "' . $term . '%" OR r.s_name_native like "' . $term . '%"))
+      (SELECT "region" as type, coalesce(r.s_name_native, r.s_name) as name, coalesce(c.s_name_native, c.s_name) as name_top, null as city_id, r.pk_i_id  as region_id, r.fk_c_country_code as country_code  FROM ' . DB_TABLE_PREFIX . 't_region r, ' . DB_TABLE_PREFIX . 't_country c WHERE r.fk_c_country_code = c.pk_c_code AND (r.s_name like "' . $term . '%" OR r.s_name_native like "' . $term . '%")' . $cvFilterRegion . ')
       UNION ALL
-      (SELECT "city" as type, coalesce(c.s_name_native, c.s_name) as name, coalesce(r.s_name_native, r.s_name) as name_top, c.pk_i_id as city_id, c.fk_i_region_id as region_id, c.fk_c_country_code as country_code  FROM ' . DB_TABLE_PREFIX . 't_city c, ' . DB_TABLE_PREFIX . 't_region r WHERE (c.s_name like "' . $term . '%" OR c.s_name_native like "' . $term . '%") AND c.fk_i_region_id = r.pk_i_id limit ' . $max . ')
+      (SELECT "city" as type, coalesce(c.s_name_native, c.s_name) as name, coalesce(r.s_name_native, r.s_name) as name_top, c.pk_i_id as city_id, c.fk_i_region_id as region_id, c.fk_c_country_code as country_code  FROM ' . DB_TABLE_PREFIX . 't_city c, ' . DB_TABLE_PREFIX . 't_region r WHERE (c.s_name like "' . $term . '%" OR c.s_name_native like "' . $term . '%") AND c.fk_i_region_id = r.pk_i_id' . $cvFilterCity . ' limit ' . $max . ')
     ';  
   } else {
     $sql = '
-      (SELECT "country" as type, s_name as name, null as name_top, null as city_id, null as region_id, pk_c_code as country_code  FROM ' . DB_TABLE_PREFIX . 't_country WHERE s_name like "' . $term . '%")
+      (SELECT "country" as type, s_name as name, null as name_top, null as city_id, null as region_id, pk_c_code as country_code  FROM ' . DB_TABLE_PREFIX . 't_country WHERE s_name like "' . $term . '%"' . $cvFilterCountry . ')
       UNION ALL
-      (SELECT "region" as type, r.s_name as name, c.s_name as name_top, null as city_id, r.pk_i_id  as region_id, r.fk_c_country_code as country_code  FROM ' . DB_TABLE_PREFIX . 't_region r, ' . DB_TABLE_PREFIX . 't_country c WHERE r.fk_c_country_code = c.pk_c_code AND r.s_name like "' . $term . '%")
+      (SELECT "region" as type, r.s_name as name, c.s_name as name_top, null as city_id, r.pk_i_id  as region_id, r.fk_c_country_code as country_code  FROM ' . DB_TABLE_PREFIX . 't_region r, ' . DB_TABLE_PREFIX . 't_country c WHERE r.fk_c_country_code = c.pk_c_code AND r.s_name like "' . $term . '%"' . $cvFilterRegion . ')
       UNION ALL
-      (SELECT "city" as type, c.s_name as name, r.s_name as name_top, c.pk_i_id as city_id, c.fk_i_region_id as region_id, c.fk_c_country_code as country_code  FROM ' . DB_TABLE_PREFIX . 't_city c, ' . DB_TABLE_PREFIX . 't_region r WHERE c.s_name like "' . $term . '%" AND c.fk_i_region_id = r.pk_i_id limit ' . $max . ')
+      (SELECT "city" as type, c.s_name as name, r.s_name as name_top, c.pk_i_id as city_id, c.fk_i_region_id as region_id, c.fk_c_country_code as country_code  FROM ' . DB_TABLE_PREFIX . 't_city c, ' . DB_TABLE_PREFIX . 't_region r WHERE c.s_name like "' . $term . '%" AND c.fk_i_region_id = r.pk_i_id' . $cvFilterCity . ' limit ' . $max . ')
     ';  
   }
 
