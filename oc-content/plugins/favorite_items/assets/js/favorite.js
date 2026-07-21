@@ -26,7 +26,7 @@
             if (!cfg.loginUrl) cfg.loginUrl = $btn.attr('data-fav-login');
         }
 
-        if (!cfg.ajaxUrl) cfg.ajaxUrl = base + 'index.php?page=custom&route=favorite-items-toggle';
+        if (!cfg.ajaxUrl) cfg.ajaxUrl = base + 'index.php?page=ajax&action=custom&route=favorite-items-toggle';
         if (!cfg.loginUrl) cfg.loginUrl = base + 'index.php?page=login';
         if (typeof cfg.userId === 'undefined') cfg.userId = 0;
         if (!cfg.labels.add) cfg.labels.add = 'Add to favorites';

@@ -2,7 +2,7 @@
 /**
  * AJAX endpoint for toggling / adding / removing favorites.
  *
- * URL:  /index.php?page=custom&route=favorite-items-toggle
+ * URL:  /index.php?page=ajax&action=custom&route=favorite-items-toggle
  * POST: item_id (int), action (toggle|add|remove) — action optional, defaults to toggle
  */
 

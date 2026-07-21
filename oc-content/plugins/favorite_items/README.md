@@ -57,7 +57,7 @@ Once enabled, the plugin works automatically:
 | Purpose | URL |
 |---|---|
 | My Favorites page | `/index.php?page=custom&route=favorite-items-user-favorites` (or the friendly URL `/user/favorites` if friendly URLs are enabled) |
-| Toggle endpoint (AJAX) | `/index.php?page=custom&route=favorite-items-toggle` (POST `item_id`) |
+| Toggle endpoint (AJAX) | `/index.php?page=ajax&action=custom&route=favorite-items-toggle` (POST `item_id`) |
 | Admin settings | *Plugins → Favorite Items → Settings* |
 | Admin statistics | *Plugins → Favorite Items → Statistics* |
 

@@ -21,7 +21,7 @@ $showCount = (bool) osc_get_preference('show_count', 'favorite_items');
 $deltaClasses = 'fi_save_favorite' . ($isFav ? ' is_favorite' : '');
 // Self-contained config so the button works even if the inline
 // window.FavoriteItems global was not injected on this page.
-$favAjaxUrl = osc_base_url(true) . '?page=custom&route=favorite-items-toggle';
+$favAjaxUrl = osc_base_url(true) . '?page=ajax&action=custom&route=favorite-items-toggle';
 $favLoggedIn = osc_is_web_user_logged_in() ? 1 : 0;
 $favLoginUrl = osc_user_login_url();
 ?>

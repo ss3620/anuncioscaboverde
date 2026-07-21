@@ -17,7 +17,7 @@ if (!defined('ABS_PATH')) {
 /* ------------------------------------------------------------------
  * CONSTANTS
  * ------------------------------------------------------------------ */
-define('FAVORITE_ITEMS_VERSION', '1.1.3');
+define('FAVORITE_ITEMS_VERSION', '1.1.4');
 define('FAVORITE_ITEMS_PATH', osc_plugins_path() . 'favorite_items/');
 define('FAVORITE_ITEMS_URL',  osc_plugins_url()  . 'favorite_items/');
 define('FAVORITE_ITEMS_FOLDER', 'favorite_items/');
@@ -137,7 +137,7 @@ osc_add_hook('header', 'favorite_items_enqueue');
 // Inject globals for the JS (endpoint URL, current user id, translations)
 function favorite_items_inject_globals()
 {
-    $ajax_url = osc_base_url(true) . '?page=custom&route=favorite-items-toggle';
+    $ajax_url = osc_base_url(true) . '?page=ajax&action=custom&route=favorite-items-toggle';
     $user_id  = osc_is_web_user_logged_in() ? (int) osc_logged_user_id() : 0;
     $login_url = osc_user_login_url();
     $label     = osc_esc_js(osc_get_preference('button_label', 'favorite_items') ?: 'Add to favorites');
