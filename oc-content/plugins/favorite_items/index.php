@@ -311,7 +311,7 @@ function favorite_items_admin_menu()
             <li><a href="' . osc_admin_render_plugin_url(FAVORITE_ITEMS_FOLDER . 'admin/stats.php')    . '" data-testid="admin-favorites-stats">Statistics</a></li>
           </ul>';
 }
-osc_add_hook('admin_menu_init', 'favorite_items_admin_menu');
+osc_add_hook('admin_menu', 'favorite_items_admin_menu');
 
 // Configure link shown in the plugins list
 function favorite_items_configure_link($links, $plugin_short_name)
