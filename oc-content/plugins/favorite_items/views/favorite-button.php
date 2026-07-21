@@ -19,12 +19,20 @@ $labelOn   = osc_get_preference('button_label_active', 'favorite_items') ?: 'Sav
 $showCount = (bool) osc_get_preference('show_count', 'favorite_items');
 // Delta theme CSS targets .fi_save_favorite / .is_favorite on listing cards
 $deltaClasses = 'fi_save_favorite' . ($isFav ? ' is_favorite' : '');
+// Self-contained config so the button works even if the inline
+// window.FavoriteItems global was not injected on this page.
+$favAjaxUrl = osc_base_url(true) . '?page=custom&route=favorite-items-toggle';
+$favLoggedIn = osc_is_web_user_logged_in() ? 1 : 0;
+$favLoginUrl = osc_user_login_url();
 ?>
 <div class="favorite-items-wrap" style="--fi-color: <?php echo osc_esc_html($iconColor); ?>; --fi-size: <?php echo (int) $iconSize; ?>px;">
     <button type="button"
             class="favorite-items-btn <?php echo $deltaClasses; ?> <?php echo $isFav ? 'is-active' : ''; ?>"
             data-testid="favorite-toggle-btn"
-            data-item-id="<?php echo $itemId; ?>">
+            data-item-id="<?php echo $itemId; ?>"
+            data-fav-ajax="<?php echo osc_esc_html($favAjaxUrl); ?>"
+            data-fav-logged="<?php echo (int) $favLoggedIn; ?>"
+            data-fav-login="<?php echo osc_esc_html($favLoginUrl); ?>">
         <span class="favorite-items-icon favorite-items-icon--<?php echo osc_esc_html($icon); ?>" aria-hidden="true"></span>
         <span class="favorite-items-label" data-testid="favorite-toggle-label">
             <?php echo osc_esc_html($isFav ? $labelOn : $labelAdd); ?>

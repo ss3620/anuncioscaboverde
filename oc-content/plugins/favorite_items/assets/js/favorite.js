@@ -5,9 +5,35 @@
 (function ($) {
     'use strict';
 
-    if (typeof window.FavoriteItems === 'undefined') return;
+    // Resolve config from the injected global when available, otherwise fall
+    // back to per-button data-* attributes. This keeps favoriting working even
+    // if the inline window.FavoriteItems script was not printed on the page.
+    function resolveConfig($btn) {
+        var g = window.FavoriteItems || {};
+        var base = (typeof window.baseDir === 'string' && window.baseDir) ? window.baseDir : '/';
+        var cfg = {
+            ajaxUrl: g.ajaxUrl,
+            userId: g.userId,
+            loginUrl: g.loginUrl,
+            labels: g.labels || {}
+        };
 
-    var FI = window.FavoriteItems;
+        if ($btn && $btn.length) {
+            if (!cfg.ajaxUrl) cfg.ajaxUrl = $btn.attr('data-fav-ajax');
+            if (typeof cfg.userId === 'undefined' && typeof $btn.attr('data-fav-logged') !== 'undefined') {
+                cfg.userId = parseInt($btn.attr('data-fav-logged'), 10);
+            }
+            if (!cfg.loginUrl) cfg.loginUrl = $btn.attr('data-fav-login');
+        }
+
+        if (!cfg.ajaxUrl) cfg.ajaxUrl = base + 'index.php?page=custom&route=favorite-items-toggle';
+        if (!cfg.loginUrl) cfg.loginUrl = base + 'index.php?page=login';
+        if (typeof cfg.userId === 'undefined') cfg.userId = 0;
+        if (!cfg.labels.add) cfg.labels.add = 'Add to favorites';
+        if (!cfg.labels.added) cfg.labels.added = 'Saved';
+        if (!cfg.labels.loginRequired) cfg.labels.loginRequired = 'Please log in to save favorites.';
+        return cfg;
+    }
 
     function showToast(msg, isError) {
         var $t = $('<div class="fi-toast"></div>').text(msg);
@@ -42,10 +68,12 @@
         var itemId = parseInt($btn.data('item-id'), 10);
         if (!itemId) return;
 
-        if (!FI.userId) {
-            showToast(FI.labels.loginRequired, true);
+        var cfg = resolveConfig($btn);
+
+        if (!cfg.userId) {
+            showToast(cfg.labels.loginRequired, true);
             setTimeout(function () {
-                if (FI.loginUrl) window.location.href = FI.loginUrl;
+                if (cfg.loginUrl) window.location.href = cfg.loginUrl;
             }, 900);
             return;
         }
@@ -54,7 +82,7 @@
         $btn.addClass('is-loading');
 
         $.ajax({
-            url: FI.ajaxUrl,
+            url: cfg.ajaxUrl,
             method: 'POST',
             dataType: 'json',
             data: { item_id: itemId, fav_action: 'toggle' }
@@ -66,7 +94,7 @@
 
             // Update every button pointing at this item on the page
             $('.favorite-items-btn[data-item-id="' + itemId + '"]').each(function () {
-                updateButton($(this), data.favorited, data.item_count, FI.labels);
+                updateButton($(this), data.favorited, data.item_count, cfg.labels);
             });
 
             // If this button is on a "My Favorites" card and we just removed it, animate the card out
@@ -100,8 +128,8 @@
                 if (res && res.error === 'login_required') {
                     showToast(msg, true);
                     setTimeout(function () {
-                        if (res.login_url) window.location.href = res.login_url;
-                        else if (FI.loginUrl) window.location.href = FI.loginUrl;
+                        var lu = res.login_url || resolveConfig($btn).loginUrl;
+                        if (lu) window.location.href = lu;
                     }, 900);
                     return;
                 }

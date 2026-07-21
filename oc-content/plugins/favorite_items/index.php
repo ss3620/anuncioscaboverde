@@ -17,7 +17,7 @@ if (!defined('ABS_PATH')) {
 /* ------------------------------------------------------------------
  * CONSTANTS
  * ------------------------------------------------------------------ */
-define('FAVORITE_ITEMS_VERSION', '1.1.2');
+define('FAVORITE_ITEMS_VERSION', '1.1.3');
 define('FAVORITE_ITEMS_PATH', osc_plugins_path() . 'favorite_items/');
 define('FAVORITE_ITEMS_URL',  osc_plugins_url()  . 'favorite_items/');
 define('FAVORITE_ITEMS_FOLDER', 'favorite_items/');
