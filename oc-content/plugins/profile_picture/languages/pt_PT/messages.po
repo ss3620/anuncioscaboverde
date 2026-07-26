@@ -1,0 +1,84 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Profile Picture Plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-01 13:43+0100\n"
+"PO-Revision-Date: 2026-07-26 07:15+0000\n"
+"Last-Translator: Anuncios Cabo Verde\n"
+"Language-Team: Anuncios Cabo Verde\n"
+"Language: pt_PT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Generator: ACV locale builder\n"
+"X-Poedit-SearchPath-0: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: index.php:50
+msgid "Update profile picture"
+msgstr "Atualizar foto do perfil"
+
+#: index.php:51
+msgid "Close"
+msgstr "Fechar"
+
+#: index.php:68
+msgid "Upload picture"
+msgstr "Carregar imagem"
+
+#: index.php:110
+msgid "Choose a file"
+msgstr "Escolha um ficheiro"
+
+#: index.php:111
+msgid "No file selected"
+msgstr "Nenhum ficheiro selecionado"
+
+#: index.php:123
+msgid "Delete picture"
+msgstr "Excluir imagem"
+
+#: index.php:137
+msgid "The file you attempted to upload is not allowed"
+msgstr "O ficheiro que você tentou enviar não é permitido"
+
+#: index.php:148
+msgid "The file you attempted to upload is too large"
+msgstr "O ficheiro que você tentou enviar é muito grande"
+
+#: index.php:151
+msgid ""
+"The dimension of file you attempted to upload is too large. Allowed image "
+"size is"
+msgstr ""
+"A dimensão do ficheiro que você tentou enviar é muito grande. O tamanho de "
+"imagem permitido é"
+
+#: index.php:151
+msgid "Your image size is"
+msgstr "O tamanho da sua imagem é"
+
+#: index.php:155
+msgid "No picture uploaded"
+msgstr "Nenhuma foto enviada"
+
+#: index.php:161
+msgid "You cannot upload to the specified directory, please CHMOD it to 777"
+msgstr ""
+"Você não pode fazer upload para o diretório especificado, por favor, faça "
+"CHMOD para 777"
+
+#: index.php:179
+msgid "There was an error during the file upload.  Please try again"
+msgstr "Ocorreu um erro durante o upload do ficheiro.  Por favor, tente novamente"
+
+#: index.php:198
+msgid "Upload picture with maximum width of 128px and maximum height of 128px"
+msgstr "Carregar imagem com largura máxima de 128px e altura máxima de 128px"
+
+#: index.php:253 index.php:257 index.php:259 index.php:266 index.php:268
+msgid "Seller's picture"
+msgstr "Foto do vendedor"

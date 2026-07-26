@@ -1,0 +1,291 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Real Estate Attributes Plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-11-13 11:54+0100\n"
+"PO-Revision-Date: 2026-07-26 07:15+0000\n"
+"Last-Translator: Anuncios Cabo Verde\n"
+"Language-Team: Anuncios Cabo Verde\n"
+"Language: pt_PT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Generator: ACV locale builder\n"
+"X-Poedit-SearchPath-0: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: conf.php:38 index.php:308 index.php:314
+msgid "Property types"
+msgstr "Tipos de propriedade"
+
+#: conf.php:65
+msgid "Delete"
+msgstr "Eliminar"
+
+#: conf.php:71
+msgid "Edit"
+msgstr "Editar"
+
+#: conf.php:78
+msgid "Add new property types"
+msgstr "Adicione novos tipos de propriedade"
+
+#: conf.php:99
+msgid "Add new"
+msgstr "Add new"
+
+#: conf.php:110
+msgid "Warning"
+msgstr "Aviso"
+
+#: conf.php:112
+msgid ""
+"Deleting property types may end in errors. Some of those property types "
+"could be attached to some actual items"
+msgstr ""
+"A exclusão de tipos de propriedade pode resultar em erros. Alguns desses "
+"tipos de propriedades podem ser anexados a alguns itens reais"
+
+#: helper.php:13 item_edit.php:11 search_form.php:107
+msgid "For rent"
+msgstr "Para alugar"
+
+#: helper.php:14 item_edit.php:12 search_form.php:108
+msgid "For sale"
+msgstr "À venda"
+
+#: helper.php:17 item_edit.php:9 search_form.php:103 view.php:55
+msgid "Type"
+msgstr "Tipo"
+
+#: helper.php:23 item_edit.php:25 item_edit.php:42 search_form.php:116
+#: view.php:56
+msgid "Property type"
+msgstr "Tipo de propriedade"
+
+#: helper.php:29
+msgid "Num. Rooms"
+msgstr "Núm. Quartos"
+
+#: helper.php:35
+msgid "Num. Bathrooms"
+msgstr "Núm. Banheiros"
+
+#: helper.php:41 item_edit.php:93
+msgid "New construction"
+msgstr "Nova construção"
+
+#: helper.php:42 item_edit.php:94
+msgid "To renovate"
+msgstr "Para renovar"
+
+#: helper.php:43 item_edit.php:95
+msgid "Good condition"
+msgstr "Bom estado"
+
+#: helper.php:46 item_edit.php:91
+msgid "Status"
+msgstr "Estado"
+
+#: helper.php:52
+msgid "Square Meters"
+msgstr "Metros Quadrados"
+
+#: helper.php:58
+msgid "Square Meters (total)"
+msgstr "Metros Quadrados (total)"
+
+#: helper.php:64
+msgid "Num. Floors"
+msgstr "Núm. Pisos"
+
+#: helper.php:70 item_edit.php:113
+msgid "Construction Year"
+msgstr "Ano de construção"
+
+#: helper.php:76 item_edit.php:157
+msgid "Condition"
+msgstr "Estado"
+
+#: helper.php:82 helper.php:88 item_edit.php:166
+msgid "Agency"
+msgstr "Agência"
+
+#: helper.php:94 item_edit.php:175
+msgid "Floor Number"
+msgstr "Número do andar"
+
+#: helper.php:100 item_edit.php:257 item_edit.php:282
+msgid "Transport"
+msgstr "Transporte"
+
+#: helper.php:106 item_edit.php:266 item_edit.php:291
+msgid "Zone"
+msgstr "Zona"
+
+#: helper.php:113 item_edit.php:187 search_form.php:197
+msgid "Heating"
+msgstr "Aquecimento"
+
+#: helper.php:119
+msgid "Air Condition"
+msgstr "Ar Condicionado"
+
+#: helper.php:125 item_edit.php:203 search_form.php:203
+msgid "Elevator"
+msgstr "Elevador"
+
+#: helper.php:131 item_edit.php:211 search_form.php:206
+msgid "Terrace"
+msgstr "Terraço"
+
+#: helper.php:137 item_edit.php:219 search_form.php:209
+msgid "Parking"
+msgstr "Estacionamento"
+
+#: helper.php:143 item_edit.php:227 search_form.php:212
+msgid "Furnished"
+msgstr "Mobilado"
+
+#: helper.php:149 item_edit.php:235 search_form.php:215
+msgid "New"
+msgstr "Novo"
+
+#: helper.php:155
+msgid "By Owner"
+msgstr "Por proprietário"
+
+#: helper.php:165
+msgid "Details"
+msgstr "Detalhes"
+
+#: helper.php:182 item_edit.php:179 search_form.php:194 view.php:63
+msgid "Other characteristics"
+msgstr "Outras características"
+
+#: index.php:305 index.php:312
+msgid "Realestate plugin"
+msgstr "Plug-in imobiliário"
+
+#: index.php:307 index.php:313
+msgid "Configure plugin"
+msgstr "Configurar plug-in"
+
+#: index.php:309 index.php:315
+msgid "View options"
+msgstr "Ver opções"
+
+#: item_edit.php:1 search_form.php:100
+msgid "Realestate attributes"
+msgstr "Atributos imobiliários"
+
+#: item_edit.php:65
+msgid "Num. of rooms"
+msgstr "Núm. de quartos"
+
+#: item_edit.php:78
+msgid "Num. of bathrooms"
+msgstr "Núm. de banheiros"
+
+#: item_edit.php:104
+msgid "Square meters"
+msgstr "Metros quadrados"
+
+#: item_edit.php:122
+msgid "Square meters (total)"
+msgstr "Metros quadrados (total)"
+
+#: item_edit.php:131
+msgid "Num. of floors"
+msgstr "Núm. de pisos"
+
+#: item_edit.php:144
+msgid "Num. of garages (place for a car = one garage)"
+msgstr "Núm. de garagens (lugar para um carro = uma garagem)"
+
+#: item_edit.php:195 search_form.php:200
+msgid "Air condition"
+msgstr "Ar condicionado"
+
+#: item_edit.php:243 search_form.php:218
+msgid "By owner"
+msgstr "Por proprietário"
+
+#: search_form.php:106
+msgid "Undefined"
+msgstr "Indefinido"
+
+#: search_form.php:119
+msgid "Select a property type"
+msgstr "Selecione um tipo de propriedade"
+
+#: search_form.php:130 view.php:57
+msgid "Num. Floors Range"
+msgstr "Núm. Gama de Pisos"
+
+#: search_form.php:140 view.php:58
+msgid "Rooms Range"
+msgstr "Gama de Quartos"
+
+#: search_form.php:151 view.php:59
+msgid "Bathrooms Range"
+msgstr "Gama Casas de Banho"
+
+#: search_form.php:162 view.php:60
+msgid "Garages Range"
+msgstr "Gama Garagens"
+
+#: search_form.php:173 view.php:61
+msgid "Construction year Range"
+msgstr "Faixa do ano de construção"
+
+#: search_form.php:184 view.php:62
+msgid "Square Meters Range"
+msgstr "Faixa de Metros Quadrados"
+
+#: view.php:7 view.php:14
+msgid "Settings saved!"
+msgstr "Configurações salvas!"
+
+#: view.php:36
+msgid "Display options"
+msgstr "Opções de exibição"
+
+#: view.php:37
+msgid "Display realestate attributes in listing page..."
+msgstr "Exibir atributos imobiliários na página de anúncio..."
+
+#: view.php:38
+msgid "After item description"
+msgstr "Após a descrição do item"
+
+#: view.php:39
+msgid "Manually"
+msgstr "Manualmente"
+
+#: view.php:40 view.php:66
+msgid "Update options"
+msgstr "Opções de atualização"
+
+#: view.php:48
+msgid "Filters"
+msgstr "Filtros"
+
+#: view.php:49
+msgid "Show filters in search page"
+msgstr "Mostrar filtros na página de pesquisa"
+
+#: view.php:50
+msgid "Show all filters"
+msgstr "Mostrar todos os filtros"
+
+#: view.php:51
+msgid "Hide all filters"
+msgstr "Ocultar todos os filtros"
+
+#: view.php:52
+msgid "Show only specified filters"
+msgstr "Mostrar apenas filtros especificados"

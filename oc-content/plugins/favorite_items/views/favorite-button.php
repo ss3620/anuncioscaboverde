@@ -14,8 +14,8 @@ $isFav  = osc_is_web_user_logged_in()
 $icon      = osc_get_preference('icon', 'favorite_items') ?: 'heart';
 $iconSize  = (int) (osc_get_preference('icon_size', 'favorite_items') ?: 24);
 $iconColor = osc_get_preference('icon_color', 'favorite_items') ?: '#e11d48';
-$labelAdd  = osc_get_preference('button_label', 'favorite_items') ?: 'Add to favorites';
-$labelOn   = osc_get_preference('button_label_active', 'favorite_items') ?: 'Saved';
+$labelAdd  = osc_get_preference('button_label', 'favorite_items') ?: __('Add to favorites', 'favorite_items');
+$labelOn   = osc_get_preference('button_label_active', 'favorite_items') ?: __('Saved', 'favorite_items');
 $showCount = (bool) osc_get_preference('show_count', 'favorite_items');
 // Delta theme CSS targets .fi_save_favorite / .is_favorite on listing cards
 $deltaClasses = 'fi_save_favorite' . ($isFav ? ' is_favorite' : '');

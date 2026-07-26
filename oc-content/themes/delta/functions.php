@@ -3002,14 +3002,26 @@ osc_add_hook('init', 'del_acv_locations_align', 5);
 
 // One-time Anuncios Cabo Verde visual brand alignment (colors + category icons)
 function del_acv_brand_align() {
-  if(osc_get_preference('acv_brand_v2', 'theme-delta') == '1') {
+  if(osc_get_preference('acv_brand_v3', 'theme-delta') == '1') {
     return;
   }
   osc_set_preference('color', '#0B3A6E', 'theme-delta');
   osc_set_preference('color2', '#1B6B4A', 'theme-delta');
   osc_set_preference('color3', '#E31C23', 'theme-delta');
   osc_set_preference('cat_icons', '1', 'theme-delta');
-  osc_set_preference('acv_brand_v2', '1', 'theme-delta');
+  osc_set_preference('date_format', 'dd/mm', 'theme-delta');
+  osc_set_preference('website_name', 'Anúncios Cabo Verde', 'theme-delta');
+  osc_set_preference('def_cur', 'CVE', 'theme-delta');
+  // Clear stock Delta placeholder contact details
+  $email = del_param('site_email');
+  $phone = del_param('site_phone');
+  if($email === '' || $email === 'support@dot.com') {
+    osc_set_preference('site_email', 'suporte@anuncioscaboverde.com', 'theme-delta');
+  }
+  if($phone === '' || $phone === '+1 (800) 228-5651') {
+    osc_set_preference('site_phone', '+238', 'theme-delta');
+  }
+  osc_set_preference('acv_brand_v3', '1', 'theme-delta');
   osc_reset_preferences();
 }
 del_acv_brand_align();
