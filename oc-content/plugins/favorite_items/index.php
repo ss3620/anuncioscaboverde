@@ -60,10 +60,10 @@ function favorite_items_install()
         osc_set_preference('show_count', '1', 'favorite_items', 'BOOLEAN');
     }
     if (osc_get_preference('button_label', 'favorite_items') === '') {
-        osc_set_preference('button_label', 'Add to favorites', 'favorite_items', 'STRING');
+        osc_set_preference('button_label', 'Adicionar aos favoritos', 'favorite_items', 'STRING');
     }
     if (osc_get_preference('button_label_active', 'favorite_items') === '') {
-        osc_set_preference('button_label_active', 'Saved', 'favorite_items', 'STRING');
+        osc_set_preference('button_label_active', 'Guardado', 'favorite_items', 'STRING');
     }
     if (osc_get_preference('home_widget_enabled', 'favorite_items') === '') {
         osc_set_preference('home_widget_enabled', '1', 'favorite_items', 'BOOLEAN');

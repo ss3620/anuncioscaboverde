@@ -10,8 +10,8 @@
       <div class="pub-box">
         <div class="wrap">
           <div class="info">
-            <h3><?php _e('The Leading Online Classifieds Platform', 'delta'); ?></h3>
-            <div class="desc"><?php _e('Our mission is to empower individuals across the country by facilitating seamless connections between buyers and sellers. We are committed to providing a trusted marketplace that enables you to achieve your goals through secure and efficient transactions.', 'delta'); ?></div>
+            <h3><?php _e('A principal plataforma de anúncios em Cabo Verde', 'delta'); ?></h3>
+            <div class="desc"><?php _e('Compre e venda em todas as ilhas de Cabo Verde. Publique o seu anúncio de forma simples, segura e gratuita.', 'delta'); ?></div>
           </div>
 
           <div class="button">
@@ -137,11 +137,11 @@
       </div>
       
       
-      <div class="box lang">
+      <div class="box lang"<?php if(osc_count_web_enabled_locales() <= 1) { ?> style="display:none"<?php } ?>>
         <h4><?php _e('Select language', 'delta'); ?></h4>
         
         <ul>
-          <?php if(osc_count_web_enabled_locales() > 1 || 1==1) { ?>
+          <?php if(osc_count_web_enabled_locales() > 1) { ?>
             <?php 
               $current_locale = mb_get_current_user_locale();
               osc_goto_first_locale(); 
@@ -216,7 +216,7 @@
           <li><a href="<?php echo faq_home_link(); ?>"><?php _e('Frequently Asked Questions', 'delta'); ?></a></li>
         <?php } ?>
 
-        <?php if(function_exists('blg_home_link')) { ?>
+        <?php if(function_exists('blg_home_link') && del_param('blog_home') == 1) { ?>
           <li><a href="<?php echo blg_home_link(); ?>"><?php _e('Blog', 'delta'); ?></a></li>
         <?php } ?>
         
@@ -275,7 +275,7 @@
     <?php } else if(function_exists('fi_make_favorite')) { ?>
       <a href="<?php echo osc_route_url('favorite-lists'); ?>" class="l4 <?php if(Params::getParam('route') == 'favorite-lists' || Params::getParam('route') == 'favorite-items-user-favorites' || osc_get_osclass_location() == 'fi') { ?>active<?php } ?>">
         <i class="far fa-heart"></i>
-        <span><?php _e('Favorite', 'delta'); ?></span>
+        <span><?php _e('Favoritos', 'delta'); ?></span>
       </a>
 
     <?php } else if(function_exists('svi_save_btn')) { ?>
@@ -350,7 +350,7 @@
     <a href="<?php echo osc_user_alerts_url(); ?>"><i class="fas fa-check-double"></i> <?php _e('Subscriptions', 'delta'); ?></a>
 
     <?php if(function_exists('fi_make_favorite')) { ?>
-      <a href="<?php echo osc_route_url('favorite-lists'); ?>"><i class="far fa-heart"></i> <?php _e('Favorite items', 'delta'); ?></a>
+      <a href="<?php echo osc_route_url('favorite-lists'); ?>"><i class="far fa-heart"></i> <?php _e('Os meus favoritos', 'delta'); ?></a>
     <?php } ?>
 
     <?php if(function_exists('svi_save_btn')) { ?>

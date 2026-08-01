@@ -3,11 +3,28 @@
 <meta name="title" content="<?php echo osc_esc_html(meta_title()); ?>" />
 <?php if(meta_description() != '') { ?><meta name="description" content="<?php echo osc_esc_html(meta_description()); ?>" /><?php } ?>
 <?php if(osc_get_canonical() != '') { ?><link rel="canonical" href="<?php echo osc_get_canonical(); ?>"/><?php } ?>
+<meta property="og:site_name" content="<?php echo osc_esc_html(osc_page_title()); ?>" />
+<meta property="og:title" content="<?php echo osc_esc_html(meta_title()); ?>" />
+<?php if(meta_description() != '') { ?><meta property="og:description" content="<?php echo osc_esc_html(meta_description()); ?>" /><?php } ?>
+<meta property="og:type" content="<?php echo osc_is_ad_page() ? 'product' : 'website'; ?>" />
+<meta property="og:url" content="<?php echo osc_esc_html(osc_get_canonical() != '' ? osc_get_canonical() : osc_base_url()); ?>" />
+<meta property="og:locale" content="pt_CV" />
+<?php if(osc_is_ad_page() && osc_count_item_resources() > 0) {
+  osc_reset_resources();
+  if(osc_has_item_resources()) { ?>
+<meta property="og:image" content="<?php echo osc_esc_html(osc_resource_url()); ?>" />
+<?php }
+} else { ?>
+<meta property="og:image" content="<?php echo osc_esc_html(osc_current_web_theme_url('images/logo.png')); ?>" />
+<?php } ?>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="<?php echo osc_esc_html(meta_title()); ?>" />
+<?php if(meta_description() != '') { ?><meta name="twitter:description" content="<?php echo osc_esc_html(meta_description()); ?>" /><?php } ?>
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Cache-Control" content="no-cache" />
 <meta http-equiv="Expires" content="Mon, 01 Jul 1970 00:00:00 GMT" />
-<?php if(!osc_is_search_page() && !osc_is_static_page()) { ?><meta name="robots" content="index, follow" /><?php } ?>
-<?php if(!osc_is_search_page() && !osc_is_static_page()) { ?><meta name="googlebot" content="index, follow" /><?php } ?>
+<?php if(!osc_is_search_page()) { ?><meta name="robots" content="index, follow" /><?php } ?>
+<?php if(!osc_is_search_page()) { ?><meta name="googlebot" content="index, follow" /><?php } ?>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <?php 
   if(!function_exists('pwa_call_after_install')) {
@@ -26,7 +43,7 @@
   }
 ?>
 <script type="text/javascript">
-  var delCurrentLocale = '<?php echo osc_esc_js($current_locale['s_name'] ?? 'English'); ?>';
+  var delCurrentLocale = '<?php echo osc_esc_js($current_locale['s_name'] ?? 'Português'); ?>';
   var fileDefaultText = '<?php echo osc_esc_js(__('No file selected', 'delta')); ?>';
   var fileBtnText     = '<?php echo osc_esc_js(__('Choose File', 'delta')); ?>';
   var baseDir = "<?php echo osc_base_url(); ?>";
@@ -49,8 +66,8 @@
 </script>
 <?php
 
-osc_enqueue_style('style', osc_current_web_theme_url('css/style.css?v=' . DELTA_THEME_VERSION . '-acv9'));
-osc_enqueue_style('responsive', osc_current_web_theme_url('css/responsive.css?v=' . DELTA_THEME_VERSION . '-acv9'));
+osc_enqueue_style('style', osc_current_web_theme_url('css/style.css?v=' . DELTA_THEME_VERSION . '-acv10'));
+osc_enqueue_style('responsive', osc_current_web_theme_url('css/responsive.css?v=' . DELTA_THEME_VERSION . '-acv10'));
 ?>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -64,7 +81,7 @@ if ($jquery_version == '1') {
 }
 
 if(del_is_rtl()) {
-  osc_enqueue_style('rtl', osc_current_web_theme_url('css/rtl.css') . '?v=' . DELTA_THEME_VERSION . '-acv9');
+  osc_enqueue_style('rtl', osc_current_web_theme_url('css/rtl.css') . '?v=' . DELTA_THEME_VERSION . '-acv10');
 }
 
 if(osc_is_ad_page() || (osc_get_osclass_location() == 'item' && osc_get_osclass_section() == 'send_friend')) {
@@ -75,7 +92,7 @@ if(osc_is_ad_page() || (osc_get_osclass_location() == 'item' && osc_get_osclass_
 if(del_ajax_image_upload() && (osc_is_publish_page() || osc_is_edit_page())) {
   osc_enqueue_style('fine-uploader-css', osc_assets_url('js/fineuploader/fineuploader.css'));
 }
-osc_register_script('global', osc_current_web_theme_js_url('global.js?v=' . DELTA_THEME_VERSION . '-acv9'), array('jquery'));
+osc_register_script('global', osc_current_web_theme_js_url('global.js?v=' . DELTA_THEME_VERSION . '-acv10'), array('jquery'));
 
 if ($jquery_version == '1') {
   osc_register_script('validate', osc_current_web_theme_js_url('jquery.validate.min.js'), array('jquery'));

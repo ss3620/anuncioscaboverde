@@ -20,7 +20,7 @@ msgstr ""
 
 #: 404.php:36
 msgid "OOPS! Page Not Found!"
-msgstr "UPS! Página não encontrada!"
+msgstr "Página não encontrada"
 
 #: 404.php:37
 msgid "Either something get wrong or the page doesn't exist anymore."
@@ -1037,7 +1037,7 @@ msgstr "Sua pergunta com todos os detalhes relevantes ..."
 
 #: footer.php:13
 msgid "The Leading Online Classifieds Platform"
-msgstr "A principal plataforma de anúncios online"
+msgstr "A principal plataforma de anúncios em Cabo Verde"
 
 #: footer.php:14
 msgid ""
@@ -1169,7 +1169,16 @@ msgstr "Mensagens"
 
 #: footer.php:278 header.php:27
 msgid "Favorite"
-msgstr "Favorito"
+msgstr "Favoritos"
+
+msgid "Favoritos"
+msgstr "Favoritos"
+
+msgid "Main categories"
+msgstr "Categorias principais"
+
+msgid "Categorias principais"
+msgstr "Categorias principais"
 
 #: footer.php:284 header.php:36
 msgid "Saved"
@@ -1206,7 +1215,7 @@ msgstr "Subscrições"
 
 #: footer.php:353 header.php:106
 msgid "Favorite items"
-msgstr "Anúncios favoritos"
+msgstr "Os meus favoritos"
 
 #: footer.php:357
 msgid "Saved items"
@@ -1799,7 +1808,7 @@ msgstr "Pesquise em todas as categorias"
 
 #: item-post.php:83
 msgid "Publish a new listing"
-msgstr "Publicar uma nova anúncio"
+msgstr "Publicar um novo anúncio"
 
 #: item-post.php:83
 msgid "Edit listing"
@@ -2357,19 +2366,19 @@ msgstr "Validar"
 
 #: item.php:947
 msgid "Report listing"
-msgstr "anúncio de relatórios"
+msgstr "Denunciar anúncio"
 
 #: item.php:952
 msgid "Spam"
-msgstr "Spam"
+msgstr "Spam / fraude"
 
 #: item.php:953
 msgid "Misclassified"
-msgstr "Classificado incorretamente"
+msgstr "Categoria incorreta"
 
 #: item.php:954
 msgid "Duplicated"
-msgstr "Duplicado"
+msgstr "Anúncio duplicado"
 
 #: item.php:955 user-alerts.php:203 user-items.php:138
 msgid "Expired"
@@ -2377,7 +2386,7 @@ msgstr "Expirado"
 
 #: item.php:956
 msgid "Offensive"
-msgstr "Ofensiva"
+msgstr "Ofensivo"
 
 #: item.php:1000
 msgid "by"
@@ -2955,7 +2964,7 @@ msgstr "Envie uma nova palavra-passe"
 
 #: user-register.php:19
 msgid "Register a new account"
-msgstr "Registre uma nova conta"
+msgstr "Criar uma nova conta"
 
 #: user-register.php:20
 msgid ""
@@ -2976,3 +2985,69 @@ msgstr "Criar uma conta"
 #: user-register.php:97
 msgid "Already have account?"
 msgstr "Já tem conta?"
+
+msgid "Os meus favoritos"
+msgstr "Os meus favoritos"
+
+msgid "Publicar um novo anúncio"
+msgstr "Publicar um novo anúncio"
+
+msgid "Editar anúncio"
+msgstr "Editar anúncio"
+
+msgid ""
+"Respondemos em até 48 horas. Consulte primeiro a nossa página de Perguntas "
+"frequentes."
+msgstr ""
+"Respondemos em até 48 horas. Consulte primeiro a nossa página de Perguntas "
+"frequentes."
+
+msgid "Ver perguntas frequentes"
+msgstr "Ver perguntas frequentes"
+
+msgid "Criar uma nova conta"
+msgstr "Criar uma nova conta"
+
+msgid ""
+"Demora apenas cerca de 1 minuto e permite publicar anúncios mais depressa e "
+"guardar pesquisas."
+msgstr ""
+"Demora apenas cerca de 1 minuto e permite publicar anúncios mais depressa e "
+"guardar pesquisas."
+
+msgid "Página não encontrada"
+msgstr "Página não encontrada"
+
+msgid "A página que procura não existe ou foi removida."
+msgstr "A página que procura não existe ou foi removida."
+
+msgid "Voltar ao início"
+msgstr "Voltar ao início"
+
+msgid "A principal plataforma de anúncios em Cabo Verde"
+msgstr "A principal plataforma de anúncios em Cabo Verde"
+
+msgid ""
+"Compre e venda em todas as ilhas de Cabo Verde. Publique o seu anúncio de "
+"forma simples, segura e gratuita."
+msgstr ""
+"Compre e venda em todas as ilhas de Cabo Verde. Publique o seu anúncio de "
+"forma simples, segura e gratuita."
+
+msgid "Denunciar anúncio"
+msgstr "Denunciar anúncio"
+
+msgid "Spam / fraude"
+msgstr "Spam / fraude"
+
+msgid "Categoria incorreta"
+msgstr "Categoria incorreta"
+
+msgid "Anúncio duplicado"
+msgstr "Anúncio duplicado"
+
+msgid "Expirado"
+msgstr "Expirado"
+
+msgid "Ofensivo"
+msgstr "Ofensivo"

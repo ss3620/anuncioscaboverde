@@ -34,7 +34,8 @@
     $prepare['s_zip'] = osc_user_zip();
     $prepare['s_city_area'] = osc_user_city_area();
     $prepare['s_address'] = osc_user_address();
-    $prepare['i_country'] = del_get_session('sCountry') <> '' ? del_get_session('sCountry') : osc_user_field('fk_c_country_code');
+    $cvCode = function_exists('del_site_country_code') ? del_site_country_code() : 'CV';
+    $prepare['i_country'] = del_get_session('sCountry') <> '' ? del_get_session('sCountry') : (osc_user_field('fk_c_country_code') ?: $cvCode);
     $prepare['i_region'] = del_get_session('sRegion') <> '' ? del_get_session('sRegion') : osc_user_region_id();
     $prepare['i_city'] = del_get_session('sCity') <> '' ? del_get_session('sCity') : osc_user_city_id();
     $prepare['s_phone'] = del_get_session($phone_name) <> '' ? del_get_session($phone_name) : osc_user_phone();
@@ -80,7 +81,7 @@
   <?php osc_current_web_theme_path('header.php') ; ?>
 
   <div class="inside add_item post-edit">
-    <h1><?php echo (!$edit ? __('Publish a new listing', 'delta') : __('Edit listing', 'delta')); ?></h1>
+    <h1><?php echo (!$edit ? __('Publicar um novo anúncio', 'delta') : __('Editar anúncio', 'delta')); ?></h1>
 
     <ul id="error_list" class="new-item"></ul>
 

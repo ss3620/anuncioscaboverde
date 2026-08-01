@@ -944,16 +944,16 @@
         <div id="report" class="noselect">
           <a href="#" onclick="return false;">
             <i class="fas fa-exclamation-circle"></i>
-            <?php _e('Report listing', 'delta'); ?>
+            <?php _e('Denunciar anúncio', 'delta'); ?>
           </a>
 
           <div class="cont-wrap">
             <div class="cont">
-              <a id="item_spam" class="reports" href="<?php echo osc_item_link_spam() ; ?>" rel="nofollow"><?php _e('Spam', 'delta') ; ?></a>
-              <a id="item_bad_category" class="reports" href="<?php echo osc_item_link_bad_category() ; ?>" rel="nofollow"><?php _e('Misclassified', 'delta') ; ?></a>
-              <a id="item_repeated" class="reports" href="<?php echo osc_item_link_repeated() ; ?>" rel="nofollow"><?php _e('Duplicated', 'delta') ; ?></a>
-              <a id="item_expired" class="reports" href="<?php echo osc_item_link_expired() ; ?>" rel="nofollow"><?php _e('Expired', 'delta') ; ?></a>
-              <a id="item_offensive" class="reports" href="<?php echo osc_item_link_offensive() ; ?>" rel="nofollow"><?php _e('Offensive', 'delta') ; ?></a>
+              <a id="item_spam" class="reports" href="<?php echo osc_item_link_spam() ; ?>" rel="nofollow"><?php _e('Spam / fraude', 'delta') ; ?></a>
+              <a id="item_bad_category" class="reports" href="<?php echo osc_item_link_bad_category() ; ?>" rel="nofollow"><?php _e('Categoria incorreta', 'delta') ; ?></a>
+              <a id="item_repeated" class="reports" href="<?php echo osc_item_link_repeated() ; ?>" rel="nofollow"><?php _e('Anúncio duplicado', 'delta') ; ?></a>
+              <a id="item_expired" class="reports" href="<?php echo osc_item_link_expired() ; ?>" rel="nofollow"><?php _e('Expirado', 'delta') ; ?></a>
+              <a id="item_offensive" class="reports" href="<?php echo osc_item_link_offensive() ; ?>" rel="nofollow"><?php _e('Ofensivo', 'delta') ; ?></a>
             </div>
           </div>
         </div>

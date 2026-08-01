@@ -16,8 +16,8 @@
       <!-- REGISTER FORM -->
       <div id="register" class="box">
         <div class="wrap">
-          <h1><?php _e('Register a new account', 'delta'); ?></h1>
-          <h2><?php _e('It takes you just 1 minute, helps you to create new ads much faster or save prefered searches', 'delta'); ?></h2>
+          <h1><?php _e('Criar uma nova conta', 'delta'); ?></h1>
+          <h2><?php _e('Demora apenas cerca de 1 minuto e permite publicar anúncios mais depressa e guardar pesquisas.', 'delta'); ?></h2>
 
           <div class="user_forms register">
             <div class="inner">

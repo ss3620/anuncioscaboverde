@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" dir="<?php echo del_language_dir(); ?>" lang="<?php echo str_replace('_', '-', osc_current_user_locale()); ?>">
 <head>
   <?php osc_current_web_theme_path('head.php') ; ?>
-  <meta name="robots" content="noindex, nofollow" />
-  <meta name="googlebot" content="noindex, nofollow" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
   <script type="text/javascript" src="<?php echo osc_current_web_theme_js_url('jquery.validate.min.js') ; ?>"></script>
 </head>
 
@@ -17,7 +17,8 @@
       <div id="contact" class="box">
         <div class="wrap">
           <h1><?php _e('Contact us', 'delta'); ?></h1>
-          <h2><?php _e('We will reply in 48 hours. Please use our forums and FAQ section before messaging us.', 'delta'); ?></h2>
+          <h2><?php _e('Respondemos em até 48 horas. Consulte primeiro a nossa página de Perguntas frequentes.', 'delta'); ?></h2>
+          <p class="contact-faq-link"><a href="<?php echo osc_esc_html(del_acv_page_url('faq')); ?>"><?php _e('Ver perguntas frequentes', 'delta'); ?></a></p>
 
           <div class="user_forms login">
             <div class="inner">

@@ -10,7 +10,7 @@
     <?php osc_run_hook('header_top'); ?>
     
     <div class="relative1">
-      <?php if(function_exists('blg_home_link')) { ?>
+      <?php if(function_exists('blg_home_link') && del_param('blog_home') == 1) { ?>
         <a class="blog" href="<?php echo blg_home_link(); ?>"><?php _e('Blog', 'delta'); ?></a>
       <?php } ?>
 
@@ -24,7 +24,7 @@
 
       <?php if(function_exists('fi_make_favorite')) { ?>
         <a class="favorite" href="<?php echo osc_route_url('favorite-lists'); ?>">
-          <span><?php _e('Favorite', 'delta'); ?></span>
+          <span><?php _e('Favoritos', 'delta'); ?></span>
 
           <?php if($fav_counter > 0) { ?>
             <span class="counter mbBg3"><?php echo $fav_counter; ?></span>

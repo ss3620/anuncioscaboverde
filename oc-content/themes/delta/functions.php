@@ -3002,7 +3002,7 @@ osc_add_hook('init', 'del_acv_locations_align', 5);
 
 // One-time Anuncios Cabo Verde visual brand alignment (colors + category icons)
 function del_acv_brand_align() {
-  if(osc_get_preference('acv_brand_v3', 'theme-delta') == '1') {
+  if(osc_get_preference('acv_brand_v4', 'theme-delta') == '1') {
     return;
   }
   osc_set_preference('color', '#0B3A6E', 'theme-delta');
@@ -3012,19 +3012,87 @@ function del_acv_brand_align() {
   osc_set_preference('date_format', 'dd/mm', 'theme-delta');
   osc_set_preference('website_name', 'Anúncios Cabo Verde', 'theme-delta');
   osc_set_preference('def_cur', 'CVE', 'theme-delta');
+  osc_set_preference('footer_link', '0', 'theme-delta');
+  osc_set_preference('blog_home', '0', 'theme-delta');
+  osc_set_preference('lazy_load', '1', 'theme-delta');
+  osc_set_preference('location_pick', '1', 'theme-delta');
+
   // Clear stock Delta placeholder contact details
   $email = del_param('site_email');
   $phone = del_param('site_phone');
   if($email === '' || $email === 'support@dot.com') {
     osc_set_preference('site_email', 'suporte@anuncioscaboverde.com', 'theme-delta');
   }
-  if($phone === '' || $phone === '+1 (800) 228-5651') {
-    osc_set_preference('site_phone', '+238', 'theme-delta');
+  // Hide incomplete phone until a full Cabo Verde number is configured
+  if($phone === '' || $phone === '+1 (800) 228-5651' || $phone === '+238') {
+    osc_set_preference('site_phone', '', 'theme-delta');
   }
-  osc_set_preference('acv_brand_v3', '1', 'theme-delta');
+
+  // Site-wide page title (meta <title>) — separate from theme website_name
+  if(osc_get_preference('pageTitle', 'osclass') == '' || stripos((string) osc_get_preference('pageTitle', 'osclass'), 'Anun') !== false) {
+    osc_set_preference('pageTitle', 'Anúncios Cabo Verde', 'osclass');
+  }
+  if(osc_get_preference('pageDesc', 'osclass') == '' || stripos((string) osc_get_preference('pageDesc', 'osclass'), 'Osclass') !== false) {
+    osc_set_preference('pageDesc', 'Anúncios Cabo Verde — compre e venda em todas as ilhas de Cabo Verde.', 'osclass');
+  }
+
+  osc_set_preference('acv_brand_v4', '1', 'theme-delta');
   osc_reset_preferences();
 }
 del_acv_brand_align();
+
+// Portuguese-only site: disable English (US) on the public website
+function del_acv_pt_only_locale() {
+  if(osc_get_preference('acv_pt_only_v1', 'theme-delta') == '1') {
+    return;
+  }
+  try {
+    $conn = DBConnectionClass::newInstance()->getOsclassDb();
+    $comm = new DBCommandClass($conn);
+    $prefix = DB_TABLE_PREFIX;
+    $comm->query("UPDATE {$prefix}t_locale SET b_enabled = 0 WHERE pk_c_code = 'en_US'");
+    $comm->query("UPDATE {$prefix}t_locale SET b_enabled = 1, b_enabled_bo = 1 WHERE pk_c_code = 'pt_PT'");
+    osc_set_preference('language', 'pt_PT', 'osclass');
+    osc_set_preference('acv_pt_only_v1', '1', 'theme-delta');
+    osc_reset_preferences();
+  } catch (Exception $e) {
+    // Never break frontend if locale update fails
+  }
+}
+osc_add_hook('init', 'del_acv_pt_only_locale', 6);
+
+/**
+ * URL for a static page by internal name (e.g. faq, about-us).
+ */
+function del_acv_page_url($internal_name) {
+  $page = Page::newInstance()->findByInternalName($internal_name);
+  if(!$page || empty($page['pk_i_id'])) {
+    return osc_contact_url();
+  }
+  View::newInstance()->_exportVariableToView('page', $page);
+  return osc_static_page_url();
+}
+
+/**
+ * Ensure CVE is the default Osclass currency for new listings.
+ */
+function del_acv_default_currency() {
+  if(osc_get_preference('acv_currency_v1', 'theme-delta') == '1') {
+    return;
+  }
+  try {
+    $conn = DBConnectionClass::newInstance()->getOsclassDb();
+    $comm = new DBCommandClass($conn);
+    $prefix = DB_TABLE_PREFIX;
+    $comm->query("INSERT IGNORE INTO {$prefix}t_currency (pk_c_code, s_name, s_description, b_enabled) VALUES ('CVE', 'CVE', 'Escudo cabo-verdiano', 1)");
+    osc_set_preference('currency', 'CVE', 'osclass');
+    osc_set_preference('acv_currency_v1', '1', 'theme-delta');
+    osc_reset_preferences();
+  } catch (Exception $e) {
+    // ignore
+  }
+}
+osc_add_hook('init', 'del_acv_default_currency', 7);
 
 
 // WHEN NEW LISTING IS CREATED, ADD IT TO DELTA EXTRA TABLE

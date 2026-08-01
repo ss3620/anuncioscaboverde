@@ -7,3 +7,5 @@ Disallow: /oc-content/uploads/minify/
 Disallow: /oc-content/uploads/temp/
 Disallow: /oc-includes/osclass/
 Disallow: /oc-includes/vendor/
+
+Sitemap: https://www.anuncioscaboverde.com/sitemap.php

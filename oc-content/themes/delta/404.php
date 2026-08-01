@@ -33,10 +33,10 @@
         <div class="number">4</div>
       </div>
       
-      <h1><?php _e('OOPS! Page Not Found!', 'delta'); ?></h1>
-      <h2><?php _e('Either something get wrong or the page doesn\'t exist anymore.', 'delta'); ?></h2>
+      <h1><?php _e('Página não encontrada', 'delta'); ?></h1>
+      <h2><?php _e('A página que procura não existe ou foi removida.', 'delta'); ?></h2>
 
-      <a href="<?php echo osc_base_url(); ?>" class="btn mbBg2"><?php _e('Back Home', 'delta'); ?></a>
+      <a href="<?php echo osc_base_url(); ?>" class="btn mbBg2"><?php _e('Voltar ao início', 'delta'); ?></a>
     </div>
   </div>
 
