@@ -1782,7 +1782,6 @@ msgstr "O que procura?"
 msgid "In which category?"
 msgstr "Em que categoria?"
 
-#: inc.search.php:58
 msgid "All the categories"
 msgstr "Todas as categorias"
 
@@ -1802,7 +1801,6 @@ msgstr "País, região ou cidade"
 msgid "Type to filter results"
 msgstr "Digite para filtrar os resultados"
 
-#: inc.search.php:141
 msgid "Search in all categories"
 msgstr "Pesquise em todas as categorias"
 
@@ -3051,3 +3049,9 @@ msgstr "Expirado"
 
 msgid "Ofensivo"
 msgstr "Ofensivo"
+
+msgid "Ex.: telemóvel, carro, casa…"
+msgstr "Ex.: telemóvel, carro, casa…"
+
+msgid "Ex.: iPhone, car, house…"
+msgstr "Ex.: telemóvel, carro, casa…"

@@ -66,8 +66,8 @@
 </script>
 <?php
 
-osc_enqueue_style('style', osc_current_web_theme_url('css/style.css?v=' . DELTA_THEME_VERSION . '-acv10'));
-osc_enqueue_style('responsive', osc_current_web_theme_url('css/responsive.css?v=' . DELTA_THEME_VERSION . '-acv10'));
+osc_enqueue_style('style', osc_current_web_theme_url('css/style.css?v=' . DELTA_THEME_VERSION . '-acv11'));
+osc_enqueue_style('responsive', osc_current_web_theme_url('css/responsive.css?v=' . DELTA_THEME_VERSION . '-acv11'));
 ?>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
