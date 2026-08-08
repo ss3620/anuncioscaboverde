@@ -29,9 +29,9 @@
         if (!cfg.ajaxUrl) cfg.ajaxUrl = base + 'index.php?page=ajax&action=custom&route=favorite-items-toggle';
         if (!cfg.loginUrl) cfg.loginUrl = base + 'index.php?page=login';
         if (typeof cfg.userId === 'undefined') cfg.userId = 0;
-        if (!cfg.labels.add) cfg.labels.add = 'Add to favorites';
-        if (!cfg.labels.added) cfg.labels.added = 'Saved';
-        if (!cfg.labels.loginRequired) cfg.labels.loginRequired = 'Please log in to save favorites.';
+        if (!cfg.labels.add) cfg.labels.add = 'Adicionar aos favoritos';
+        if (!cfg.labels.added) cfg.labels.added = 'Guardado';
+        if (!cfg.labels.loginRequired) cfg.labels.loginRequired = 'Inicie sessao para guardar nos favoritos.';
         return cfg;
     }
 

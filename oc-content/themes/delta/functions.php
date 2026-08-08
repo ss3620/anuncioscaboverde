@@ -3077,25 +3077,56 @@ function del_acv_page_url($internal_name) {
 }
 
 /**
- * Ensure CVE is the default Osclass currency for new listings.
+ * Ensure CVE is the default currency and short label (not "Cape Verdean escudo").
  */
 function del_acv_default_currency() {
-  if(osc_get_preference('acv_currency_v1', 'theme-delta') == '1') {
+  if(osc_get_preference('acv_currency_v2', 'theme-delta') == '1') {
     return;
   }
   try {
     $conn = DBConnectionClass::newInstance()->getOsclassDb();
     $comm = new DBCommandClass($conn);
     $prefix = DB_TABLE_PREFIX;
-    $comm->query("INSERT IGNORE INTO {$prefix}t_currency (pk_c_code, s_name, s_description, b_enabled) VALUES ('CVE', 'CVE', 'Escudo cabo-verdiano', 1)");
+    $comm->query("INSERT IGNORE INTO {$prefix}t_currency (pk_c_code, s_name, s_description, b_enabled) VALUES ('CVE', 'CVE', 'CVE', 1)");
+    $comm->query("UPDATE {$prefix}t_currency SET s_name = 'CVE', s_description = 'CVE', b_enabled = 1 WHERE pk_c_code = 'CVE'");
     osc_set_preference('currency', 'CVE', 'osclass');
+    osc_set_preference('def_cur', 'CVE', 'theme-delta');
     osc_set_preference('acv_currency_v1', '1', 'theme-delta');
+    osc_set_preference('acv_currency_v2', '1', 'theme-delta');
     osc_reset_preferences();
   } catch (Exception $e) {
     // ignore
   }
 }
 osc_add_hook('init', 'del_acv_default_currency', 7);
+
+/**
+ * Force Favorite Items plugin labels to Portuguese (overrides English install defaults).
+ */
+function del_acv_favorites_pt_labels() {
+  if(osc_get_preference('acv_fav_labels_v1', 'theme-delta') == '1') {
+    return;
+  }
+  if(!function_exists('osc_set_preference')) {
+    return;
+  }
+  $label = (string) osc_get_preference('button_label', 'favorite_items');
+  $labelOn = (string) osc_get_preference('button_label_active', 'favorite_items');
+  $widget = (string) osc_get_preference('home_widget_title', 'favorite_items');
+  if($label === '' || stripos($label, 'Add to favorites') !== false || stripos($label, 'Favorite') !== false) {
+    osc_set_preference('button_label', 'Adicionar aos favoritos', 'favorite_items');
+  }
+  if($labelOn === '' || strcasecmp($labelOn, 'Saved') === 0) {
+    osc_set_preference('button_label_active', 'Guardado', 'favorite_items');
+  }
+  if($widget === '' || stripos($widget, 'Most favorited') !== false) {
+    osc_set_preference('home_widget_title', 'Anuncios mais favoritos pelos utilizadores', 'favorite_items');
+    osc_set_preference('home_widget_subtitle', 'Os anuncios que a comunidade mais gosta neste momento', 'favorite_items');
+  }
+  osc_set_preference('acv_fav_labels_v1', '1', 'theme-delta');
+  osc_reset_preferences();
+}
+osc_add_hook('init', 'del_acv_favorites_pt_labels', 9);
 
 
 // WHEN NEW LISTING IS CREATED, ADD IT TO DELTA EXTRA TABLE

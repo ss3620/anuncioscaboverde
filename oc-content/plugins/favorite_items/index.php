@@ -140,8 +140,8 @@ function favorite_items_inject_globals()
     $ajax_url = osc_base_url(true) . '?page=ajax&action=custom&route=favorite-items-toggle';
     $user_id  = osc_is_web_user_logged_in() ? (int) osc_logged_user_id() : 0;
     $login_url = osc_user_login_url();
-    $label     = osc_esc_js(osc_get_preference('button_label', 'favorite_items') ?: 'Add to favorites');
-    $labelOn   = osc_esc_js(osc_get_preference('button_label_active', 'favorite_items') ?: 'Saved');
+    $label     = osc_esc_js(osc_get_preference('button_label', 'favorite_items') ?: 'Adicionar aos favoritos');
+    $labelOn   = osc_esc_js(osc_get_preference('button_label_active', 'favorite_items') ?: 'Guardado');
     ?>
     <script>
     window.FavoriteItems = {
@@ -151,7 +151,7 @@ function favorite_items_inject_globals()
         labels: {
             add: <?php echo json_encode($label); ?>,
             added: <?php echo json_encode($labelOn); ?>,
-            loginRequired: "Please log in to save favorites."
+            loginRequired: "Inicie sessao para guardar nos favoritos."
         }
     };
     </script>
@@ -191,7 +191,7 @@ function favorite_items_search_item_button()
             class="favorite-items-btn favorite-items-btn--mini <?php echo $isFav ? 'is-active' : ''; ?>"
             data-testid="favorite-toggle-mini-<?php echo (int) $item['pk_i_id']; ?>"
             data-item-id="<?php echo (int) $item['pk_i_id']; ?>"
-            title="<?php echo osc_esc_html(osc_get_preference('button_label', 'favorite_items') ?: 'Add to favorites'); ?>">
+            title="<?php echo osc_esc_html(osc_get_preference('button_label', 'favorite_items') ?: 'Adicionar aos favoritos'); ?>">
         <span class="favorite-items-icon favorite-items-icon--<?php echo osc_esc_html($icon); ?>" aria-hidden="true"></span>
         <?php if (osc_get_preference('show_count', 'favorite_items')): ?>
             <span class="favorite-items-count" data-testid="favorite-count-mini-<?php echo (int) $item['pk_i_id']; ?>"><?php echo (int) $count; ?></span>
@@ -211,7 +211,7 @@ function favorite_items_user_menu()
     <li class="favorite-items-menu-item">
         <a href="<?php echo osc_esc_html($url); ?>" data-testid="favorites-menu-link">
             <span class="favorite-items-icon favorite-items-icon--<?php echo osc_esc_html(osc_get_preference('icon', 'favorite_items') ?: 'heart'); ?>" aria-hidden="true"></span>
-            My Favorites
+            Favoritos
             <span class="favorite-items-badge" data-testid="favorites-menu-count"><?php echo (int) $count; ?></span>
         </a>
     </li>
