@@ -3004,6 +3004,7 @@ osc_current_web_theme_path('inc/categories-pt.php');
 osc_add_hook('init', 'del_acv_translate_categories', 8);
 
 osc_current_web_theme_path('inc/legal-pages-pt.php');
+osc_current_web_theme_path('inc/rewrite-rules-fix.php');
 
 // One-time Anuncios Cabo Verde visual brand alignment (colors + category icons)
 function del_acv_brand_align() {
