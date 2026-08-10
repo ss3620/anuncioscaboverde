@@ -3590,6 +3590,15 @@ function del_show_recaptcha( $section = '' ){
         if(anr_get_option('login') == '1') {
           osc_run_hook("anr_captcha_form_field");
         }
+      } else if($section == 'new' || ($section === '' && function_exists('osc_is_publish_page') && osc_is_publish_page())) {
+        // Always show on publish form (even if "hide for logged-in users" is on)
+        if(anr_get_option('new') == '1' || $section == 'new') {
+          if(class_exists('anr_captcha_class')) {
+            echo anr_captcha_class::init()->captcha_form_field();
+          } else {
+            osc_run_hook("anr_captcha_form_field");
+          }
+        }
       } else {
         // plugin sections are: login, registration, new, contact, contact_listing, send_friend, comment
         osc_run_hook("anr_captcha_form_field");
@@ -3603,6 +3612,56 @@ function del_show_recaptcha( $section = '' ){
     }
   }
 }
+
+/**
+ * Enable noCaptcha on "Publish listing" and validate even for logged-in users.
+ */
+function del_acv_enable_item_post_captcha() {
+  if(osc_get_preference('acv_item_captcha_v1', 'theme-delta') == '1') {
+    return;
+  }
+  if(!function_exists('anr_get_option')) {
+    return;
+  }
+  osc_set_preference('new', '1', 'plugin-anr_nocaptcha', 'BOOLEAN');
+  osc_set_preference('acv_item_captcha_v1', '1', 'theme-delta');
+  osc_reset_preferences();
+}
+osc_add_hook('init', 'del_acv_enable_item_post_captcha', 8);
+
+function del_acv_item_add_captcha_check() {
+  if(!function_exists('anr_get_option') || !function_exists('anr_verify_captcha')) {
+    return;
+  }
+  if(anr_get_option('new') != '1') {
+    return;
+  }
+  if(anr_get_option('secret_key') == '') {
+    return;
+  }
+
+  // Enforce captcha on publish even when plugin "hide for logged-in" is enabled
+  $response = Params::getParam('g-recaptcha-response');
+  $remoteip = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '';
+  $ok = false;
+  if($response !== '' && $response !== null) {
+    $request = @file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode(anr_get_option('secret_key')) . '&response=' . urlencode($response) . '&remoteip=' . urlencode($remoteip));
+    if($request) {
+      $result = json_decode($request, true);
+      $ok = !empty($result['success']);
+    }
+  }
+
+  if(!$ok) {
+    $error_message = trim((string) osc_get_preference('error_message', 'plugin-anr_nocaptcha'));
+    if($error_message === '') {
+      $error_message = __('Please solve the captcha correctly.', 'delta');
+    }
+    osc_add_flash_error_message($error_message);
+    osc_redirect_to(osc_item_post_url());
+  }
+}
+osc_add_hook('pre_item_add', 'del_acv_item_add_captcha_check', 1);
 
 
 // SHOW BANNER

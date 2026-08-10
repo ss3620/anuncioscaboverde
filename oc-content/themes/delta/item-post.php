@@ -372,7 +372,7 @@
           <div class="box">
             <div class="row">
               <?php osc_run_hook('item_publish_bottom'); ?>
-              <?php del_show_recaptcha(); ?>
+              <?php del_show_recaptcha('new'); ?>
             </div>
           </div>
 
