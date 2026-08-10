@@ -3580,13 +3580,10 @@ function del_phone_clicks( $item_id ) {
 
 // NO CAPTCHA RECAPTCHA CHECK
 function del_show_recaptcha( $section = '' ){
-  if(function_exists('anr_get_option')) {
-    if(anr_get_option('site_key') == '') {
-      return;
-    }
+  $is_publish = ($section === 'new') || (function_exists('osc_is_publish_page') && osc_is_publish_page());
 
-    // Publish listing: always render widget (ignore "hide for logged-in users")
-    $is_publish = ($section === 'new') || (function_exists('osc_is_publish_page') && osc_is_publish_page());
+  // Prefer noCaptcha plugin when it has a site key
+  if(function_exists('anr_get_option') && anr_get_option('site_key') != '') {
     if($is_publish) {
       if(class_exists('anr_captcha_class')) {
         echo anr_captcha_class::init()->captcha_form_field();
@@ -3595,36 +3592,49 @@ function del_show_recaptcha( $section = '' ){
       }
       return;
     }
-
     if($section == 'contact_listing') {
       if(anr_get_option('contact_listing') == '1') {
         osc_run_hook('anr_captcha_form_field');
       }
-    } else if($section == 'login') {
+      return;
+    }
+    if($section == 'login') {
       if(anr_get_option('login') == '1') {
         osc_run_hook('anr_captcha_form_field');
       }
-    } else {
-      osc_run_hook('anr_captcha_form_field');
+      return;
     }
-  } else {
-    if(osc_recaptcha_public_key() <> '') {
-      if(((osc_is_publish_page() || osc_is_edit_page()) && osc_recaptcha_items_enabled()) || (!osc_is_publish_page() && !osc_is_edit_page()) ) {
-        osc_show_recaptcha($section);
-      }
-    }
+    osc_run_hook('anr_captcha_form_field');
+    return;
   }
+
+  // Osclass core reCAPTCHA (Settings → Spam and bots)
+  if(osc_recaptcha_public_key() == '') {
+    return;
+  }
+  if($is_publish) {
+    // Always show on publish when core keys exist
+    osc_show_recaptcha($section === '' ? 'new' : $section);
+    return;
+  }
+  if((osc_is_publish_page() || osc_is_edit_page()) && !osc_recaptcha_items_enabled()) {
+    return;
+  }
+  osc_show_recaptcha($section);
 }
 
 /**
- * Enable noCaptcha on "Publish listing" and validate even for logged-in users.
+ * Ensure Osclass core reCAPTCHA is enabled for listing publish forms.
  */
 function del_acv_enable_item_post_captcha() {
-  if(!function_exists('anr_get_option')) {
+  if(osc_recaptcha_public_key() == '') {
     return;
   }
-  // Keep forcing "new" on so admin toggles cannot silently disable publish captcha after deploy
-  if(anr_get_option('new') != '1') {
+  if(!osc_recaptcha_items_enabled()) {
+    osc_set_preference('enabled_recaptcha_items', '1');
+    osc_reset_preferences();
+  }
+  if(function_exists('anr_get_option') && anr_get_option('site_key') != '' && anr_get_option('new') != '1') {
     osc_set_preference('new', '1', 'plugin-anr_nocaptcha', 'BOOLEAN');
     osc_reset_preferences();
   }
@@ -3632,33 +3642,29 @@ function del_acv_enable_item_post_captcha() {
 osc_add_hook('init', 'del_acv_enable_item_post_captcha', 8);
 
 function del_acv_item_add_captcha_check() {
-  if(!function_exists('anr_get_option')) {
+  // Plugin path: verify when plugin keys are configured
+  if(function_exists('anr_get_option') && anr_get_option('site_key') != '' && anr_get_option('secret_key') != '') {
+    $response = Params::getParam('g-recaptcha-response');
+    $remoteip = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '';
+    $ok = false;
+    if($response !== '' && $response !== null) {
+      $request = @file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode(anr_get_option('secret_key')) . '&response=' . urlencode($response) . '&remoteip=' . urlencode($remoteip));
+      if($request) {
+        $result = json_decode($request, true);
+        $ok = !empty($result['success']);
+      }
+    }
+    if(!$ok) {
+      $error_message = trim((string) osc_get_preference('error_message', 'plugin-anr_nocaptcha'));
+      if($error_message === '') {
+        $error_message = __('Please solve the captcha correctly.', 'delta');
+      }
+      osc_add_flash_error_message($error_message);
+      osc_redirect_to(osc_item_post_url());
+    }
     return;
   }
-  if(anr_get_option('secret_key') == '') {
-    return;
-  }
-
-  // Enforce captcha on publish even when plugin "hide for logged-in" is enabled
-  $response = Params::getParam('g-recaptcha-response');
-  $remoteip = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '';
-  $ok = false;
-  if($response !== '' && $response !== null) {
-    $request = @file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode(anr_get_option('secret_key')) . '&response=' . urlencode($response) . '&remoteip=' . urlencode($remoteip));
-    if($request) {
-      $result = json_decode($request, true);
-      $ok = !empty($result['success']);
-    }
-  }
-
-  if(!$ok) {
-    $error_message = trim((string) osc_get_preference('error_message', 'plugin-anr_nocaptcha'));
-    if($error_message === '') {
-      $error_message = __('Please solve the captcha correctly.', 'delta');
-    }
-    osc_add_flash_error_message($error_message);
-    osc_redirect_to(osc_item_post_url());
-  }
+  // Core Osclass path is already validated in Item controller when enabled_recaptcha_items=1
 }
 osc_add_hook('pre_item_add', 'del_acv_item_add_captcha_check', 1);
 
