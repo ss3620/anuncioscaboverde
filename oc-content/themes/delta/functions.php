@@ -3581,28 +3581,31 @@ function del_phone_clicks( $item_id ) {
 // NO CAPTCHA RECAPTCHA CHECK
 function del_show_recaptcha( $section = '' ){
   if(function_exists('anr_get_option')) {
-    if(anr_get_option('site_key') <> '') {
-      if($section == 'contact_listing') {
-        if(anr_get_option('contact_listing') == '1') {
-          osc_run_hook("anr_captcha_form_field");
-        }
-      } else if($section == 'login') {
-        if(anr_get_option('login') == '1') {
-          osc_run_hook("anr_captcha_form_field");
-        }
-      } else if($section == 'new' || ($section === '' && function_exists('osc_is_publish_page') && osc_is_publish_page())) {
-        // Always show on publish form (even if "hide for logged-in users" is on)
-        if(anr_get_option('new') == '1' || $section == 'new') {
-          if(class_exists('anr_captcha_class')) {
-            echo anr_captcha_class::init()->captcha_form_field();
-          } else {
-            osc_run_hook("anr_captcha_form_field");
-          }
-        }
+    if(anr_get_option('site_key') == '') {
+      return;
+    }
+
+    // Publish listing: always render widget (ignore "hide for logged-in users")
+    $is_publish = ($section === 'new') || (function_exists('osc_is_publish_page') && osc_is_publish_page());
+    if($is_publish) {
+      if(class_exists('anr_captcha_class')) {
+        echo anr_captcha_class::init()->captcha_form_field();
       } else {
-        // plugin sections are: login, registration, new, contact, contact_listing, send_friend, comment
-        osc_run_hook("anr_captcha_form_field");
+        osc_run_hook('anr_captcha_form_field');
       }
+      return;
+    }
+
+    if($section == 'contact_listing') {
+      if(anr_get_option('contact_listing') == '1') {
+        osc_run_hook('anr_captcha_form_field');
+      }
+    } else if($section == 'login') {
+      if(anr_get_option('login') == '1') {
+        osc_run_hook('anr_captcha_form_field');
+      }
+    } else {
+      osc_run_hook('anr_captcha_form_field');
     }
   } else {
     if(osc_recaptcha_public_key() <> '') {
@@ -3617,23 +3620,19 @@ function del_show_recaptcha( $section = '' ){
  * Enable noCaptcha on "Publish listing" and validate even for logged-in users.
  */
 function del_acv_enable_item_post_captcha() {
-  if(osc_get_preference('acv_item_captcha_v1', 'theme-delta') == '1') {
-    return;
-  }
   if(!function_exists('anr_get_option')) {
     return;
   }
-  osc_set_preference('new', '1', 'plugin-anr_nocaptcha', 'BOOLEAN');
-  osc_set_preference('acv_item_captcha_v1', '1', 'theme-delta');
-  osc_reset_preferences();
+  // Keep forcing "new" on so admin toggles cannot silently disable publish captcha after deploy
+  if(anr_get_option('new') != '1') {
+    osc_set_preference('new', '1', 'plugin-anr_nocaptcha', 'BOOLEAN');
+    osc_reset_preferences();
+  }
 }
 osc_add_hook('init', 'del_acv_enable_item_post_captcha', 8);
 
 function del_acv_item_add_captcha_check() {
-  if(!function_exists('anr_get_option') || !function_exists('anr_verify_captcha')) {
-    return;
-  }
-  if(anr_get_option('new') != '1') {
+  if(!function_exists('anr_get_option')) {
     return;
   }
   if(anr_get_option('secret_key') == '') {
