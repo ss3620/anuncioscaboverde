@@ -3652,7 +3652,8 @@ function del_acv_fix_pt_grammar($string) {
   if(!is_string($string) || $string === '') {
     return $string;
   }
-  return str_replace('Publicar uma anúncio', 'Publicar um anúncio', $string);
+  $string = str_replace('Publicar uma anúncio', 'Publicar um anúncio', $string);
+  return str_replace('Nenhuma anúncio', 'Nenhum anúncio', $string);
 }
 osc_add_filter('gettext', 'del_acv_fix_pt_grammar');
 

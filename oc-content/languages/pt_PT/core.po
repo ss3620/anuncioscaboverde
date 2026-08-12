@@ -3657,7 +3657,7 @@ msgstr "Publicado recentemente"
 
 #: oc-admin/themes/omega/main/index.php:431
 msgid "No listings has been found"
-msgstr "Nenhuma anúncio foi encontrada"
+msgstr "Nenhum anúncio foi encontrado"
 
 #: oc-admin/themes/omega/main/index.php:440
 #: oc-admin/themes/omega/main/index.php:512

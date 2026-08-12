@@ -2478,7 +2478,7 @@ msgstr "Anúncios em destaque"
 
 #: main.php:38
 msgid "No premium listing yet"
-msgstr "Nenhuma anúncio premium ainda"
+msgstr "Nenhum anúncio premium ainda"
 
 #: main.php:55
 msgid "Earn money right now"
@@ -2502,7 +2502,7 @@ msgstr "Adicionado recentemente em nossos classificados"
 
 #: main.php:159
 msgid "No latest listing yet"
-msgstr "Nenhuma anúncio mais recente ainda"
+msgstr "Nenhum anúncio mais recente ainda"
 
 #: main.php:177
 msgid "Our partners"
@@ -2679,7 +2679,7 @@ msgstr "Esta anúncio é premium"
 
 #: user-alerts.php:217
 msgid "No listings match to this alert"
-msgstr "Nenhuma anúncio corresponde a este alerta"
+msgstr "Nenhum anúncio corresponde a este alerta"
 
 #: user-alerts.php:226
 msgid ""

@@ -1458,7 +1458,7 @@ msgstr "Alerta"
 
 #: oc-includes/osclass/gui/user-items.php:42
 msgid "No listings have been added yet"
-msgstr "Nenhuma anúncio foi adicionada ainda"
+msgstr "Nenhum anúncio foi adicionado ainda"
 
 #: oc-includes/osclass/gui/user-public-profile.php:82
 msgid "User description"

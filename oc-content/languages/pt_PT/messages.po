@@ -1534,7 +1534,7 @@ msgstr[1] "%s utilizadores foram bloqueados"
 
 #: oc-admin/users.php:318
 msgid "No users listings have been unblocked"
-msgstr "Nenhuma anúncio de utilizadores foi desbloqueada"
+msgstr "Nenhum anúncio de utilizadores foi desbloqueado"
 
 #: oc-admin/users.php:320
 #, fuzzy, php-format
@@ -1546,7 +1546,7 @@ msgstr[1] "%s listagens de utilizadores foram desbloqueadas"
 
 #: oc-admin/users.php:354
 msgid "No users listings have been blocked"
-msgstr "Nenhuma anúncio de utilizadores foi bloqueada"
+msgstr "Nenhum anúncio de utilizadores foi bloqueado"
 
 #: oc-admin/users.php:356
 #, php-format
