@@ -458,7 +458,7 @@ msgstr "ou seja. Programador PHP"
 #: oc-includes/osclass/gui/functions.php:415
 #: oc-includes/osclass/gui/item-post.php:47
 msgid "Publish a listing"
-msgstr "Publicar uma anúncio"
+msgstr "Publicar um anúncio"
 
 #: oc-content/themes/sigma/functions.php:449
 #: oc-includes/osclass/gui/functions.php:416

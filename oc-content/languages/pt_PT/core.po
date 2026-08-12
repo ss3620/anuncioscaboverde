@@ -10075,7 +10075,7 @@ msgstr "Seu perfil"
 #: oc-includes/osclass/classes/Breadcrumb.php:522
 #: oc-includes/osclass/functions.php:1927
 msgid "Publish a listing"
-msgstr "Publicar uma anúncio"
+msgstr "Publicar um anúncio"
 
 #: oc-includes/osclass/classes/Breadcrumb.php:523
 #: oc-includes/osclass/functions.php:1930

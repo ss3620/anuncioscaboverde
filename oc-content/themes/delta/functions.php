@@ -3005,6 +3005,7 @@ osc_add_hook('init', 'del_acv_translate_categories', 8);
 
 osc_current_web_theme_path('inc/legal-pages-pt.php');
 osc_current_web_theme_path('inc/rewrite-rules-fix.php');
+osc_current_web_theme_path('inc/hide-blog.php');
 
 // One-time Anuncios Cabo Verde visual brand alignment (colors + category icons)
 function del_acv_brand_align() {
@@ -3578,43 +3579,44 @@ function del_phone_clicks( $item_id ) {
 }
 
 
+function del_acv_render_plugin_captcha() {
+  if(class_exists('anr_captcha_class')) {
+    echo anr_captcha_class::init()->captcha_form_field();
+  } else {
+    osc_run_hook('anr_captcha_form_field');
+  }
+}
+
+function del_acv_render_core_captcha($section = '') {
+  if(osc_recaptcha_public_key() == '') {
+    return;
+  }
+  osc_show_recaptcha($section);
+}
+
 // NO CAPTCHA RECAPTCHA CHECK
 function del_show_recaptcha( $section = '' ){
   $is_publish = ($section === 'new') || (function_exists('osc_is_publish_page') && osc_is_publish_page());
+  $is_login = ($section === 'login');
+  $is_contact_listing = ($section === 'contact_listing');
+  $plugin_key = (function_exists('anr_get_option') && anr_get_option('site_key') != '');
 
-  // Prefer noCaptcha plugin when it has a site key
-  if(function_exists('anr_get_option') && anr_get_option('site_key') != '') {
-    if($is_publish) {
-      if(class_exists('anr_captcha_class')) {
-        echo anr_captcha_class::init()->captcha_form_field();
-      } else {
-        osc_run_hook('anr_captcha_form_field');
-      }
+  // Always show on publish / login / seller contact when any keys exist
+  if($is_publish || $is_login || $is_contact_listing) {
+    if($plugin_key) {
+      del_acv_render_plugin_captcha();
       return;
     }
-    if($section == 'contact_listing') {
-      if(anr_get_option('contact_listing') == '1') {
-        osc_run_hook('anr_captcha_form_field');
-      }
-      return;
-    }
-    if($section == 'login') {
-      if(anr_get_option('login') == '1') {
-        osc_run_hook('anr_captcha_form_field');
-      }
-      return;
-    }
+    del_acv_render_core_captcha($section === '' ? 'new' : $section);
+    return;
+  }
+
+  if($plugin_key) {
     osc_run_hook('anr_captcha_form_field');
     return;
   }
 
-  // Osclass core reCAPTCHA (Settings → Spam and bots)
   if(osc_recaptcha_public_key() == '') {
-    return;
-  }
-  if($is_publish) {
-    // Always show on publish when core keys exist
-    osc_show_recaptcha($section === '' ? 'new' : $section);
     return;
   }
   if((osc_is_publish_page() || osc_is_edit_page()) && !osc_recaptcha_items_enabled()) {
@@ -3624,22 +3626,56 @@ function del_show_recaptcha( $section = '' ){
 }
 
 /**
- * Ensure Osclass core reCAPTCHA is enabled for listing publish forms.
+ * Keep reCAPTCHA enabled on publish, login and listing contact forms.
  */
 function del_acv_enable_item_post_captcha() {
-  if(osc_recaptcha_public_key() == '') {
-    return;
-  }
-  if(!osc_recaptcha_items_enabled()) {
+  if(osc_recaptcha_public_key() != '' && !osc_recaptcha_items_enabled()) {
     osc_set_preference('enabled_recaptcha_items', '1');
     osc_reset_preferences();
   }
-  if(function_exists('anr_get_option') && anr_get_option('site_key') != '' && anr_get_option('new') != '1') {
-    osc_set_preference('new', '1', 'plugin-anr_nocaptcha', 'BOOLEAN');
+  if(function_exists('anr_get_option') && anr_get_option('site_key') != '') {
+    if(anr_get_option('new') != '1') {
+      osc_set_preference('new', '1', 'plugin-anr_nocaptcha', 'BOOLEAN');
+    }
+    if(anr_get_option('login') != '1') {
+      osc_set_preference('login', '1', 'plugin-anr_nocaptcha', 'BOOLEAN');
+    }
+    if(anr_get_option('contact_listing') != '1') {
+      osc_set_preference('contact_listing', '1', 'plugin-anr_nocaptcha', 'BOOLEAN');
+    }
     osc_reset_preferences();
   }
 }
 osc_add_hook('init', 'del_acv_enable_item_post_captcha', 8);
+
+function del_acv_fix_pt_grammar($string) {
+  if(!is_string($string) || $string === '') {
+    return $string;
+  }
+  return str_replace('Publicar uma anúncio', 'Publicar um anúncio', $string);
+}
+osc_add_filter('gettext', 'del_acv_fix_pt_grammar');
+
+/**
+ * Hide imported demo/test listings from the public site.
+ */
+function del_acv_hide_demo_listings() {
+  if(osc_get_preference('acv_hide_demo_listings_v1', 'theme-delta') == '1') {
+    return;
+  }
+  try {
+    $conn = DBConnectionClass::newInstance()->getOsclassDb();
+    $comm = new DBCommandClass($conn);
+    $prefix = DB_TABLE_PREFIX;
+    $comm->query("UPDATE {$prefix}t_item SET b_enabled = 0, b_active = 0 WHERE s_contact_email = 'acv-demo@import.local' OR s_contact_name = 'Demo Seller'");
+    $comm->query("UPDATE {$prefix}t_item i INNER JOIN {$prefix}t_item_description d ON d.fk_i_item_id = i.pk_i_id SET i.b_enabled = 0, i.b_active = 0 WHERE d.s_title = 'This is a test listing' OR d.s_description LIKE 'This is test listing%'");
+    osc_set_preference('acv_hide_demo_listings_v1', '1', 'theme-delta');
+    osc_reset_preferences();
+  } catch (Exception $e) {
+    // ignore
+  }
+}
+osc_add_hook('init', 'del_acv_hide_demo_listings', 11);
 
 function del_acv_item_add_captcha_check() {
   // Plugin path: verify when plugin keys are configured
@@ -3667,6 +3703,46 @@ function del_acv_item_add_captcha_check() {
   // Core Osclass path is already validated in Item controller when enabled_recaptcha_items=1
 }
 osc_add_hook('pre_item_add', 'del_acv_item_add_captcha_check', 1);
+
+function del_acv_verify_google_captcha() {
+  $secret = '';
+  if(function_exists('anr_get_option') && anr_get_option('secret_key') != '') {
+    $secret = anr_get_option('secret_key');
+  } else if(function_exists('osc_recaptcha_private_key')) {
+    $secret = osc_recaptcha_private_key();
+  }
+  if($secret == '') {
+    return true;
+  }
+  $response = Params::getParam('g-recaptcha-response');
+  if($response === '' || $response === null) {
+    return false;
+  }
+  $remoteip = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '';
+  $request = @file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secret) . '&response=' . urlencode($response) . '&remoteip=' . urlencode($remoteip));
+  if(!$request) {
+    return false;
+  }
+  $result = json_decode($request, true);
+  return !empty($result['success']);
+}
+
+function del_acv_item_contact_captcha_check($item) {
+  if(del_acv_verify_google_captcha()) {
+    return;
+  }
+  $error_message = trim((string) osc_get_preference('error_message', 'plugin-anr_nocaptcha'));
+  if($error_message === '') {
+    $error_message = __('Please solve the captcha correctly.', 'delta');
+  }
+  osc_add_flash_error_message($error_message);
+  if(is_array($item) && !empty($item['pk_i_id'])) {
+    View::newInstance()->_exportVariableToView('item', $item);
+    osc_redirect_to(osc_item_url());
+  }
+  osc_redirect_to(osc_base_url());
+}
+osc_add_hook('pre_item_contact_post', 'del_acv_item_contact_captcha_check', 1);
 
 
 // SHOW BANNER

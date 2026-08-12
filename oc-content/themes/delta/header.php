@@ -159,6 +159,7 @@
   $breadcrumb = osc_breadcrumb('>', false);
   $breadcrumb = str_replace('<span itemprop="title">' . osc_page_title() . '</span>', '<span itemprop="title">' . del_param('website_name') . '</span>', $breadcrumb);
   $breadcrumb = str_replace('<span itemprop="name">' . osc_page_title() . '</span>', '<span itemprop="name">' . del_param('website_name') . '</span>', $breadcrumb);
+  $breadcrumb = str_replace('Publicar uma anúncio', 'Publicar um anúncio', $breadcrumb);
 ?>
 
 <?php if($breadcrumb != '') { ?>

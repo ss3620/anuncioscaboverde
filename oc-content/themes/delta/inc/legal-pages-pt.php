@@ -19,11 +19,11 @@ function del_acv_legal_pages_content() {
     ),
     'terms' => array(
       'title' => 'Termos e condições',
-      'text' => '<p>Ao utilizar o Anúncios Cabo Verde, aceita estes termos.</p><h3>1. Utilização da plataforma</h3><p>Pode publicar e consultar anúncios para fins legais. É responsável pela veracidade do conteúdo que publica.</p><h3>2. Conteúdo proibido</h3><p>É proibido publicar conteúdo ilegal, fraudulento, discriminatório, ofensivo, ou que viole direitos de terceiros.</p><h3>3. Contas</h3><p>Deve manter os dados da conta atualizados. Podemos suspender contas que violem as regras.</p><h3>4. Responsabilidade</h3><p>Anúncios Cabo Verde é um intermediário. As transações ocorrem entre utilizadores. Não somos parte do contrato de compra e venda.</p><h3>5. Alterações</h3><p>Podemos atualizar estes termos. A versão publicada nesta página é a válida.</p><p><em>Nota: texto base — reveja com aconselhamento jurídico antes da publicação final.</em></p>',
+      'text' => '<p>Ao utilizar o Anúncios Cabo Verde, aceita estes termos.</p><h3>1. Utilização da plataforma</h3><p>Pode publicar e consultar anúncios para fins legais. É responsável pela veracidade do conteúdo que publica.</p><h3>2. Conteúdo proibido</h3><p>É proibido publicar conteúdo ilegal, fraudulento, discriminatório, ofensivo, ou que viole direitos de terceiros.</p><h3>3. Contas</h3><p>Deve manter os dados da conta atualizados. Podemos suspender contas que violem as regras.</p><h3>4. Responsabilidade</h3><p>Anúncios Cabo Verde é um intermediário. As transações ocorrem entre utilizadores. Não somos parte do contrato de compra e venda.</p><h3>5. Alterações</h3><p>Podemos atualizar estes termos. A versão publicada nesta página é a válida.</p>',
     ),
     'privacy' => array(
       'title' => 'Política de privacidade',
-      'text' => '<p>Respeitamos a sua privacidade.</p><h3>Dados que recolhemos</h3><p>Nome, email, telefone (opcional), dados de anúncios, e informação técnica necessária ao funcionamento do site (IP, cookies essenciais).</p><h3>Finalidade</h3><p>Criar e gerir a conta, publicar anúncios, permitir contacto entre utilizadores, prevenir fraude e melhorar o serviço.</p><h3>Partilha</h3><p>Não vendemos os seus dados pessoais. Podemos partilhar dados quando exigido por lei ou para proteção da plataforma.</p><h3>Os seus direitos</h3><p>Pode solicitar acesso, correção ou eliminação dos seus dados através do formulário de contacto.</p><p><em>Nota: texto base — reveja com aconselhamento jurídico antes da publicação final.</em></p>',
+      'text' => '<p>Respeitamos a sua privacidade.</p><h3>Dados que recolhemos</h3><p>Nome, email, telefone (opcional), dados de anúncios, e informação técnica necessária ao funcionamento do site (IP, cookies essenciais).</p><h3>Finalidade</h3><p>Criar e gerir a conta, publicar anúncios, permitir contacto entre utilizadores, prevenir fraude e melhorar o serviço.</p><h3>Partilha</h3><p>Não vendemos os seus dados pessoais. Podemos partilhar dados quando exigido por lei ou para proteção da plataforma.</p><h3>Os seus direitos</h3><p>Pode solicitar acesso, correção ou eliminação dos seus dados através do formulário de contacto.</p>',
     ),
     'cookies' => array(
       'title' => 'Política de cookies',
@@ -47,7 +47,7 @@ function del_acv_legal_pages_content() {
     ),
     'contacto-completo' => array(
       'title' => 'Informações de contacto',
-      'text' => '<p><strong>Anúncios Cabo Verde</strong></p><ul><li>Email: suporte@anuncioscaboverde.com</li><li>Website: https://www.anuncioscaboverde.com/</li><li>Formulário: página de Contacto do site</li></ul><p>Respondemos normalmente em até 48 horas úteis.</p><p><em>Atualize o telefone e morada nesta página quando estiverem disponíveis.</em></p>',
+      'text' => '<p><strong>Anúncios Cabo Verde</strong></p><ul><li>Email: suporte@anuncioscaboverde.com</li><li>Website: https://www.anuncioscaboverde.com/</li><li>Formulário: página de Contacto do site</li></ul><p>Respondemos normalmente em até 48 horas úteis.</p>',
     ),
   );
 }
@@ -56,7 +56,7 @@ function del_acv_legal_pages_content() {
  * One-time: write accented Portuguese titles/bodies into t_pages_description.
  */
 function del_acv_legal_accents() {
-  if (osc_get_preference('acv_legal_accents_v1', 'theme-delta') == '1') {
+  if (osc_get_preference('acv_legal_copy_v2', 'theme-delta') == '1') {
     return;
   }
   try {
@@ -74,6 +74,7 @@ function del_acv_legal_accents() {
       );
     }
     osc_set_preference('acv_legal_accents_v1', '1', 'theme-delta');
+    osc_set_preference('acv_legal_copy_v2', '1', 'theme-delta');
     osc_reset_preferences();
   } catch (Exception $e) {
     // Never break frontend if page update fails

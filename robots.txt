@@ -1,4 +1,5 @@
 User-agent: *
+Disallow: /blog/
 Disallow: /oc-admin/
 Disallow: /oc-content/downloads/
 Disallow: /oc-content/languages/
