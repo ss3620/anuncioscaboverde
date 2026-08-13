@@ -45,11 +45,12 @@ abstract class BaseModel {
       // append the domain
       $url .= parse_url(osc_base_url(), PHP_URL_HOST);
       
-      // append the port number if it's necessary
-      $http_port = parse_url(Params::getServerParam('HTTP_HOST'), PHP_URL_PORT);
-      
-      if($http_port !== 80) {
-        $url .= ':' . parse_url(Params::getServerParam('HTTP_HOST'), PHP_URL_PORT);
+      // append the port number only when explicitly present and non-standard
+      // (null port previously became "host:/" because null !== 80)
+      $http_host = Params::getServerParam('HTTP_HOST');
+      $http_port = parse_url('http://' . $http_host, PHP_URL_PORT);
+      if($http_port !== null && $http_port !== false && (int)$http_port !== 80 && (int)$http_port !== 443) {
+        $url .= ':' . $http_port;
       }
       
       // append the request

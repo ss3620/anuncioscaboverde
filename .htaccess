@@ -5,6 +5,10 @@
   RewriteEngine On
   RewriteBase /
 
+  # Canonical host: apex → www (before PHP so Osclass never builds the redirect)
+  RewriteCond %{HTTP_HOST} ^anuncioscaboverde\.com$ [NC]
+  RewriteRule ^(.*)$ https://www.anuncioscaboverde.com/$1 [R=301,L]
+
   # Pass Authorization header to PHP (needed on some hosts)
   RewriteCond %{HTTP:Authorization} .
   RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]

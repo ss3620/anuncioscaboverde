@@ -65,8 +65,26 @@
       <div class="box b2">
         <h4><?php _e('Popular locations', 'delta'); ?></h4>
         
-        <?php 
-          $regions = RegionStats::newInstance()->listRegions('%%%%', '>', 'i_num_items DESC'); 
+        <?php
+          // Include regions with 0 items so islands stay visible when the catalogue is empty.
+          // Prefer stats ordered by activity; fall back to all CV regions by name.
+          $regions = RegionStats::newInstance()->listRegions('%%%%', '>=', 'i_num_items DESC');
+          if(!is_array($regions) || count($regions) === 0) {
+            $countries = Country::newInstance()->listAll();
+            $cv_code = '';
+            if(is_array($countries)) {
+              foreach($countries as $c) {
+                if(isset($c['pk_c_code']) && strtoupper($c['pk_c_code']) === 'CV') {
+                  $cv_code = $c['pk_c_code'];
+                  break;
+                }
+              }
+              if($cv_code === '' && isset($countries[0]['pk_c_code'])) {
+                $cv_code = $countries[0]['pk_c_code'];
+              }
+            }
+            $regions = ($cv_code !== '') ? Region::newInstance()->findByCountry($cv_code) : array();
+          }
           $i = 1;
         ?>
 
@@ -74,8 +92,14 @@
           <?php if(is_array($regions) && count($regions) > 0) { ?>
             <?php foreach($regions as $r) { ?>
               <?php if($i <= 10) { ?>
-                <li><a href="<?php echo osc_search_url(array('page' => 'search', 'sRegion' => $r['pk_i_id']));?>"><?php echo $r['s_name']; ?></a></li>
-                <?php $i++; ?>
+                <?php
+                  $region_id = isset($r['pk_i_id']) ? $r['pk_i_id'] : (isset($r['region_id']) ? $r['region_id'] : (isset($r['fk_i_region_id']) ? $r['fk_i_region_id'] : ''));
+                  $region_name = isset($r['s_name']) ? $r['s_name'] : (isset($r['region_name']) ? $r['region_name'] : '');
+                ?>
+                <?php if($region_id !== '' && $region_name !== '') { ?>
+                  <li><a href="<?php echo osc_search_url(array('page' => 'search', 'sRegion' => $region_id));?>"><?php echo osc_esc_html($region_name); ?></a></li>
+                  <?php $i++; ?>
+                <?php } ?>
               <?php } ?>
             <?php } ?>
           <?php } ?>
